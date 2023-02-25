@@ -6,8 +6,11 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+
     <color name="white">#FFFFFFFF</color>
-    <color name="lilaClaro">#FFFFFFFF</color>
-    <color name="lilaOscuro">#FFFFFFFF</color>
+    <color name="naranjaClaro">#fff2e9</color>
+    <color name="naranjaOscuro">#f6caa1</color>
+    <color name="naranjaMasOscuro">#EB8B3E</color>
+
 
 </resources>

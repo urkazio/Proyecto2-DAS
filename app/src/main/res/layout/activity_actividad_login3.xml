@@ -4,105 +4,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActividadLogin1"
-    android:background="@drawable/fondologin">
+    tools:context=".ActividadLogin3"
+    android:background="@color/naranjaClaro">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="114dp"
-        android:layout_height="144dp"
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_edittext"
+        android:ems="10"
+        android:hint="   Nombre"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        android:textColor="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintVertical_bias="0.572" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_edittext"
+        android:ems="10"
+        android:hint="   Nombre"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        android:textColor="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.687" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_edittext"
+        android:ems="10"
+        android:hint="   Nombre"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        android:textColor="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.807" />
 
     <TextView
-        android:id="@+id/tv4"
-        style="@style/f_gc_s"
+        android:id="@+id/textView"
+        style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="La solución para tus planes de entrenamiento"
+        android:text="Usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.567" />
+        app:layout_constraintVertical_bias="0.519" />
 
     <TextView
-        android:id="@+id/tv3"
-        style="@style/f_gc_m_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido a  "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.363"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
-
-    <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView5"
         style="@style/f_n_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fit Pro"
+        android:text="Complete la información"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.517" />
+        app:layout_constraintVertical_bias="0.245" />
 
     <TextView
-        android:id="@+id/tv2"
-        style="@style/f_gc_s"
+        android:id="@+id/textView2"
+        style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rutinas de entrenmiento"
+        android:text="Usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintVertical_bias="0.634" />
 
     <TextView
-        android:id="@+id/tv1"
-        style="@style/f_gO_l_b"
+        android:id="@+id/textView4"
+        style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fit Pro"
+        android:text="Usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.75" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="356dp"
         android:layout_height="42dp"
         android:background="@drawable/round_btn_naranja"
-        android:onClick="comenzar"
         android:text="COMENZAR"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="356dp"
-        android:layout_height="42dp"
-        android:background="@drawable/round_btn_blanco"
-        android:onClick="tengoCuenta"
-        android:text="YA TENGO CUENTA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"

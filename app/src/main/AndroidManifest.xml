@@ -12,6 +12,15 @@
         android:theme="@style/Theme.PruebaMonigote"
         tools:targetApi="31">
         <activity
+            android:name=".ActividadLogin4"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadLogin3"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadLogin2"
+            android:exported="false" />
+        <activity
             android:name=".ActividadLogin1"
             android:exported="true">
             <intent-filter>
