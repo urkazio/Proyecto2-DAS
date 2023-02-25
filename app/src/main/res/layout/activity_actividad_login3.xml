@@ -8,12 +8,12 @@
     android:background="@color/naranjaClaro">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editPeso"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
         android:ems="10"
-        android:hint="   Nombre"
+        android:hint="   Usuario"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColor="#808080"
@@ -21,15 +21,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.572" />
+        app:layout_constraintVertical_bias="0.328" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editAltura"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
         android:ems="10"
-        android:hint="   Nombre"
+        android:hint="   Contraseña"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColor="#808080"
@@ -37,15 +37,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintVertical_bias="0.48" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editPass2"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
         android:ems="10"
-        android:hint="   Nombre"
+        android:hint="   Contraseña"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColor="#808080"
@@ -53,59 +53,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.807" />
+        app:layout_constraintVertical_bias="0.641" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvPeso"
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario"
+        android:text="Usuario:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.519" />
+        app:layout_constraintVertical_bias="0.278" />
 
     <TextView
         android:id="@+id/textView5"
         style="@style/f_n_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Complete la información"
+        android:text="Complete la información:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.245" />
+        app:layout_constraintVertical_bias="0.186" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvAltura"
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario"
+        android:text="Contraseña:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.234"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.634" />
+        app:layout_constraintVertical_bias="0.423" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvPass2"
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario"
+        android:text="Repetir Contraseña:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="0.581" />
 
     <Button
         android:id="@+id/button"
@@ -120,5 +120,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.921" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="367dp"
+        android:layout_height="11dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/barraProgresion0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

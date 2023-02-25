@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Prueba Monigote</string>
+
+    <string-array name="genero">
+        <item>Hombre</item>
+        <item>Hombre</item>
+    </string-array>
+
 </resources>
