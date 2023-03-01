@@ -12,6 +12,18 @@
         android:theme="@style/Theme.PruebaMonigote"
         tools:targetApi="31">
         <activity
+            android:name=".ElAdaptadorReclycler"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadListaRutinasPred"
+            android:exported="false" />
+        <activity
+            android:name=".ElViewHolder"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadPrincipal"
+            android:exported="false" />
+        <activity
             android:name=".ActividadLogin5"
             android:exported="false" />
         <activity

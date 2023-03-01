@@ -10,8 +10,8 @@
     <TextView
         android:id="@+id/tv1"
         style="@style/f_gc_s"
-        android:layout_width="369dp"
-        android:layout_height="80dp"
+        android:layout_width="343dp"
+        android:layout_height="89dp"
         android:text="Antes de empezar vamos a configurar un perfil de usuario para poder identificarte y poder crear rutinas personalizadas."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +37,7 @@
         android:layout_width="356dp"
         android:layout_height="42dp"
         android:background="@drawable/round_btn_naranja"
+        android:onClick="continuar"
         android:text="COMENZAR"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

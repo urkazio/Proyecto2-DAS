@@ -43,6 +43,11 @@
         <item name="android:textColor">#2E2E2E</item>
         <item name="android:textSize">17dp</item>
     </style>
+    <style name="f_gc_xs">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textColor">#2E2E2E</item>
+        <item name="android:textSize">15dp</item>
+    </style>
     <style name="f_gc_s_b">
         <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textColor">#2E2E2E</item>

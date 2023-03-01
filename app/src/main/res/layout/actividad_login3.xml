@@ -4,10 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/naranjaClaro"
-    android:contextClickable="false"
-    tools:context=".ActividadLogin4">
+    tools:context=".ActividadLogin3"
+    android:background="@color/naranjaClaro">
 
+    <EditText
+        android:id="@+id/editPeso"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_edittext"
+        android:ems="10"
+        android:hint="Usuario"
+        android:includeFontPadding="true"
+        android:paddingLeft="10dp"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        android:textColor="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.328" />
 
     <EditText
         android:id="@+id/editAltura"
@@ -15,7 +31,9 @@
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
         android:ems="10"
-        android:hint="   Edad"
+        android:hint="Contraseña"
+        android:includeFontPadding="true"
+        android:paddingLeft="10dp"
         android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColor="#808080"
@@ -25,12 +43,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.48" />
 
+    <EditText
+        android:id="@+id/editPass2"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_edittext"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:includeFontPadding="true"
+        android:paddingLeft="10dp"
+        android:inputType="textPersonName"
+        android:textAlignment="textStart"
+        android:textColor="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
     <TextView
         android:id="@+id/tvPeso"
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Género:"
+        android:text="Usuario:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.214"
@@ -56,20 +92,34 @@
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edad:"
+        android:text="Contraseña:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.234"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintVertical_bias="0.423" />
+
+    <TextView
+        android:id="@+id/tvPass2"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repetir Contraseña:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="356dp"
         android:layout_height="42dp"
         android:background="@drawable/round_btn_naranja"
-        android:text="COMENZAR"
+        android:onClick="continuar"
+        android:text="SIGUIENTE"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,22 +132,10 @@
         android:id="@+id/imageView3"
         android:layout_width="367dp"
         android:layout_height="11dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/barraProgresion1" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="257dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="232dp"
-        android:background="@drawable/round_edittext"
-        android:contextClickable="true"
-        android:spinnerMode="dropdown"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:srcCompat="@drawable/barraprogresion0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

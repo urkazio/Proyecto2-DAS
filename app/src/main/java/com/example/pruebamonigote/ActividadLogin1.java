@@ -20,7 +20,6 @@ public class ActividadLogin1 extends AppCompatActivity {
     }
 
     public void tengoCuenta(View v){
-        Intent intent = new Intent(this, ActividadLogin3.class);
-        startActivity(intent);
+
     }
 }

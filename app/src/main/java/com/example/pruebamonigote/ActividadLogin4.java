@@ -2,6 +2,7 @@ package com.example.pruebamonigote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,7 +14,7 @@ public class ActividadLogin4 extends AppCompatActivity implements AdapterView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_actividad_login4);
+        setContentView(R.layout.actividad_login4);
 
         //combobox
         Spinner spinner = findViewById(R.id.spinner);
@@ -31,5 +32,10 @@ public class ActividadLogin4 extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void continuar(View v) {
+        Intent intent = new Intent(this, ActividadLogin5.class);
+        startActivity(intent);
     }
 }
