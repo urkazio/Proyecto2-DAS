@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ElViewHolder extends RecyclerView.ViewHolder {
-    public TextView eltexto;
+    public TextView nombre;
+    public TextView descripcion;
+
     public ImageView laimagen;
 
     /**
@@ -21,7 +23,8 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
 
     public ElViewHolder(@NonNull View itemView) {
         super(itemView);
-        eltexto = itemView.findViewById(R.id.textView);
+        nombre = itemView.findViewById(R.id.tvNombreEjer);
+        descripcion = itemView.findViewById(R.id.tvDescr);
         laimagen = itemView.findViewById(R.id.imageView);
 
         /**listener del itemView para interraccionar con las imagenes al ser clickadas**/

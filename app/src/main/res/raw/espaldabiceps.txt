@@ -1,0 +1,6 @@
+Espalda Biceps
+Rutina de tracciones enfocadas en trapecios dorsales y biceps.
+Barbell Row,Seated Row,Lat Pulldown,Lat Pushdow,Barbell Curl,Hammer Curl
+4,4,4,4,4,4
+12,12,12,12,12,12
+barbellrow,barbellrow,barbellrow,barbellrow,barbellrow,barbellrow
