@@ -1,5 +1,3 @@
-R.drawable.logo,Tracciones,Rutina de tracciones enfocadas en trapecios dorsales y biceps.
-R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
-R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
-R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
-R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
+2131230877,Tracciones,Rutina de tracciones enfocadas en trapecios dorsales y biceps.
+2131230877,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
+2131230877,2131230877,G-A-P,Rutina enfocada en el desarrollo de gluteos, abdominales y pierna.
