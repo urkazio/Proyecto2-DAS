@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +13,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class ActividadListaRutinasPred extends AppCompatActivity {
+public class ActividadEjerciciosRutinas extends AppCompatActivity {
+
+    TextView tvNombreRutina;
+    TextView tvDescrRutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +24,13 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
         setContentView(R.layout.actividad_lista_rutinas_pred);
         RecyclerView lalista= findViewById(R.id.elreciclerview);
 
-        ArrayList<Integer> imagenes = new ArrayList<Integer>();
-        ArrayList<String> nombres = new ArrayList<String>();
-        ArrayList<String> decripciones = new ArrayList<String>();
+        tvNombreRutina = findViewById(R.id.tvNombreRutina);
+        tvDescrRutina = findViewById(R.id.tvDescrRutina);
+
+       // ArrayList<Integer> imagenes = new ArrayList<Integer>();
+        ArrayList<String> ejercicios = new ArrayList<String>();
+        ArrayList<String> numSeries = new ArrayList<String>();
+        ArrayList<String> numRepes = new ArrayList<String>();
 
 
         /** se definen los elementos que van a ir dentro del RecyclerView
@@ -37,16 +45,17 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
                 /** cada linea contiene el nombre y descripcion de la rutina separado por comas*/
                 String[] elem = line.split(","); ///elem [0] --> logo && elem [1] --> nombre && elem [2] --> descr;
 
-                //codigo del logo = 2131230877
-                String logo = elem [0];
-                String nombre = elem [1];
-                System.out.println(nombre);
-                String descr = elem [2];
-                System.out.println(descr);
+                tvNombreRutina.setText("Rutina de " + elem [0]);
+                tvDescrRutina.setText(elem [1]);
 
-                imagenes.add(Integer.parseInt(logo));
-                nombres.add(nombre);
-                decripciones.add(descr);
+                String ejercicio = elem [2];
+                String numSerie = elem [3];
+                String numRepe = elem [3];
+
+                //imagenes.add(Integer.parseInt(logo));
+                ejercicios.add(ejercicio);
+                numSeries.add(numSerie);
+                numRepes.add(numRepe);
 
             }
             fich.close();
@@ -55,7 +64,8 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(nombres.toArray(new String[nombres.size()]), imagenes.stream().mapToInt(i -> i).toArray() , decripciones.toArray(new String[decripciones.size()]));
+        //imagenes.stream().mapToInt(i -> i).toArray()
+        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(ejercicios.toArray(new String[ejercicios.size()]),  ,numSeries.toArray(new String[numSeries.size()]),numRepes.toArray(new String[numRepes.size()]));
         lalista.setAdapter(eladaptador);
 
 

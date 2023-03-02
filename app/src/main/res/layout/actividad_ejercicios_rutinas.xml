@@ -14,11 +14,11 @@
         android:id="@+id/tvNombreRutina"
         style="@style/f_n_m_b"
         android:layout_width="342dp"
-        android:textSize="32sp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="38dp"
-        android:text="Planes de Entrenamiento" />
+        android:text="Rutina de xxx"
+        android:textSize="32sp" />
 
     <TextView
         android:id="@+id/tvDescrRutina"

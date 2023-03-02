@@ -137,7 +137,7 @@
         />
 
     <TextView
-        android:id="@+id/tvIncioRapido4"
+        android:id="@+id/tvNombreRutina"
         style="@style/f_gc_xs"
         android:layout_width="337dp"
         android:layout_height="39dp"
@@ -148,7 +148,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvIncioRapido"
+        android:id="@+id/tvDescrRutina"
         style="@style/f_gO_l_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

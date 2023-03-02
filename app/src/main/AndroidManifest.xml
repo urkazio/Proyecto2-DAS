@@ -12,6 +12,9 @@
         android:theme="@style/Theme.PruebaMonigote"
         tools:targetApi="31">
         <activity
+            android:name=".ActividadEjerciciosRutinas"
+            android:exported="false" />
+        <activity
             android:name=".ElAdaptadorReclycler"
             android:exported="false" />
         <activity
