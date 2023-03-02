@@ -21,51 +21,63 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actividad_lista_rutinas_pred);
+        setContentView(R.layout.actividad_ejercicios_rutinas);
         RecyclerView lalista= findViewById(R.id.elreciclerview);
 
         tvNombreRutina = findViewById(R.id.tvNombreRutina);
-        tvDescrRutina = findViewById(R.id.tvDescrRutina);
+        tvDescrRutina = findViewById(R.id.tvDescripRutina);
 
-       // ArrayList<Integer> imagenes = new ArrayList<Integer>();
+        ArrayList<Integer> imagenes = new ArrayList<Integer>();
         ArrayList<String> ejercicios = new ArrayList<String>();
-        ArrayList<String> numSeries = new ArrayList<String>();
-        ArrayList<String> numRepes = new ArrayList<String>();
+        ArrayList<String> seriesRepes = new ArrayList<String>();
 
 
         /** se definen los elementos que van a ir dentro del RecyclerView
          *  dichos elementos serán ajustados en su item_layout **/
 
-        InputStream fich = getResources().openRawResource(R.raw.rutinaspred );
+        InputStream fich = getResources().openRawResource(R.raw.espaldabiceps);
         BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
+        int linea = 0;
+
         try {
             /** leer mientras haya lineas*/
             while(reader.ready()) {
+
                 String line = reader.readLine();
-                /** cada linea contiene el nombre y descripcion de la rutina separado por comas*/
-                String[] elem = line.split(","); ///elem [0] --> logo && elem [1] --> nombre && elem [2] --> descr;
 
-                tvNombreRutina.setText("Rutina de " + elem [0]);
-                tvDescrRutina.setText(elem [1]);
+                if (linea==0){ //nombre de la rutina
+                    tvNombreRutina.setText("Rutina de " + line);
 
-                String ejercicio = elem [2];
-                String numSerie = elem [3];
-                String numRepe = elem [3];
+                }else if(linea==1){ // descripcion de la rutina
+                    //tvDescrRutina.setText(linea);
 
-                //imagenes.add(Integer.parseInt(logo));
-                ejercicios.add(ejercicio);
-                numSeries.add(numSerie);
-                numRepes.add(numRepe);
 
+                }else{ //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
+
+                    String[] elem = line.split(",");
+                    String ejercicio = elem [0];
+                    String numSerie = elem [1];
+                    String numRepe = elem [2];
+                    String imagen = elem [3];
+
+                    int id = getResources().getIdentifier(imagen, "drawable", getPackageName());
+
+                    imagenes.add(id);
+                    ejercicios.add(ejercicio);
+                    seriesRepes.add(numSerie+ "x" +numRepe);
+                }
+                //actualizar el contador de linea para saber por donde vamos
+                linea++;
             }
+            //cerrar el fichero
             fich.close();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
 
-        //imagenes.stream().mapToInt(i -> i).toArray()
-        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(ejercicios.toArray(new String[ejercicios.size()]),  ,numSeries.toArray(new String[numSeries.size()]),numRepes.toArray(new String[numRepes.size()]));
+
+        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(ejercicios.toArray(new String[ejercicios.size()]), imagenes.stream().mapToInt(i -> i).toArray() ,seriesRepes.toArray(new String[seriesRepes.size()]));
         lalista.setAdapter(eladaptador);
 
 

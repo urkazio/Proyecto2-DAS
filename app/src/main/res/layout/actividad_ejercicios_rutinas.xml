@@ -21,7 +21,7 @@
         android:textSize="32sp" />
 
     <TextView
-        android:id="@+id/tvDescrRutina"
+        android:id="@+id/tvDescripRutina"
         style="@style/f_gc_s_b"
         android:layout_width="326dp"
         android:layout_height="wrap_content"

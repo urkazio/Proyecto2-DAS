@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class ActividadListaRutinasPred extends AppCompatActivity {
@@ -28,7 +30,8 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
         /** se definen los elementos que van a ir dentro del RecyclerView
          *  dichos elementos serán ajustados en su item_layout **/
 
-        InputStream fich = getResources().openRawResource(R.raw.rutinaspred );
+        System.out.println("fichero "+R.raw.rutinaspred);
+        InputStream fich = getResources().openRawResource(R.raw.rutinaspred);
         BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
         try {
             /** leer mientras haya lineas*/
@@ -37,14 +40,16 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
                 /** cada linea contiene el nombre y descripcion de la rutina separado por comas*/
                 String[] elem = line.split(","); ///elem [0] --> logo && elem [1] --> nombre && elem [2] --> descr;
 
-                //codigo del logo = 2131230877
                 String logo = elem [0];
+                System.out.println(logo);
                 String nombre = elem [1];
                 System.out.println(nombre);
                 String descr = elem [2];
                 System.out.println(descr);
 
-                imagenes.add(Integer.parseInt(logo));
+                int id = getResources().getIdentifier(logo, "drawable", getPackageName());
+
+                imagenes.add(id);
                 nombres.add(nombre);
                 decripciones.add(descr);
 

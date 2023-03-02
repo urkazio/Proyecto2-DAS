@@ -7,8 +7,8 @@
     android:background="@color/white">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="352dp"
-        android:layout_height="121dp"
+        android:layout_width="354dp"
+        android:layout_height="132dp"
         app:cardBackgroundColor="@color/naranjaClaro"
         app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
