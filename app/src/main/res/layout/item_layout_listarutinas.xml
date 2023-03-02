@@ -7,8 +7,9 @@
     android:background="@color/white">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="355dp"
-        android:layout_height="161dp"
+        android:layout_width="352dp"
+        android:layout_height="121dp"
+        app:cardBackgroundColor="@color/naranjaClaro"
         app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,13 +34,13 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="95dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_width="67dp"
+                    android:layout_height="65dp"
+                    android:layout_marginStart="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/barbellrow" />
+                    app:srcCompat="@drawable/logo" />
 
                 <TextView
                     android:id="@+id/tvNombreEjer"
@@ -48,28 +49,28 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="TextView"
-                    android:textSize="28sp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.613"
+                    app:layout_constraintHorizontal_bias="0.618"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.173" />
+                    app:layout_constraintVertical_bias="0.07" />
 
                 <TextView
                     android:id="@+id/tvDescr"
                     style="@style/f_gc_s"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="281dp"
+                    android:layout_height="37dp"
                     android:gravity="center"
                     android:text="TextView"
-                    android:textSize="17sp"
+                    android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.508"
+                    app:layout_constraintHorizontal_bias="0.512"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.691" />
+                    app:layout_constraintVertical_bias="0.916" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

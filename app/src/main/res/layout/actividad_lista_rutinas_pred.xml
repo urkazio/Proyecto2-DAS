@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,30 +7,28 @@
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".ActividadListaRutinasPred"
-    android:background="@color/white">
+    android:background="@color/naranjaClaro">
+    >
 
     <TextView
         android:id="@+id/tvIncioRapido4"
-        style="@style/f_gc_xs"
-        android:layout_width="287dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="128dp"
-        android:text="Estas son las rutinas prediseñadas que hemos preparado para ti."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        style="@style/f_n_m_b"
+        android:layout_width="342dp"
+        android:textSize="32sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="38dp"
+        android:text="Planes de Entrenamiento" />
 
     <TextView
         android:id="@+id/tvIncioRapido"
-        style="@style/f_gO_l_b"
-        android:layout_width="wrap_content"
+        style="@style/f_gc_s_b"
+        android:layout_width="326dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="56dp"
-        android:text="Planes de Entrenamiento"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="10dp"
+        android:text="Estas son las rutinas prediseñadas que hemos preparado para ti." />
+    />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/elreciclerview"
@@ -38,10 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="10pt"
         android:clipToPadding="true"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:scrollbars="vertical" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

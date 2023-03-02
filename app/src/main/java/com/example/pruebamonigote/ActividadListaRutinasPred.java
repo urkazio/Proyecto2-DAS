@@ -54,7 +54,7 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        int[] imagenes= {R.drawable.logo};
+        int[] imagenes= {R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo,R.drawable.logo};
         //imagenes.stream().mapToInt(i -> i).toArray()
         ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(nombres.toArray(new String[nombres.size()]), imagenes , decripciones.toArray(new String[decripciones.size()]));
         lalista.setAdapter(eladaptador);

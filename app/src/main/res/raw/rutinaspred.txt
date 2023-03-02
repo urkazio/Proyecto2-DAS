@@ -1,1 +1,5 @@
-R.drawable.logo,Espalda Biceps,Rutina de tracciones enfocadas en trapecios dorsales y biceps.
+R.drawable.logo,Tracciones,Rutina de tracciones enfocadas en trapecios dorsales y biceps.
+R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
+R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
+R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
+R.drawable.logo,Empujes,Rutina de empujes enfocadas en pectoral, hombro y tríceps.
