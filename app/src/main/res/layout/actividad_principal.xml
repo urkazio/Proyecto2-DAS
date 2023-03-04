@@ -148,7 +148,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvDescripRutina"
+        android:id="@+id/tvDescripcionRut"
         style="@style/f_gO_l_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

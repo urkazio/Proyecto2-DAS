@@ -1,0 +1,10 @@
+Hombro y Brazo
+Rutina de empujes enfocadas en deltoides, biceps y triceps.
+Cardio Ligero,1,5-10 min.,cardio
+Calent. Hombro,1, 5min.,calentamiento
+Press Militar,6,10-12,pressmilitar
+Press Frances,4,10,pressfrances
+Curl Barra,4,10,barbellcurl
+Extensión Tríceps,4,12-15,tricepsextension
+Curl Martillo,4,15,hammercurl
+Vuelta a la Calma,1,5-10 min.,cardio

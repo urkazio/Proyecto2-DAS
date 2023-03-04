@@ -1,0 +1,11 @@
+Pierna Completa
+Rutina de Pierna que trabaja individualmente cada músculo de la misma.
+Cardio Ligero,1,5-10 min.,cardio
+Sentadillas,4,10,squat
+Prensa,4,12,prensa
+Extensión Pierna,4,12,extension
+Adductor Máq,4,12-15,adductor
+Curl Femoral,4,12,curlfemoral
+Hip Trust,4,12,hiptrust
+Elevacion Gemelo,4,12,calvraises
+Vuelta a la Calma,1,5-10 min.,cardio

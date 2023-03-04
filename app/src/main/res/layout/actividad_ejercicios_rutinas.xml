@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ActividadListaRutinasPred"
     android:background="@color/naranjaClaro">
-    >
+
 
     <TextView
         android:id="@+id/tvNombreRutina"
@@ -21,14 +21,14 @@
         android:textSize="32sp" />
 
     <TextView
-        android:id="@+id/tvDescripRutina"
+        android:id="@+id/tvDescrRut"
         style="@style/f_gc_s_b"
         android:layout_width="326dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="10dp"
         android:text="Estas son las rutinas prediseñadas que hemos preparado para ti." />
-    />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/elreciclerview"

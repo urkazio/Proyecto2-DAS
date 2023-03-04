@@ -1,0 +1,10 @@
+Tracciones
+Rutina de tracciones enfocadas en espalda superior y biceps.
+Cardio Ligero,1,5-10 min.,cardio
+Remo con Barra,4,10,barbellrow
+Remo Gironda,4,12,seatedrow
+Jalon al Pecho,4,10,latpulldown
+Dorsal en Polea,4,12-15,latpushdown
+Curl Barra,4,10,barbellcurl
+Curl Martillo,4,15,hammercurl
+Vuelta a la Calma,1,5-10 min.,cardio

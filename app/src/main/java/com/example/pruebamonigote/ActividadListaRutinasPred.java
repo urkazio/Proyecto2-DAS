@@ -1,11 +1,16 @@
 package com.example.pruebamonigote;
 
+import static com.example.pruebamonigote.R.id.tvDescrRut;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,6 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class ActividadListaRutinasPred extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

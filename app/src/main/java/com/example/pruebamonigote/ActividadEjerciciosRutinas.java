@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class ActividadEjerciciosRutinas extends AppCompatActivity {
 
     TextView tvNombreRutina;
-    TextView tvDescrRutina;
+    //TextView tvDescripcionRutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
         RecyclerView lalista= findViewById(R.id.elreciclerview);
 
         tvNombreRutina = findViewById(R.id.tvNombreRutina);
-        tvDescrRutina = findViewById(R.id.tvDescripRutina);
+        //tvDescripcionRutina = findViewById(R.id.tvDescrRut);
 
         ArrayList<Integer> imagenes = new ArrayList<Integer>();
         ArrayList<String> ejercicios = new ArrayList<String>();
@@ -35,7 +35,15 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
         /** se definen los elementos que van a ir dentro del RecyclerView
          *  dichos elementos serán ajustados en su item_layout **/
 
-        InputStream fich = getResources().openRawResource(R.raw.espaldabiceps);
+        //recoger los parametros pasados junto con el contexto (el nombre de la rutina)
+        String nombreRutina = "";
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            nombreRutina = extras.getString("nombreRutina");
+        }
+
+        int idRutina = getResources().getIdentifier(nombreRutina, "raw", getPackageName());
+        InputStream fich = getResources().openRawResource(idRutina);
         BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
         int linea = 0;
 
@@ -49,8 +57,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
                     tvNombreRutina.setText("Rutina de " + line);
 
                 }else if(linea==1){ // descripcion de la rutina
-                    //tvDescrRutina.setText(linea);
-
+                    //tvDescripcionRutina.setText(line);
 
                 }else{ //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
 
@@ -64,7 +71,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
 
                     imagenes.add(id);
                     ejercicios.add(ejercicio);
-                    seriesRepes.add(numSerie+ "x" +numRepe);
+                    seriesRepes.add("nºSeries x nºRepes:\n"+numSerie+ " x " +numRepe);
                 }
                 //actualizar el contador de linea para saber por donde vamos
                 linea++;

@@ -37,7 +37,7 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
                 // que asi se lama el txt que contiene los ejercicios
 
                 //quitar espacios en blanco y ponerlo en minusculas
-                String nombreRutina = nombre.getText().toString().replaceAll("\\s+","").toLowerCase();
+                String nombreRutina = nombre.getText().toString().replaceAll("\\s+",""). replaceAll("-", "").toLowerCase();
                 System.out.println(nombreRutina);
 
                 String idImagen = String.valueOf(laimagen.getImageAlpha());
