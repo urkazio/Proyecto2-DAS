@@ -6,17 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class ActividadLogin2 extends AppCompatActivity {
+public class ActividadRegistrarse1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actividad_login2);
+        setContentView(R.layout.actividad_registrarse1);
     }
 
 
     public void continuar(View v) {
-        Intent intent = new Intent(this, ActividadLogin3.class);
+        Intent intent = new Intent(this, ActividadRegistrarse2.class);
         startActivity(intent);
     }
 

@@ -33,6 +33,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import android.Manifest;
+import android.widget.Toast;
 
 public class DialogoCrearRutina {
     public void onCreateDialog(ActividadPrincipal actividadPrincipal, View v) {
@@ -127,58 +128,66 @@ public class DialogoCrearRutina {
                 System.out.println(nombreRut);
                 String descripcionRut = titleBox.getText().toString();
 
-                //escribir en el fichero "misrutinas.txt" la nueva rutina creada por el usuario
-                try {
-                    //el id de la rutina será el num lineas del fichero misRutinas
-                    OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput("misrutinas.txt", Context.MODE_PRIVATE));
-                    fichero.write("Estoy escribiendo en el fichero");
-                    System.out.println(nombreRut);
-                    fichero.close();
+                // evitar que el nombre de la rutina sea vacio
+                if (nombreRut.equals("")){
+                    // si el nombre es vacio se indica por toast y se vuelve a abrir el dialogo
+                    Toast.makeText(context, "El nombre de la rutina no puede ser vacío", Toast.LENGTH_LONG).show();
+                    onCreateDialog(actividadPrincipal,  v);
+
+                }else{
+                    // si el nombre es correcto se sigue el proceso normal:
+                    // escribir en el fichero "misrutinas.txt" la nueva rutina creada por el usuario
+                    try {
+                        //el id de la rutina será el num lineas del fichero misRutinas
+                        OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput("misrutinas.txt", Context.MODE_PRIVATE));
+                        fichero.write("Estoy escribiendo en el fichero");
+                        System.out.println(nombreRut);
+                        fichero.close();
 
 
-                    /**###################################################################
-                    //###  Gestion de notificaciones (para cuando se crea una rutina)  ###
-                    //#################################################################**/
+                        /**###################################################################
+                         //###  Gestion de notificaciones (para cuando se crea una rutina)  ###
+                         //#################################################################**/
 
-                    NotificationManager elManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-                    NotificationCompat.Builder builderNotifi = new NotificationCompat.Builder(context, "1");
+                        NotificationManager elManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                        NotificationCompat.Builder builderNotifi = new NotificationCompat.Builder(context, "1");
 
-                    //definicion para el canal
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        NotificationChannel elCanal = new NotificationChannel("1", "haGanado", NotificationManager.IMPORTANCE_DEFAULT);
-                        //configuracion del canal
-                        elCanal.setDescription("Descripción del canal");
-                        elCanal.enableLights(true);
-                        elCanal.setLightColor(Color.RED);
-                        elManager.createNotificationChannel(elCanal);
+                        //definicion para el canal
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            NotificationChannel elCanal = new NotificationChannel("1", "haGanado", NotificationManager.IMPORTANCE_DEFAULT);
+                            //configuracion del canal
+                            elCanal.setDescription("Descripción del canal");
+                            elCanal.enableLights(true);
+                            elCanal.setLightColor(Color.RED);
+                            elManager.createNotificationChannel(elCanal);
+                        }
+
+                        //Definicion de la alerta personalizada al ganar
+                        builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
+                                .setSmallIcon(R.drawable.logo)
+                                .setContentTitle("Notificacion de Fit Pro")
+                                .setSubText("Nueva rutina vacía")
+                                .setContentText("Enhorabuena! Has creado la nueva rutina " +nombreRut+ " con exito!!!")
+                                .setAutoCancel(true);
+
+
+                        //recuperacion de contexto (id de la notifi) para luego poder cerrarla
+                        Bundle extras = ((Activity) context).getIntent().getExtras();
+                        if (extras != null) {
+                            int id = extras.getInt("id");
+                            elManager.cancel(id);
+                        }
+
+                        //POR ULTIMO: lanzar la notificacion
+                        elManager.notify(1,builderNotifi.build());
+
+                        /** ##################### fin de gestion de notifiacion #########################**/
+
+
+                    } catch (IOException e){
+                        System.out.println("Expecepcion");
                     }
-
-                    //Definicion de la alerta personalizada al ganar
-                    builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
-                            .setSmallIcon(R.drawable.logo)
-                            .setContentTitle("Notificacion de Fit Pro")
-                            .setSubText("Nueva rutina vacía")
-                            .setContentText("Enhorabuena! Has creado la nueva rutina " +nombreRut+ " con exito!!!")
-                            .setAutoCancel(true);
-
-
-                    //recuperacion de contexto (id de la notifi) para luego poder cerrarla
-                    Bundle extras = ((Activity) context).getIntent().getExtras();
-                    if (extras != null) {
-                        int id = extras.getInt("id");
-                        elManager.cancel(id);
-                    }
-
-                    //POR ULTIMO: lanzar la notificacion
-                    elManager.notify(1,builderNotifi.build());
-
-                    /** ##################### fin de gestion de notifiacion #########################**/
-
-
-                } catch (IOException e){
-                    System.out.println("Expecepcion");
                 }
-
             }
         });
 

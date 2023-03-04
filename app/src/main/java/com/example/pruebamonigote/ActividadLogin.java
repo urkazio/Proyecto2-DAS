@@ -6,15 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class ActividadLogin5 extends AppCompatActivity {
+public class ActividadLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actividad_login5);
+        setContentView(R.layout.actividad_login);
     }
-    public void finalizar(View v) {
-        Intent intent = new Intent(this, ActividadPrincipal.class);
+
+    public void logearse(View v){
+        //Identificarse contra la base de datos
+        Intent intent = new Intent(this, ActividadLogin.class);
+        //poner los extras de los datos del usuario
         startActivity(intent);
+
     }
 }

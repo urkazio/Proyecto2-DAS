@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Prueba Monigote</string>
+    <string name="app_name">Fit Pro</string>
 
     <string-array name="genero">
         <item>Hombre</item>

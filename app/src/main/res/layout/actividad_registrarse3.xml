@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/naranjaClaro"
+    android:background="@drawable/fondologin2"
     android:contextClickable="false"
-    tools:context=".ActividadLogin4">
+    tools:context=".ActividadRegistrarse3">
 
 
     <EditText
