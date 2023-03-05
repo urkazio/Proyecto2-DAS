@@ -32,7 +32,7 @@
                     android:id="@+id/imageView"
                     android:layout_width="210dp"
                     android:layout_height="210dp"
-                    app:srcCompat="@drawable/barbellrow" />
+                    app:srcCompat="@drawable/remoconbarra" />
 
                 <TextView
                     android:id="@+id/tvNombreEjer"

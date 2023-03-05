@@ -24,7 +24,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
         setContentView(R.layout.actividad_ejercicios_rutinas);
         RecyclerView lalista= findViewById(R.id.elreciclerview);
 
-        tvNombreRutina = findViewById(R.id.tvNombreRutina);
+        tvNombreRutina = findViewById(R.id.tvRutinasPers);
         //tvDescripcionRutina = findViewById(R.id.tvDescrRut);
 
         ArrayList<Integer> imagenes = new ArrayList<Integer>();

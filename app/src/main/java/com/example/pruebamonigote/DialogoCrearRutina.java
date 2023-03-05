@@ -137,6 +137,7 @@ public class DialogoCrearRutina {
                 }else{
                     // si el nombre es correcto se sigue el proceso normal:
                     // escribir en el fichero "misrutinas.txt" la nueva rutina creada por el usuario
+                    // la rutina no esta vacia y no contiene ejercicios
                     try {
                         //el id de la rutina será el num lineas del fichero misRutinas
                         OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput("misrutinas.txt", Context.MODE_PRIVATE));

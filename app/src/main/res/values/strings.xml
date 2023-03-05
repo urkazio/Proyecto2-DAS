@@ -6,4 +6,31 @@
         <item>Mujer</item>
     </string-array>
 
+    <string-array name="ejercicios">
+        <item>Adductor</item>
+        <item>Banca Inclinado</item>
+        <item>Calentamiento</item>
+        <item>Cardio Ligero</item>
+        <item>Cruces</item>
+        <item>Crunches</item>
+        <item>Curl Barra</item>
+        <item>Curl Femoral</item>
+        <item>Curl Martillo</item>
+        <item>Elevacion Gemelo</item>
+        <item>Extension Pierna</item>
+        <item>Extension Triceps</item>
+        <item>Hip Trust</item>
+        <item>Jalon al Pecho</item>
+        <item>Laterales</item>
+        <item>Plancha</item>
+        <item>Prensa</item>
+        <item>Prensa</item>
+        <item>Press Banca</item>
+        <item>Press Frances</item>
+        <item>Press Militar</item>
+        <item>Sentadilla</item>
+    </string-array>
+
+
+
 </resources>

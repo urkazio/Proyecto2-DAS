@@ -44,6 +44,7 @@
         android:id="@+id/imageButton5"
         android:layout_width="346dp"
         android:layout_height="128dp"
+        android:onClick="ver"
         android:padding="3dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -137,7 +138,7 @@
         />
 
     <TextView
-        android:id="@+id/tvNombreRutina"
+        android:id="@+id/tvRutinasPers"
         style="@style/f_gc_xs"
         android:layout_width="337dp"
         android:layout_height="39dp"

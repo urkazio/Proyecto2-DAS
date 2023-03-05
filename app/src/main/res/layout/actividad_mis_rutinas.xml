@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
+    android:background="@color/naranjaClaro"
     android:orientation="vertical"
-    tools:context=".ActividadListaRutinasPred"
-    android:background="@color/naranjaClaro">
+    tools:context=".ActividadMisRutinas">
 
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="38dp"
-        android:text="Rutina de xxx"
+        android:text="Rutinas Personales"
         android:textSize="32sp" />
 
     <TextView
@@ -27,15 +27,26 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="10dp"
-        android:text="Estas son las rutinas prediseñadas que hemos preparado para ti." />
+        android:text="Estas son las rutinas personales que has ido creando a lo largo del tiempo e Fit Pro." />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/elreciclerview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="460dp"
         android:layout_margin="10pt"
         android:clipToPadding="true"
         android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/btnAnnadirEjercicio"
+        android:layout_width="356dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center"
+        android:background="@drawable/round_btn_naranja"
+        android:gravity="center"
+        android:onClick="annadir"
+        android:text="AÑADIR EJERCICIO"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>

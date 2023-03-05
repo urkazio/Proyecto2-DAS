@@ -1,11 +1,11 @@
 G-A-P
 Rutina de Gluteo y pierna junto con fortalecimiento de abdomen.
-Cardio Ligero,1,5-10 min.,cardio
-Sentadillas,4,12,squat
-Extensión Pierna,4,12,extension
+Cardio Ligero,1,5-10 min.,cardioligero
+Sentadilla,4,12,sentadilla
+Extensión Pierna,4,12,extensionpierna
 Curl Femoral,4,12,curlfemoral
 Crunches,4,45 segs,crunches
-Planchas,4,45 segs,plancha
+Plancha,4,45 segs,plancha
 Hip Trust,4,12,hiptrust
-Elevacion Gemelo,4,12,calvraises
-Vuelta a la Calma,1,5-10 min.,cardio
+Elevacion Gemelo,4,12,elevaciongemelo
+Vuelta a la Calma,1,5-10 min.,cardioligero

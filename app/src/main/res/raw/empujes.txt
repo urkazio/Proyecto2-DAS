@@ -1,6 +1,6 @@
 Empujes
 Rutina de empujes enfocadas en pectoral y trabajo de hombro y tríceps.
-Cardio Ligero,1,5-10 min.,cardio
+Cardio Ligero,1,5-10 min.,cardioligero
 Press Banca,5,10,pressbanca
 Banca Inclinado,4,10,bancainclinado
 Cruces Máquina,4,15,cruces
@@ -8,4 +8,4 @@ Press Militar,4,10-12,pressmilitar
 Laterales,4,12-15,laterales
 Press Frances,4,10,pressfrances
 Extensión Tríceps,4,12-15,tricepsextension
-Vuelta a la Calma,1,5-10 min.,cardio
+Vuelta a la Calma,1,5-10 min.,cardioligero

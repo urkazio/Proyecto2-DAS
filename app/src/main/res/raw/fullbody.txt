@@ -1,12 +1,12 @@
 Full Body
 Rutina que imvolucra ejercicios de de cada grupo muscular.
-Cardio Ligero,1,5-10 min.,cardio
+Cardio Ligero,1,5-10 min.,cardioligero
 Press Banca,4,10,pressbanca
-Jalon al Pecho,4,10,latpulldown
+Jalon al Pecho,4,10,jalonalpecho
 Press Militar,2,10-12,pressmilitar
 Laterales,2,12-15,laterales
-Extensión Pierna,3,12,extension
+Extensión Pierna,3,12,extensionpierna
 Curl Femoral,3,12,curlfemoral
-Curl Barra,3,10,barbellcurl
-Extensión Tríceps,4,12-15,tricepsextension
-Vuelta a la Calma,1,5-10 min.,cardio
+Curl Barra,3,10,curlbarra
+Extensión Tríceps,4,12-15,extensiontriceps
+Vuelta a la Calma,1,5-10 min.,cardioligero

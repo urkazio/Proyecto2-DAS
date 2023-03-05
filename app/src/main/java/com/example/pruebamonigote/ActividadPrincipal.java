@@ -33,7 +33,7 @@ public class ActividadPrincipal extends AppCompatActivity {
 
     }
     public void ver(View v) {
-        Intent intent = new Intent(this, ActividadRegistrarse4.class);
+        Intent intent = new Intent(this, ActividadMisRutinas.class);
         startActivity(intent);
     }
 }
