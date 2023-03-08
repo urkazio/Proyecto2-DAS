@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class ActividadMisRutinas extends AppCompatActivity {
-
+    String idRutina;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public class ActividadMisRutinas extends AppCompatActivity {
 
 
                 //el id será el nombre que teenga el fichero de la rutina q contenga los ejercicios
-                String idRutina = elem [0];
+                idRutina = elem [0];
                 String logo = elem [1];
                 System.out.println(logo);
                 String nombre = elem [2];

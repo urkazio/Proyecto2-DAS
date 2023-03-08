@@ -35,24 +35,35 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
 
                 // obtener el nombre de la rutina ne minusculas y sin espacios ya
                 // que asi se lama el txt que contiene los ejercicios
-
-                //quitar espacios en blanco y ponerlo en minusculas
                 String nombreRutina = nombre.getText().toString().replaceAll("\\s+",""). replaceAll("-", "").toLowerCase();
-                System.out.println(nombreRutina);
-
-                String idImagen = String.valueOf(laimagen.getImageAlpha());
-                System.out.println(idImagen);
 
                 // solo quiero que se abra la ActividadEjerciciosRutinas si clicko en un
                 // cardview estando en ActividadListaRutinasPred. El elemento diferenciador
                 // de este cardview es que la imagen es el logo de mi app
                 if (laimagen.getDrawable().getConstantState() == view.getContext().getResources().getDrawable( R.drawable.logo).getConstantState()){
-                    Intent intent = new Intent(view.getContext(),ActividadEjerciciosRutinas.class);
-                    intent.putExtra("nombreRutina", nombreRutina);
-                    view.getContext().startActivity(intent);
+
+                    String actividadActual = view.getContext().toString();
+
+                    // a este punto se puede llegar desde dos actividades:
+                    // ActividadMisRutinas o ActividadListaRutinasPred
+                    // depende desde donde vengamos, al hacer click en un cardview
+                    // se quiere abrir una u otra actividad nueva.
+
+                    if (actividadActual.contains("ActividadMisRutinas")){
+                        // si vengo de ActividadMisRutinas quiero que se abra la actividad que lista mis rutinas personalizadas
+                        // que ademas dicha interfaz contiene un boton de añadir nuevo ejercicio
+                        Intent intent = new Intent(view.getContext(),ActividadEjerciciosRutinasPersonal.class);
+                        intent.putExtra("nombreRutina", nombreRutina);
+                        view.getContext().startActivity(intent);
+                    }
+                    else if  (actividadActual.contains("ActividadListaRutinasPred")) {
+                        // si vengo de ActividadListaRutinasPred quiero que se abra la actividad que lista
+                        // las rutinas predeterminadas en la aplicacion
+                        Intent intent = new Intent(view.getContext(),ActividadEjerciciosRutinas.class);
+                        intent.putExtra("nombreRutina", nombreRutina);
+                        view.getContext().startActivity(intent);
+                    }
                 }
-
-
             }
         });
 
