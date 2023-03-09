@@ -30,25 +30,21 @@ public class ActividadMisRutinas extends AppCompatActivity {
         /** se definen los elementos que van a ir dentro del RecyclerView
          *  dichos elementos serán ajustados en su item_layout **/
 
-        //System.out.println("fichero "+R.raw.rutinaspred);
-        //QUITAR EL HARDCODEO CUANDO HAGA LA BASE DE DATOS ---------------------------------------------------------------
-        InputStream fich = getResources().openRawResource(R.raw.misrutinasurkazio);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
+        String user ="urko";
+
         try {
-            /** leer mientras haya lineas*/
-            while(reader.ready()) {
-                String line = reader.readLine();
+            BufferedReader fich = new BufferedReader(new InputStreamReader(openFileInput("misrutinas"+user+".txt")));
+            while(fich.ready()) {
+                String line = fich.readLine();
                 /** cada linea contiene el nombre y descripcion de la rutina separado por comas*/
                 String[] elem = line.split(","); ///elem [0] --> idRutina && elem [1] --> logo && elem [2] --> nombre && elem [3] --> descr;
 
 
-                //el id será el nombre que teenga el fichero de la rutina q contenga los ejercicios
-                idRutina = elem [0];
-                String logo = elem [1];
+                String logo = elem [0];
                 System.out.println(logo);
-                String nombre = elem [2];
+                String nombre = elem [1];
                 System.out.println(nombre);
-                String descr = elem [3];
+                String descr = elem [2];
                 System.out.println(descr);
 
                 int id = getResources().getIdentifier(logo, "drawable", getPackageName());
@@ -59,8 +55,7 @@ public class ActividadMisRutinas extends AppCompatActivity {
 
             }
             fich.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -74,8 +69,4 @@ public class ActividadMisRutinas extends AppCompatActivity {
 
     }
 
-    public void annadir(View v) {
-        Intent intent = new Intent(this, ActividadAnnadirEjercicio.class);
-        startActivity(intent);
-    }
 }

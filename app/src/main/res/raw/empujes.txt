@@ -7,5 +7,5 @@ Cruces Máquina,4,15,cruces
 Press Militar,4,10-12,pressmilitar
 Laterales,4,12-15,laterales
 Press Frances,4,10,pressfrances
-Extensión Tríceps,4,12-15,tricepsextension
+Extensión Tríceps,4,12-15,extensiontriceps
 Vuelta a la Calma,1,5-10 min.,cardioligero

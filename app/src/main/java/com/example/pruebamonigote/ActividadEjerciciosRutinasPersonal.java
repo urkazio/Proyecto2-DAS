@@ -38,6 +38,8 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
     TextView tvNombreRutina;
     //TextView tvDescripcionRutina;
     String nombreRutina = "";
+    String descripcionRutina = "";
+    String nombrefichero = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,46 +63,42 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             nombreRutina = extras.getString("nombreRutina");
+            descripcionRutina = extras.getString("descripcionRutina");
+            nombrefichero = extras.getString("nombrefichero");
         }
 
-        int idRutina = getResources().getIdentifier(nombreRutina, "raw", getPackageName());
-        InputStream fich = getResources().openRawResource(idRutina);
-        BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
-        int linea = 0;
+        tvNombreRutina.setText("Rutina de: " + nombreRutina);
+        //tvDescripcionRutina.setText(line);
+
 
         try {
-            /** leer mientras haya lineas*/
-            while(reader.ready()) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput(nombrefichero+".txt")));
 
-                String line = reader.readLine();
 
-                if (linea==0){ //nombre de la rutina
-                    tvNombreRutina.setText("Rutina de " + line);
+        /** leer mientras haya lineas*/
+        while(reader.ready()) {
 
-                }else if(linea==1){ // descripcion de la rutina
-                    //tvDescripcionRutina.setText(line);
+            String line = reader.readLine();
 
-                }else{ //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
+           //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
 
-                    String[] elem = line.split(",");
-                    String ejercicio = elem [0];
-                    String numSerie = elem [1];
-                    String numRepe = elem [2];
-                    String imagen = elem [3];
+            String[] elem = line.split(",");
+            String ejercicio = elem [0];
+            String numSerie = elem [1];
+            String numRepe = elem [2];
+            String imagen = elem [3];
 
-                    int id = getResources().getIdentifier(imagen, "drawable", getPackageName());
+            int id = getResources().getIdentifier(imagen, "drawable", getPackageName());
 
-                    imagenes.add(id);
-                    ejercicios.add(ejercicio);
-                    seriesRepes.add("nºSeries x nºRepes:\n"+numSerie+ " x " +numRepe);
-                }
-                //actualizar el contador de linea para saber por donde vamos
-                linea++;
-            }
-            //cerrar el fichero
-            fich.close();
+            imagenes.add(id);
+            ejercicios.add(ejercicio);
+            seriesRepes.add("nºSeries x nºRepes:\n"+numSerie+ " x " +numRepe);
+
         }
-        catch (IOException e) {
+        //cerrar el fichero
+        reader.close();
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -116,8 +114,13 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
     }
     public void annadirEjercicio (View v){
         Intent intent = new Intent(v.getContext(),ActividadAnnadirEjercicio.class);
+        intent.putExtra("ficheroRutina",nombrefichero);
+        intent.putExtra("nombreRutina",nombreRutina);
+        intent.putExtra("descripcionRutina",descripcionRutina);
         v.getContext().startActivity(intent);
+        finish();
     }
+
 
     public void compartirRutinaSMS (View v){
 
@@ -153,7 +156,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         final EditText telfbox = new EditText(context);
         telfbox.setHint("Numero de Teléfono");
         telfbox.setInputType(InputType.TYPE_CLASS_NUMBER);
-        telfbox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(11) }); //limitar a 11 caracteres
+        telfbox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(9) }); //limitar a 9 caracteres
         telfbox.setPadding(100,20,100,40);
         layout.addView(telfbox); // Por ultimo se añade a la vista
 
@@ -178,43 +181,37 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
                 }else{
 
-                    //cambiar el como se recoge pq esto deberia ser un fichero experno
-                    int idRutina = getResources().getIdentifier(nombreRutina, "raw", getPackageName());
-                    InputStream fich = getResources().openRawResource(idRutina);
-                    BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
-                    int linea = 0;
-
                     try {
+
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput(nombrefichero+".txt")));
+
+                        int linea = 0;
+                        sms[0] += nombreRutina+"\n"+"\n";
+                        sms[0] += descripcionRutina+"\n"+"\n";
+
                         /** leer mientras haya lineas*/
                         while(reader.ready()) {
 
                             String line = reader.readLine();
 
-                            if (linea==0){ //nombre de la rutina
-                                sms[0] += line.toString()+"\n"+"\n";
+                            //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
 
-                            }else if(linea==1){ // descripcion de la rutina
-                                sms[0] += line+"\n"+"\n";
+                            String[] elem = line.split(",");
+                            String ejercicio = elem [0];
+                            String numSerie = elem [1];
+                            String numRepe = elem [2];
+                            int numEjer = linea-1;
+                            sms[0] += "Ejercicio"+numEjer+": "+ejercicio+ " --> nºSeries: "+numSerie+" & nºRepes: "+numRepe+"\n";
 
-                            }else{ //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
-
-                                String[] elem = line.split(",");
-                                String ejercicio = elem [0];
-                                String numSerie = elem [1];
-                                String numRepe = elem [2];
-                                int numEjer = linea-1;
-                                sms[0] += "Ejercicio"+numEjer+": "+ejercicio+ " --> nºSeries: "+numSerie+" & nºRepes: "+numRepe+"\n";
-                            }
                             //actualizar el contador de linea para saber por donde vamos
                             linea++;
                         }
                         //cerrar el fichero
-                        fich.close();
-                    }
-                    catch (IOException e) {
+                        reader.close();
+
+                    } catch (IOException e) {
                         e.printStackTrace();
                     }
-
 
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", telefono, null));
                     System.out.println(sms[0]);
@@ -235,8 +232,6 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
         dialog.setView(layout); // Añadir el layout completo del dialogo al dialogo
         dialog.show(); // Por uultimo, mostrarlo.
-
-
 
     }
 }

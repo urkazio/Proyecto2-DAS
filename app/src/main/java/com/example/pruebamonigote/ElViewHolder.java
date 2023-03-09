@@ -53,7 +53,9 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
                         // si vengo de ActividadMisRutinas quiero que se abra la actividad que lista mis rutinas personalizadas
                         // que ademas dicha interfaz contiene un boton de añadir nuevo ejercicio
                         Intent intent = new Intent(view.getContext(),ActividadEjerciciosRutinasPersonal.class);
-                        intent.putExtra("nombreRutina", nombreRutina);
+                        intent.putExtra("nombreRutina", nombre.getText().toString());
+                        intent.putExtra("descripcionRutina", descripcion.getText().toString());
+                        intent.putExtra("nombrefichero", nombreRutina);
                         view.getContext().startActivity(intent);
                     }
                     else if  (actividadActual.contains("ActividadListaRutinasPred")) {
