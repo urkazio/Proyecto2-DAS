@@ -43,7 +43,7 @@
                     app:srcCompat="@drawable/logo" />
 
                 <TextView
-                    android:id="@+id/tvNombreEjer"
+                    android:id="@+id/tvNombreRutinaOEjer"
                     style="@style/f_gO_m_b"
                     android:layout_width="190dp"
                     android:layout_height="33dp"

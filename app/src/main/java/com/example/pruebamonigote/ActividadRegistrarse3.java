@@ -11,15 +11,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class ActividadRegistrarse3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     EditText editEdad;
+    public static ActividadRegistrarse3 actividadRegistrarse3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_registrarse3);
+        actividadRegistrarse3=this;
 
         //combobox
         Spinner spinner = findViewById(R.id.spinner);
@@ -29,7 +32,7 @@ public class ActividadRegistrarse3 extends AppCompatActivity implements AdapterV
         spinner.setOnItemSelectedListener(this);
 
         //RESTRICCIONES para el editText de la edad
-        editEdad = findViewById(R.id.editAltura);
+        editEdad = findViewById(R.id.editEdad);
         editEdad.setInputType(InputType.TYPE_CLASS_NUMBER);
         editEdad.setFilters(new InputFilter[] { new InputFilter.LengthFilter(3) }); //limitar a 3 caracteres
 
@@ -46,7 +49,35 @@ public class ActividadRegistrarse3 extends AppCompatActivity implements AdapterV
     }
 
     public void continuar(View v) {
-        Intent intent = new Intent(this, ActividadRegistrarse4.class);
-        startActivity(intent);
+
+        String User="";
+        String Pass="";
+
+
+        Spinner spinner = findViewById(R.id.spinner);
+        String Genero = spinner.getSelectedItem().toString();
+
+        editEdad = findViewById(R.id.editEdad);
+
+        if (editEdad.getText().toString().equals("")){
+            Toast.makeText(this, "Hay campos vacios", Toast.LENGTH_LONG).show();
+
+        }else{
+            int Edad = Integer.parseInt(editEdad.getText().toString());
+
+            Bundle extras = getIntent().getExtras();
+            if (extras != null) {
+                User = extras.getString("User");
+                Pass  = extras.getString("Contraseña");
+            }
+
+            Intent intent = new Intent(this, ActividadRegistrarse4.class);
+            intent.putExtra("User",User);
+            intent.putExtra("Contraseña",Pass);
+            intent.putExtra("Genero",Genero);
+            intent.putExtra("Edad",Edad);
+            startActivity(intent);
+        }
+
     }
 }

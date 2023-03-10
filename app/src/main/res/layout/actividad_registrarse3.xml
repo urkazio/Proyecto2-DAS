@@ -10,7 +10,7 @@
 
 
     <EditText
-        android:id="@+id/editAltura"
+        android:id="@+id/editEdad"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
@@ -18,7 +18,6 @@
         android:hint="Edad"
         android:includeFontPadding="true"
         android:paddingLeft="10dp"
-        android:inputType="textPersonName"
         android:textAlignment="textStart"
         android:textColor="#808080"
         app:layout_constraintBottom_toBottomOf="parent"

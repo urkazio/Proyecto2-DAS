@@ -1,6 +1,5 @@
 package com.example.pruebamonigote;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +13,7 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
     public TextView descripcion;
 
     public ImageView laimagen;
+    String user;
 
     /**
      * Para gestionar la interacción del usuario.
@@ -22,11 +22,12 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
      **/
     public boolean[] seleccion;
 
-    public ElViewHolder(@NonNull View itemView) {
+    public ElViewHolder(@NonNull View itemView, String User) {
         super(itemView);
-        nombre = itemView.findViewById(R.id.tvNombreEjer);
+        nombre = itemView.findViewById(R.id.tvNombreRutinaOEjer);
         descripcion = itemView.findViewById(R.id.tvSeriesRepes);
         laimagen = itemView.findViewById(R.id.imageView);
+        user = User;
 
         /**listener del itemView para interraccionar con las imagenes al ser clickadas**/
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +57,7 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
                         intent.putExtra("nombreRutina", nombre.getText().toString());
                         intent.putExtra("descripcionRutina", descripcion.getText().toString());
                         intent.putExtra("nombrefichero", nombreRutina);
+                        intent.putExtra("user",user);
                         view.getContext().startActivity(intent);
                     }
                     else if  (actividadActual.contains("ActividadListaRutinasPred")) {

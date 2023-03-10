@@ -12,18 +12,20 @@ public class ElAdaptadorRecycler extends RecyclerView.Adapter<ElViewHolder> {
     private String[] lasdescrpciones;
     private int[] lasimagenes;
     private boolean[] seleccionados;
+    private String User="";
 
     /**
      * El adaptador es el controlador del ViewHolder (RecyclerView)
      **/
 
-    public ElAdaptadorRecycler (String[] nombres, int[] imagenes, String[] decripciones)
+    public ElAdaptadorRecycler (String[] nombres, int[] imagenes, String[] decripciones, String user)
     {
         //constructora
         losnombres=nombres;
         lasimagenes=imagenes;
         lasdescrpciones=decripciones;
         seleccionados=new boolean[nombres.length];
+        User = user;
     }
 
     @NonNull
@@ -34,7 +36,7 @@ public class ElAdaptadorRecycler extends RecyclerView.Adapter<ElViewHolder> {
     public ElViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         /** Obtener el objeto ViewHolder*/
         View elLayoutDeCadaItem= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout_listarutinas,null);
-        ElViewHolder evh = new ElViewHolder(elLayoutDeCadaItem);
+        ElViewHolder evh = new ElViewHolder(elLayoutDeCadaItem, User);
 
         /** “Pasar” el atributo del adaptador al atributo del ViewHolder **/
         evh.seleccion = seleccionados;

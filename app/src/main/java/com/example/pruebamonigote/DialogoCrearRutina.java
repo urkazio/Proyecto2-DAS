@@ -38,7 +38,7 @@ import android.Manifest;
 import android.widget.Toast;
 
 public class DialogoCrearRutina {
-    public void onCreateDialog(ActividadPrincipal actividadPrincipal, View v) {
+    public void onCreateDialog(ActividadPrincipal actividadPrincipal, View v, String user) {
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(actividadPrincipal);
 
@@ -130,10 +130,10 @@ public class DialogoCrearRutina {
                 String descripcionRut = descriptionBox.getText().toString();
 
                 // evitar que el nombre de la rutina sea vacio
-                if (nombreRut.equals("") || descripcionRut.equals("")){
+                if (nombreRut.equals("") || descripcionRut.equals("") || nombreRut.equals(user)){
                     // si el nombre es vacio se indica por toast y se vuelve a abrir el dialogo
-                    Toast.makeText(context, "No puede haber campos vacios", Toast.LENGTH_LONG).show();
-                    onCreateDialog(actividadPrincipal,  v);
+                    Toast.makeText(context, "Hay campos invalidos", Toast.LENGTH_LONG).show();
+                    onCreateDialog(actividadPrincipal,  v, user);
 
                 }else{
                     // si el nombre es correcto se sigue el proceso normal: la rutina a crear estará vacia y no contiene ejercicios
@@ -142,17 +142,15 @@ public class DialogoCrearRutina {
 
                     try {
 
-                        // obtener el nombre de usuario mediante una consulta a la base de datos para saber de quien son las rutinas personalziadas (ya que la app puede ser multiuser)
-                        String user ="urko";
 
-                        // buscamos a ver si existe alguna rutina con dicho nombre en el fichero "misrutinas"+user+".txt"
+                        // buscamos a ver si existe alguna rutina con dicho nombre en el fichero "user+".txt"
                         boolean existe = false;
 
                         try {
 
                             // ---ESTE BLOQUE DE CODIGO ES PARA COMPROBAR SI YA EXISTE UNA RUTINA CON NOMBRE SEMEJANTE AL INTRODUCIDO EN EL DIALGO QUE HAYA SIDO CREADA POR EL USUARIO ---:
 
-                            BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput("misrutinas"+user+".txt")));
+                            BufferedReader reader = new BufferedReader(new InputStreamReader(context.openFileInput(user+".txt")));
                             while(reader.ready() && !existe) {
 
                                 //obtener cada linea del fichero misrutinas del usuario y quedarnos con el elemento que hace referencia al nombre
@@ -160,10 +158,8 @@ public class DialogoCrearRutina {
                                 String[] elem = linea.split(","); /// elem [0] --> logo && elem [1] --> nombre && elem [2] --> descr;
                                 String nombre = elem [1];
 
-
                                 // obtener el nombre de la rutina en  minusculas y sin espacios ya que asi se lama el txt que contiene los ejercicios
                                 String nombreRutina = nombreRut.replaceAll("\\s+",""). replaceAll("-", "").toLowerCase();
-
 
                                 if (nombreRutina.equals(nombre)) {
                                     existe = true;
@@ -177,17 +173,16 @@ public class DialogoCrearRutina {
                         if (existe){
                             // si la rutina existe lo indicamos por toast y volvemos a lanzar el dialogo
                             Toast.makeText(context, "Ya eixte una rutina con dicho nombre", Toast.LENGTH_LONG).show();
-                            onCreateDialog(actividadPrincipal,  v);
+                            onCreateDialog(actividadPrincipal,  v, user);
 
                         }else{
                             // si no existe una rutina con ese nombre entonces se ejecuta el proceso de creacion
-                            // crear el fichero (vacio) donde se almacenaran los ejercicios de la nueva rutina del usuario
+                            // crear el fichero (vacio) donde se almacenaran los ejercicios de la nueva rutina del usuario con nombre "nombreRutina+user+".txt""
                             String nombreRutina = nombreRut.replaceAll("\\s+",""). replaceAll("-", "").toLowerCase();
-                            OutputStreamWriter rutinaNueva = new OutputStreamWriter(context.openFileOutput(nombreRutina+".txt", Context.MODE_PRIVATE));
+                            OutputStreamWriter rutinaNueva = new OutputStreamWriter(context.openFileOutput(nombreRutina+user+".txt", Context.MODE_PRIVATE));
 
                             // referenciar en el fichero que agrupa todas las rutinas del usuario, la nueva que se acaba de crear
-                            // el id de la rutina será el conjunto del nombre del user y el num lineas del fichero misRutinas --> “rutina”+user+nºrutina
-                            OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput("misrutinas"+user+".txt", Context.MODE_APPEND));
+                            OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput(user+".txt", Context.MODE_APPEND));
 
                             // se debe gardar --> logo(nombre en @drawable), Nombre Rutina(tal cual se escribió), Descripcion Rutina(tal cual se escribió)
                             fichero.write("logo,"+nombreRut+","+descriptionBox.getText().toString()+"\n");

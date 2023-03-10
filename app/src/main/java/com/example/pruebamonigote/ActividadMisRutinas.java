@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 public class ActividadMisRutinas extends AppCompatActivity {
     String idRutina;
+    String user ="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,10 +31,16 @@ public class ActividadMisRutinas extends AppCompatActivity {
         /** se definen los elementos que van a ir dentro del RecyclerView
          *  dichos elementos serán ajustados en su item_layout **/
 
-        String user ="urko";
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            user = extras.getString("user");
+        }
+
+        System.out.println("fichero -->  "+user+".txt");
 
         try {
-            BufferedReader fich = new BufferedReader(new InputStreamReader(openFileInput("misrutinas"+user+".txt")));
+            BufferedReader fich = new BufferedReader(new InputStreamReader(openFileInput(user+".txt")));
             while(fich.ready()) {
                 String line = fich.readLine();
                 /** cada linea contiene el nombre y descripcion de la rutina separado por comas*/
@@ -59,7 +66,7 @@ public class ActividadMisRutinas extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(nombres.toArray(new String[nombres.size()]), imagenes.stream().mapToInt(i -> i).toArray() , decripciones.toArray(new String[decripciones.size()]));
+        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(nombres.toArray(new String[nombres.size()]), imagenes.stream().mapToInt(i -> i).toArray() , decripciones.toArray(new String[decripciones.size()]), user);
         lalista.setAdapter(eladaptador);
 
 

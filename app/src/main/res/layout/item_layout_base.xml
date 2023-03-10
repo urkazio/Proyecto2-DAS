@@ -35,7 +35,7 @@
                     app:srcCompat="@drawable/remoconbarra" />
 
                 <TextView
-                    android:id="@+id/tvNombreEjer"
+                    android:id="@+id/tvNombreRutinaOEjer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"

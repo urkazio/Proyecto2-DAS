@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 public class ActividadPrincipal extends AppCompatActivity {
+
+    String user ="";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,18 +29,22 @@ public class ActividadPrincipal extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
         }
 
-
-        // crear el fichero interno "misrutinasNombreuser.txt" para que posteriormente el usuario pueda añadir rutinas
-        // path --> /app/app/com.example.pruebamonigote/files/misrutinas.txt
+        // crear el fichero interno "Nombreuser.txt" para que posteriormente el usuario pueda añadir rutinas
+        // path --> /app/app/com.example.pruebamonigote/files/Nombreuser.txt
         // obtener el nombre de usuario de la base de datos para que cada user tenga un fichero dedicado
-        String user ="urko";
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            user = extras.getString("User");
+        }
+
         Context context = this;
-        System.out.println("Existe:"+fileExist("misrutinas"+user+".txt"));
+        System.out.println("Existe:"+fileExist(user+".txt"));
 
         // crear el fichero que contiene el indice de las rutinas creadas por el usuario 'user' en caso de no existir
-        if (!fileExist("misrutinas"+user+".txt")){
+        if (!fileExist(user+".txt")){
             try {
-                OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput("misrutinas"+user+".txt", Context.MODE_PRIVATE));
+                OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput(user+".txt", Context.MODE_PRIVATE));
                 fichero.close();
             } catch (IOException e) { }
         }
@@ -56,12 +63,13 @@ public class ActividadPrincipal extends AppCompatActivity {
     }
     public void crear(View v) {
         DialogoCrearRutina dR = new DialogoCrearRutina();
-        dR.onCreateDialog(this, v);
+        dR.onCreateDialog(this, v, user);
 
 
     }
     public void ver(View v) {
         Intent intent = new Intent(this, ActividadMisRutinas.class);
+        intent.putExtra("user",user);
         startActivity(intent);
     }
 }

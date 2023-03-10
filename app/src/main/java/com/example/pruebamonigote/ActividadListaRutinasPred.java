@@ -59,7 +59,7 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(nombres.toArray(new String[nombres.size()]), imagenes.stream().mapToInt(i -> i).toArray() , decripciones.toArray(new String[decripciones.size()]));
+        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(nombres.toArray(new String[nombres.size()]), imagenes.stream().mapToInt(i -> i).toArray() , decripciones.toArray(new String[decripciones.size()]),"");
         lalista.setAdapter(eladaptador);
 
 

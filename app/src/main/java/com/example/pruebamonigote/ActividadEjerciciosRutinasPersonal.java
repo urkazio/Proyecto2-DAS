@@ -40,6 +40,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
     String nombreRutina = "";
     String descripcionRutina = "";
     String nombrefichero = "";
+    String user = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
             nombreRutina = extras.getString("nombreRutina");
             descripcionRutina = extras.getString("descripcionRutina");
             nombrefichero = extras.getString("nombrefichero");
+            user = extras.getString("user");
         }
 
         tvNombreRutina.setText("Rutina de: " + nombreRutina);
@@ -103,7 +105,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         }
 
 
-        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(ejercicios.toArray(new String[ejercicios.size()]), imagenes.stream().mapToInt(i -> i).toArray() ,seriesRepes.toArray(new String[seriesRepes.size()]));
+        ElAdaptadorRecycler eladaptador = new ElAdaptadorRecycler(ejercicios.toArray(new String[ejercicios.size()]), imagenes.stream().mapToInt(i -> i).toArray() ,seriesRepes.toArray(new String[seriesRepes.size()]),"");
         lalista.setAdapter(eladaptador);
 
 
@@ -121,9 +123,58 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         finish();
     }
 
+    public void eliminarRutina (View v){
+        //no se elimina
+        String copia="";
+        System.out.println("fichero rutinaS usuario: "+user+".txt");
+        System.out.println("fichero rutina usuario: "+nombrefichero+".txt");
+
+
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput(user+".txt")));
+            while(reader.ready()) {
+                String line = reader.readLine();
+
+                /** cada linea contiene el nombre y descripcion de la rutina separado por comas*/
+                String[] elem = line.split(","); ///elem [0] --> logo && elem [1] --> nombre && elem [2] --> descr;
+
+                String nombreRut = elem [1];
+                System.out.println("nombreRutina:" +nombreRut);
+
+                System.out.println(nombreRut+user);
+                System.out.println(nombrefichero);
+
+
+                if ((nombreRut).equals(nombrefichero)){
+
+                }else{
+                    copia += line+"\n";
+                }
+
+            }
+            System.out.println(copia);
+
+            try {
+                deleteFile(user+".txt");
+                OutputStreamWriter fichero = new OutputStreamWriter(openFileOutput(user+".txt", Context.MODE_PRIVATE));
+                fichero.write(copia);
+                fichero.close();
+            } catch (IOException e){  }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        deleteFile(nombrefichero+user+".txt");
+        Intent intent = new Intent(this,ActividadPrincipal.class);
+        intent.putExtra("User",user);
+        startActivity(intent);
+        finish();
+    }
+
 
     public void compartirRutinaSMS (View v){
-
 
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);

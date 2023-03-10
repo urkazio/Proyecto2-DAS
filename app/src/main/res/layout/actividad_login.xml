@@ -8,7 +8,7 @@
     android:background="@drawable/fondoreg">
 
     <EditText
-        android:id="@+id/editPeso"
+        android:id="@+id/editUserLogin"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.328" />
 
     <EditText
-        android:id="@+id/editAltura"
+        android:id="@+id/editPassLogin"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"

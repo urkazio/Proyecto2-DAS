@@ -8,7 +8,7 @@
     android:background="@drawable/fondologin2">
 
     <EditText
-        android:id="@+id/editPeso"
+        android:id="@+id/editUser"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
