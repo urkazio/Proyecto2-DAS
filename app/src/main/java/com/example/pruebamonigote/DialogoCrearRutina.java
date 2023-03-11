@@ -4,41 +4,30 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.text.InputType;
 import android.text.Spanned;
-import android.text.method.DigitsKeyListener;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import android.Manifest;
+
 import android.widget.Toast;
 
 public class DialogoCrearRutina {
-    public void onCreateDialog(ActividadPrincipal actividadPrincipal, View v, String user) {
+    public void onCreateDialog(ActividadPrincipal actividadPrincipal, String user) {
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(actividadPrincipal);
 
@@ -51,7 +40,7 @@ public class DialogoCrearRutina {
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        dialog.setTitle("   Nueva Rutina Vacía");
+        dialog.setTitle(R.string.str73);
         dialog.setIcon(R.drawable.logo);
         dialog.setCancelable(false);
 
@@ -61,13 +50,13 @@ public class DialogoCrearRutina {
          ####################################################**/
         // Añadir un TextView para indicar que se debe insertar el "Título"
         final TextView tvNombre = new TextView(context);
-        tvNombre.setText("Introduce el nombre de la rutina:");
+        tvNombre.setText(R.string.str74);
         tvNombre.setPadding(100,80,100,20);
         layout.addView(tvNombre); // Se añade a la vista
 
         // Añadir un EditText para insertar el "Título"
         final EditText titleBox = new EditText(context);
-        titleBox.setHint("Nombre");
+        titleBox.setHint(R.string.str76);
         titleBox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(12) }); //limitar a 12 caracteres
         titleBox.setPadding(100,20,100,40);
         //añadir restriccion para solo permitir caracteres a-z y A-Z
@@ -93,14 +82,14 @@ public class DialogoCrearRutina {
          ####################################################**/
         // Añadir otro TextView para indicar que se debe insertar el "Descripción"
         final TextView tvDescr = new TextView(context);
-        tvDescr.setText("Añade una breve descripción a la rutina (máx 50 caracteres):");
+        tvDescr.setText(R.string.str75);
         tvDescr.setPadding(100,80,100,20);
         layout.addView(tvDescr); // Se añade a la vista
 
         // Añadir otro EditText para la insertar el "Descripción"
         final EditText descriptionBox = new EditText(context);
         descriptionBox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(50) }); //limitar a 50 caracteres
-        descriptionBox.setHint("Descripción");
+        descriptionBox.setHint(R.string.str77);
         descriptionBox.setPadding(100,20,100,40);
         //añadir restriccion para solo permitir caracteres a-z y A-Z
         descriptionBox.setFilters(new InputFilter[]{
@@ -123,7 +112,7 @@ public class DialogoCrearRutina {
         /**####################################################
          #############   botones y listeners    ###############
          ####################################################**/
-        dialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.str78, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String nombreRut = titleBox.getText().toString();
@@ -132,8 +121,9 @@ public class DialogoCrearRutina {
                 // evitar que el nombre de la rutina sea vacio
                 if (nombreRut.equals("") || descripcionRut.equals("") || nombreRut.equals(user)){
                     // si el nombre es vacio se indica por toast y se vuelve a abrir el dialogo
-                    Toast.makeText(context, "Hay campos invalidos", Toast.LENGTH_LONG).show();
-                    onCreateDialog(actividadPrincipal,  v, user);
+                    Toast.makeText(context, R.string.str19, Toast.LENGTH_LONG).show();
+                    onCreateDialog(actividadPrincipal, user);
+
 
                 }else{
                     // si el nombre es correcto se sigue el proceso normal: la rutina a crear estará vacia y no contiene ejercicios
@@ -172,8 +162,8 @@ public class DialogoCrearRutina {
 
                         if (existe){
                             // si la rutina existe lo indicamos por toast y volvemos a lanzar el dialogo
-                            Toast.makeText(context, "Ya eixte una rutina con dicho nombre", Toast.LENGTH_LONG).show();
-                            onCreateDialog(actividadPrincipal,  v, user);
+                            Toast.makeText(context, R.string.str106, Toast.LENGTH_LONG).show();
+                            onCreateDialog(actividadPrincipal,  user);
 
                         }else{
                             // si no existe una rutina con ese nombre entonces se ejecuta el proceso de creacion
@@ -209,9 +199,9 @@ public class DialogoCrearRutina {
                             //Definicion de la alerta personalizada al ganar
                             builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
                                     .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle("Notificacion de Fit Pro")
-                                    .setSubText("Nueva rutina vacía")
-                                    .setContentText("Enhorabuena! Has creado la nueva rutina " +nombreRut+ " con exito!!!")
+                                    .setContentTitle(""+R.string.str107)
+                                    .setSubText(""+R.string.str75)
+                                    .setContentText(R.string.str84+" "+R.string.str85+" " +nombreRut)
                                     .setAutoCancel(true);
 
 
@@ -236,14 +226,15 @@ public class DialogoCrearRutina {
         });
 
 
-        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(R.string.str79, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                ActividadPrincipal.dialogo=false;
                 dialog.cancel();
             }
         });
 
         dialog.setView(layout); // Añadir el layout completo del dialogo al dialogo
-        dialog.show(); // Por uultimo, mostrarlo.
+        dialog.show();
     }
 }

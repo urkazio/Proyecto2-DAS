@@ -5,14 +5,15 @@
     android:id="@+id/btnRutinas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:onClick="ver"
     android:background="@drawable/fondomain"
+    android:onClick="ver"
     tools:context=".ActividadPrincipal">
 
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="346dp"
         android:layout_height="128dp"
+        android:background="@null"
         android:onClick="explorar"
         android:padding="3dp"
         android:scaleType="fitXY"
@@ -22,7 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.331"
-        android:background="@null"
         app:srcCompat="@drawable/btnlupa" />
 
     <ImageButton
@@ -58,25 +58,25 @@
     <TextView
         android:id="@+id/tvCrear2"
         style="@style/f_gc_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="436dp"
-        android:text="Rutina de entrenamiento"
+        android:layout_width="174dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="435dp"
+        android:text="@string/str103"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvMisRutinas2"
         style="@style/f_gc_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
-        android:text="Rutinas de entrenamiento"
+        android:layout_width="192dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="72dp"
+        android:text="@string/str105"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.302"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -84,20 +84,20 @@
         style="@style/f_gc_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="272dp"
-        android:layout_marginBottom="128dp"
-        android:text="Ver Mis"
+        android:layout_marginEnd="299dp"
+        android:layout_marginBottom="144dp"
+        android:text="@string/str104"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tvExplorar2"
         style="@style/f_gc_s"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="264dp"
-        android:layout_marginEnd="168dp"
-        android:text="Rutinas de entrenamiento"
+        android:layout_width="230dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="261dp"
+        android:layout_marginEnd="107dp"
+        android:text="@string/str101"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -106,10 +106,10 @@
         style="@style/f_gc_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="408dp"
-        android:text="Crear una"
+        android:layout_marginTop="403dp"
+        android:text="@string/str102"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -118,9 +118,9 @@
         style="@style/f_gc_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="268dp"
-        android:text="Explorar"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="267dp"
+        android:text="@string/str100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,21 +129,21 @@
         style="@style/f_gc_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Entrenamiento"
+        android:text="@string/str23"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
-        />
+        app:layout_constraintVertical_bias="0.041" />
 
     <TextView
         android:id="@+id/tvRutinasPers"
         style="@style/f_gc_xs"
-        android:layout_width="337dp"
-        android:layout_height="39dp"
+        android:layout_width="315dp"
+        android:layout_height="63dp"
         android:layout_marginTop="132dp"
-        android:text="Hola Urko! Este es el menú principal de FitPro donde puedes explorar rutinas prediseñadas, crear y ver tus rutinas personales."
+        android:textAlignment="textStart"
+        android:text="@string/str25"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -151,11 +151,15 @@
     <TextView
         android:id="@+id/tvDescripcionRut"
         style="@style/f_gO_l_b"
+        app:layout_constraintVertical_chainStyle="packed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="196dp"
-        android:text="Inicio Rápido"
+        android:text="@string/str24"
+        android:textAlignment="textStart"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="38dp"
-        android:text="Planes de Entrenamiento" />
+        android:text="@string/str29" />
 
     <TextView
         android:id="@+id/tvDescrRutPers"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="10dp"
-        android:text="Estas son las rutinas prediseñadas que hemos preparado para ti." />
+        android:text="@string/str30" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/elreciclerview"

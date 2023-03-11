@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ActividadListaRutinasPred extends AppCompatActivity {
 
@@ -29,8 +30,16 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
         /** se definen los elementos que van a ir dentro del RecyclerView
          *  dichos elementos serán ajustados en su item_layout **/
 
-        System.out.println("fichero "+R.raw.rutinaspred);
-        InputStream fich = getResources().openRawResource(R.raw.rutinaspred);
+        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
+        InputStream fich = null;
+
+        if (idioma.contains("en")){ //si estamos en ingles se muestran las rutinas prediseñadas en ingles
+            fich = getResources().openRawResource(R.raw.rutinaspreden);
+        }else if (idioma.contains("es")){ // en caso contrario, en castellano
+            System.out.println("idioma actual: "+ idioma);
+            fich = getResources().openRawResource(R.raw.rutinaspred);
+        }
+
         BufferedReader reader = new BufferedReader( new InputStreamReader(fich));
         try {
             /** leer mientras haya lineas*/

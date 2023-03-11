@@ -2,7 +2,9 @@ package com.example.pruebamonigote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class ActividadLogin extends AppCompatActivity {
 
@@ -25,6 +29,33 @@ public class ActividadLogin extends AppCompatActivity {
         //RESTRICCIONES para el editText de la contraseña
         editPass = findViewById(R.id.editPassLogin);
         editPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+    }
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
+        savedInstanceState.putString("idioma", idioma);
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
+        super.onRestoreInstanceState(savedInstanceState);
+        String idioma = savedInstanceState.getString("idioma");
+
+        Locale nuevaloc = new Locale(idioma);
+        Locale.setDefault(nuevaloc);
+        Configuration configuration = getBaseContext().getResources().getConfiguration();
+        configuration.setLocale(nuevaloc);
+        configuration.setLayoutDirection(nuevaloc);
+
+        //actualizar la configuración de todos los recursos de la aplicación mediante el método updateConfiguration
+        Context context = getBaseContext().createConfigurationContext(configuration);
+        getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
+
+        // recargar de nuevo la actividad para que tambien tenga efecto en la actividad actual
+        finish();
+        startActivity(getIntent());
     }
 
     public void logearse(View v) {
@@ -54,7 +85,7 @@ public class ActividadLogin extends AppCompatActivity {
                 ActividadLogin.actividadLogin.finish();
 
             } else {
-                Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.str108, Toast.LENGTH_LONG).show();
             }
 
         }

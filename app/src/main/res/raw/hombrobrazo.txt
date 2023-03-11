@@ -1,5 +1,5 @@
 Hombro y Brazo
-Rutina de empujes enfocadas en deltoides, biceps y triceps.
+Rutina para aumentar el volumen y fortalecer los músculos de hombros y brazos.
 Cardio Ligero,1,5-10 min.,cardioligero
 Calentamiento,1, 5min.,calentamiento
 Press Militar,6,10-12,pressmilitar

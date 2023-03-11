@@ -1,0 +1,10 @@
+Shoulder and Arm
+Routine to increase the volume and strengthen the muscles of the shoulders and arms.
+Light Cardio,1,5-10 min.,cardioligero
+Warm Up,1, 5min.,calentamiento
+Military Press,6,10-12,pressmilitar
+French Press,4,10,pressfrances
+Barbell Curl,4,10,curlbarra
+Triceps Extension,4,12-15,extensiontriceps
+Hammer Curl,4,15,curlmartillo
+Back to Calm,1,5-10 min.,cardioligero

@@ -45,7 +45,7 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
 
         editNumRepes = findViewById(R.id.editNumRepes);
         editNumRepes.setInputType(InputType.TYPE_CLASS_NUMBER);
-        editNumRepes.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "8")});
+        editNumRepes.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "30")});
 
 
     }
@@ -54,6 +54,7 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         String text = spinner.getSelectedItem().toString();
         String nombreFotoEjer = text.replaceAll("\\s+","").toLowerCase();
+        System.out.println(nombreFotoEjer);
         int id = getResources().getIdentifier(nombreFotoEjer, "drawable", getPackageName());
         imagenEjer = findViewById(R.id.imageView2);
         imagenEjer.setImageResource(id);

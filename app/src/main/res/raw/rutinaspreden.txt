@@ -1,0 +1,6 @@
+logo,Pulls,Pull routine focused on dorsal trapezius and biceps.
+logo,Pushes,Push routine focused on pectoral shoulder and triceps.
+logo,G-A-L,Gluteous Abdominals and Legs routine.
+logo,FullBody,Full body routine.
+logo,Legs,Complete leg routine.
+logo,Shoulder Arm,Routine focused on deltoids, biceps and triceps.

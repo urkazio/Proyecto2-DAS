@@ -1,0 +1,11 @@
+Full Legs
+Leg routine that works each muscle individually.
+Light Cardio,1,5-10 min.,cardioligero
+Squat,4,10,sentadilla
+Leg Press,4,12,prensa
+Leg Extension,4,12,extensionpierna
+Adductor,4,12-15,adductor
+Hamstring Curl,4,12,curlfemoral
+Hip Trust,4,12,hiptrust
+Calf Raises,4,12,elevaciongemelo
+Back to Calm,1,5-10 min.,cardioligero

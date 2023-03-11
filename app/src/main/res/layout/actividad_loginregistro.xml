@@ -24,7 +24,7 @@
         style="@style/f_gc_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="La solución para tus planes de entrenamiento"
+        android:text="@string/str4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -37,13 +37,26 @@
         style="@style/f_gc_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a  "
+        android:text="@string/str3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517" />
+
+    <TextView
+        android:id="@+id/tvIdioma"
+        style="@style/f_gc_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032" />
 
     <TextView
         android:id="@+id/tv"
@@ -63,7 +76,7 @@
         style="@style/f_gc_s"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rutinas de entrenmiento"
+        android:text="@string/str2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +101,7 @@
         android:layout_height="42dp"
         android:background="@drawable/round_btn_naranja"
         android:onClick="comenzar"
-        android:text="COMENZAR"
+        android:text="@string/str5"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,12 +110,42 @@
         app:layout_constraintVertical_bias="0.834" />
 
     <Button
+        android:id="@+id/btnIngles"
+        android:layout_width="63dp"
+        android:layout_height="24dp"
+        android:background="@drawable/round_btn_blanco"
+        android:onClick="idiomaIngles"
+        android:text="EN"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <Button
+        android:id="@+id/btnEspañol"
+        android:layout_width="63dp"
+        android:layout_height="24dp"
+        android:background="@drawable/round_btn_blanco"
+        android:onClick="idiomaEspañol"
+        android:text="ES"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <Button
         android:id="@+id/button4"
         android:layout_width="356dp"
         android:layout_height="42dp"
         android:background="@drawable/round_btn_blanco"
         android:onClick="tengoCuenta"
-        android:text="YA TENGO CUENTA"
+        android:text="@string/str6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"

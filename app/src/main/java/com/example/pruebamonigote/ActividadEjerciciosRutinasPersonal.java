@@ -12,6 +12,7 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
@@ -32,6 +33,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
@@ -69,7 +71,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
             user = extras.getString("user");
         }
 
-        tvNombreRutina.setText("Rutina de: " + nombreRutina);
+        tvNombreRutina.setText(tvNombreRutina.getText().toString()+" " + nombreRutina);
         //tvDescripcionRutina.setText(line);
 
 
@@ -114,6 +116,35 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         lalista.setLayoutManager(elLayoutLineal);
 
     }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
+        savedInstanceState.putString("idioma", idioma);
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
+        super.onRestoreInstanceState(savedInstanceState);
+        String idioma = savedInstanceState.getString("idioma");
+
+        Locale nuevaloc = new Locale(idioma);
+        Locale.setDefault(nuevaloc);
+        Configuration configuration = getBaseContext().getResources().getConfiguration();
+        configuration.setLocale(nuevaloc);
+        configuration.setLayoutDirection(nuevaloc);
+
+        //actualizar la configuración de todos los recursos de la aplicación mediante el método updateConfiguration
+        Context context = getBaseContext().createConfigurationContext(configuration);
+        getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
+
+        // recargar de nuevo la actividad para que tambien tenga efecto en la actividad actual
+        finish();
+        startActivity(getIntent());
+    }
+
     public void annadirEjercicio (View v){
         Intent intent = new Intent(v.getContext(),ActividadAnnadirEjercicio.class);
         intent.putExtra("ficheroRutina",nombrefichero);

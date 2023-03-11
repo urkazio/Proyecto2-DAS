@@ -1,0 +1,11 @@
+G-A-P
+Gluteus and leg routine along with abdominal strengthening.
+Light Cardio,1,5-10 min.,cardioligero
+Squat,4,12,sentadilla
+Leg Extension,4,12,extensionpierna
+Hamstring Curl,4,12,curlfemoral
+Crunches,4,45 segs,crunches
+Planks,4,45 segs,plancha
+Hip Trust,4,12,hiptrust
+Calf Raises,4,12,elevaciongemelo
+Back to Calm,1,5-10 min.,cardioligero

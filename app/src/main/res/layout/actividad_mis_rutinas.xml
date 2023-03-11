@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="38dp"
-        android:text="Rutinas Personales"
+        android:text="@string/str80"
         android:textSize="32sp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="10dp"
-        android:text="Estas son las rutinas personales que has ido creando a lo largo del tiempo e Fit Pro." />
+        android:text="@string/str81" />
 
 
     <androidx.recyclerview.widget.RecyclerView

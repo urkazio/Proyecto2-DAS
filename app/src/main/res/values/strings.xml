@@ -2,34 +2,146 @@
     <string name="app_name">Fit Pro</string>
 
     <string-array name="genero">
-        <item>Hombre</item>
-        <item>Mujer</item>
+        <item>@string/str16</item>
+        <item>@string/str17</item>
     </string-array>
 
     <string-array name="ejercicios">
-        <item>Adductor</item>
-        <item>Banca Inclinado</item>
-        <item>Calentamiento</item>
-        <item>Cardio Ligero</item>
-        <item>Cruces</item>
-        <item>Crunches</item>
-        <item>Curl Barra</item>
-        <item>Curl Femoral</item>
-        <item>Curl Martillo</item>
-        <item>Elevacion Gemelo</item>
-        <item>Extension Pierna</item>
-        <item>Extension Triceps</item>
-        <item>Hip Trust</item>
-        <item>Jalon al Pecho</item>
-        <item>Laterales</item>
-        <item>Plancha</item>
-        <item>Prensa</item>
-        <item>Prensa</item>
-        <item>Press Banca</item>
-        <item>Press Frances</item>
-        <item>Press Militar</item>
-        <item>Sentadilla</item>
+        <item>@string/str50</item>
+        <item>@string/str51</item>
+        <item>@string/str52</item>
+        <item>@string/str53</item>
+        <item>@string/str54</item>
+        <item>@string/str55</item>
+        <item>@string/str56</item>
+        <item>@string/str57</item>
+        <item>@string/str58</item>
+        <item>@string/str93</item>
+        <item>@string/str59</item>
+        <item>@string/str60</item>
+        <item>@string/str61</item>
+        <item>@string/str62</item>
+        <item>@string/str63</item>
+        <item>@string/str64</item>
+        <item>@string/str65</item>
+        <item>@string/str66</item>
+        <item>@string/str67</item>
+        <item>@string/str68</item>
+        <item>@string/str69</item>
+        <item>@string/str94</item>
+        <item>@string/str95</item>
+        <item>@string/str70</item>
     </string-array>
+
+
+    <string name="str1">Idioma</string>
+    <string name="str2">Rutinas de entrenamiento.</string>
+    <string name="str3">Bienvenido a</string>
+    <string name="str4">La solución a tus planes de entrenamiento.</string>
+    <string name="str5">Comenzar</string>
+    <string name="str6">Ya tengo cuenta</string>
+    <string name="str7">Comencemos</string>
+    <string name="str8">Antes de empezar vamos a configurar un perfil de usuario para poder identificarte y poder crear rutinas personalizadas.</string>
+    <string name="str9">Complete la información:</string>
+    <string name="str10">Usuario:</string>
+    <string name="str11">Contraseña:</string>
+    <string name="str12">Repetir contraseña:</string>
+    <string name="str13">Siguiente</string>
+    <string name="str14">Hay campos vacíos o las contraseñas no coinciden</string>
+    <string name="str15">Género</string>
+    <string name="str16">Hombre</string>
+    <string name="str17">Mujer</string>
+    <string name="str18">Edad</string>
+    <string name="str19">Hay campos invalidos</string>
+    <string name="str20">Peso</string>
+    <string name="str21">Altura</string>
+    <string name="str22">Finalizar</string>
+    <string name="str23">Entrenamiento</string>
+    <string name="str24">Inicio Rápido</string>
+    <string name="str25">Este es el menu principal de FitPro donde puedes explorar rutinas, crear nuevas y ver tus rutinas personalizadas.</string>
+    <string name="str29">Planes de Entrenamiento</string>
+    <string name="str30">Estas son las rutinas prediseñadas que hemos creado para ti.</string>
+    <string name="str31">Tracciones</string>
+    <string name="str32">Rutina de tracciones enfocadas en trapecios dorsales y biceps.</string>
+    <string name="str33">Empujes</string>
+    <string name="str34">Rutina de empujes enfocadas en pectoral hombro y triceps.</string>
+    <string name="str35">G-A-P</string>
+    <string name="str36">Rutina de Gluteos Abdominales y Pierna.</string>
+    <string name="str37">FullBody</string>
+    <string name="str38">Rutina de cuerpo completo.</string>
+    <string name="str39">Pierna</string>
+    <string name="str40">Rutina completa de pierna.</string>
+    <string name="str41">Hombro y Brazo</string>
+    <string name="str42">Rutina enfocada en deltoides biceps y triceps.</string>
+    <string name="str44">Rutina de Empujes.</string>
+    <string name="str45">Rutina de G-A-P</string>
+    <string name="str46">Rutina de  FullBody</string>
+    <string name="str47">Rutina de Rutina de Gluteos Abdominales y Pierna.</string>
+    <string name="str48">Rutina de Pierna</string>
+    <string name="str49">Rutina de Hombro y Brazo</string>
+    <string name="str50">Adductor</string>
+    <string name="str51">Banca Inclinado</string>
+    <string name="str52">Calentamiento</string>
+    <string name="str53">Cardio Ligero</string>
+    <string name="str54">Cruces</string>
+    <string name="str55">Crunches</string>
+    <string name="str56">Curl con Barra</string>
+    <string name="str57">Curl Femoral</string>
+    <string name="str58">Curl Martillo</string>
+    <string name="str59">Elevacion Gemelo</string>
+    <string name="str60">Extension Pierna</string>
+    <string name="str61">Extension Triceps</string>
+    <string name="str62">Hip Trust</string>
+    <string name="str63">Jalon al Pecho</string>
+    <string name="str64">Laterales</string>
+    <string name="str65">Plancha</string>
+    <string name="str66">Prensa</string>
+    <string name="str67">Press Banca</string>
+    <string name="str68">Press Frances</string>
+    <string name="str69">Press Militar</string>
+    <string name="str70">Sentadilla</string>
+    <string name="str71">nºSeries</string>
+    <string name="str72">nºRepes</string>
+    <string name="str73">Nueva Rutina Vacia</string>
+    <string name="str74">Introduce el nombre de la rutina:</string>
+    <string name="str75">Añade una breve descripcion a la rutina (max 50 caracteres):</string>
+    <string name="str76">Nombre</string>
+    <string name="str77">Descripcion</string>
+    <string name="str78">Aceptar</string>
+    <string name="str79">Cancelar</string>
+    <string name="str80">Rutinas Personales</string>
+    <string name="str81">Estas son las rutinas personales que has ido creando a lo largo del tiempo en Fit Pro.</string>
+    <string name="str82">Enhorabuena!</string>
+    <string name="str83">Has creado la nueva rutina</string>
+    <string name="str84">Bienvenido</string>
+    <string name="str86">Añadir ejercicio</string>
+    <string name="str87">Eliminar rutina</string>
+    <string name="str88">Compartir rutina por sms</string>
+    <string name="str89">Elige el ejercicio</string>
+    <string name="str90">Numero de series (1-8):</string>
+    <string name="str91">Numero de repeticiones (1-30):</string>
+    <string name="str92">Añadir</string>
+    <string name="str43">Tracciones.</string>
+    <string name="str85">Gracias por unirte a Fit Pro</string>
+    <string name="str93">Dorsal en Polea</string>
+    <string name="str94">Remo con Barra</string>
+    <string name="str95">Remo Gironda</string>
+    <string name="str96">Usuario</string>
+    <string name="str97">Contraseña</string>
+    <string name="str98">Iniciar sesión en Fit Pro:</string>
+    <string name="str99">Acceder</string>
+    <string name="str100">Explorar</string>
+    <string name="str101">rutinas de entrenamiento prediseñadas.</string>
+    <string name="str102">Crear</string>
+    <string name="str103">rutina de entrenamiento personal vacía.</string>
+    <string name="str104">Ver</string>
+    <string name="str105">mis rutinas de entrenamiento personales.</string>
+    <string name="str106">Ya existe una rutina con dicho nombre</string>
+    <string name="str107">Notificacion de Fit Pro</string>
+    <string name="str108">Contraseña Incorrecta</string>
+    <string name="str109">Nuevo Usuario Registrado</string>
+    <string name="str110">Rutina:</string>
+    <string name="str111">Rutina de</string>
 
 
 </resources>

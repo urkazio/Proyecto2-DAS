@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">Fit Pro</string>
+
+    <string-array name="genero">
+        <item>@string/str16</item>
+        <item>@string/str17</item>
+    </string-array>
+
+    <string-array name="ejercicios">
+        <item>@string/str50</item>
+        <item>@string/str51</item>
+        <item>@string/str52</item>
+        <item>@string/str53</item>
+        <item>@string/str54</item>
+        <item>@string/str55</item>
+        <item>@string/str56</item>
+        <item>@string/str57</item>
+        <item>@string/str58</item>
+        <item>@string/str93</item>
+        <item>@string/str59</item>
+        <item>@string/str60</item>
+        <item>@string/str61</item>
+        <item>@string/str62</item>
+        <item>@string/str63</item>
+        <item>@string/str64</item>
+        <item>@string/str65</item>
+        <item>@string/str66</item>
+        <item>@string/str67</item>
+        <item>@string/str68</item>
+        <item>@string/str69</item>
+        <item>@string/str94</item>
+        <item>@string/str95</item>
+        <item>@string/str70</item>
+    </string-array>
+
+
+    <string name="str1">Language</string>
+    <string name="str2">Training routines.</string>
+    <string name="str3">Welcome to</string>
+    <string name="str4">The solution to your training plans.</string>
+    <string name="str5">Begin</string>
+    <string name="str6">I already have an account</string>
+    <string name="str7">Let\'s start</string>
+    <string name="str8">Before starting we will configure a user profile to be able to identify and create custom routines.</string>
+    <string name="str9">Complete the information:</string>
+    <string name="str10">User:</string>
+    <string name="str11">Password:</string>
+    <string name="str12">Repeat password:</string>
+    <string name="str13">Next</string>
+    <string name="str14">There are empty fields or passwords do not match</string>
+    <string name="str15">Gender</string>
+    <string name="str16">Man</string>
+    <string name="str17">Women</string>
+    <string name="str18">Age</string>
+    <string name="str19">There are invalid fields</string>
+    <string name="str20">Weight</string>
+    <string name="str21">Height</string>
+    <string name="str22">Finish</string>
+    <string name="str23">Training</string>
+    <string name="str24">Quick start</string>
+    <string name="str25">This is the main Fit Pro menu where you can explore routines, create new and see your personalized routines.</string>
+    <string name="str29">Training plans</string>
+    <string name="str30">These are the predesigned routines that we have created for you.</string>
+    <string name="str31">Pushes</string>
+    <string name="str32">Traction routine focused on dorsal and bicps trapezires.</string>
+    <string name="str33">Pulls</string>
+    <string name="str34">Pull routine in pectoral shoulder and triceps.</string>
+    <string name="str35">G-A-P</string>
+    <string name="str36">Abs gluteous routine and leg.</string>
+    <string name="str37">FullBody</string>
+    <string name="str38">FullBody routine.</string>
+    <string name="str39">Leg</string>
+    <string name="str40">Full leg routine.</string>
+    <string name="str41">Shoulder and Arms</string>
+    <string name="str42">Routine focused on bicps and triceps deltoid.</string>
+    <string name="str43">Pushes.</string>
+    <string name="str44">Push routine.</string>
+    <string name="str45">G-A-P routine</string>
+    <string name="str46">Fullbody routine</string>
+    <string name="str47">Abs gluteous routine and leg routine.</string>
+    <string name="str48">Leg routine</string>
+    <string name="str49">Shoulder and arm routine</string>
+    <string name="str50">Adductor</string>
+    <string name="str51">Inclined Bench</string>
+    <string name="str52">Warm up</string>
+    <string name="str53">Light cardio</string>
+    <string name="str54">Flys</string>
+    <string name="str55">Crunches</string>
+    <string name="str56">Barbell curl</string>
+    <string name="str57">Hamstring Curl</string>
+    <string name="str58">Hammer curl</string>
+    <string name="str59">Calf Raises</string>
+    <string name="str60">Leg Extension</string>
+    <string name="str61">Triceps Extension</string>
+    <string name="str62">Hip Trust</string>
+    <string name="str63">Lat Pulldown</string>
+    <string name="str64">Lat Raises</string>
+    <string name="str65">Planks</string>
+    <string name="str66">Leg Press</string>
+    <string name="str67">Bench Press</string>
+    <string name="str68">French Press</string>
+    <string name="str69">Military Press</string>
+    <string name="str70">Squat</string>
+    <string name="str71">nºSets</string>
+    <string name="str72">nºReps</string>
+    <string name="str73">New Empty Routine</string>
+    <string name="str74">Enter the name of the routine:</string>
+    <string name="str75">Add a brief description to the routine (Max 50 characters):</string>
+    <string name="str76">Name</string>
+    <string name="str77">Description</string>
+    <string name="str78">Accept</string>
+    <string name="str79">Cancel</string>
+    <string name="str80">Personal Routines</string>
+    <string name="str81">These are the personal routines that you have created over time in Fit Pro.</string>
+    <string name="str82">Congratulations!</string>
+    <string name="str83">You have created the new routine</string>
+    <string name="str84">Welcome</string>
+    <string name="str85">Thanks for joining Fit Pro</string>
+    <string name="str86">Add exercise</string>
+    <string name="str87">Eliminate routine</string>
+    <string name="str88">Share routine via SMS</string>
+    <string name="str89">Choose the exercise</string>
+    <string name="str90">Number of sets (1-8):</string>
+    <string name="str91">Number of reps (1-30):</string>
+    <string name="str92">Add</string>
+    <string name="str93">Lat Pushdown</string>
+    <string name="str94">Barbell Row</string>
+    <string name="str95">Seated Row</string>
+    <string name="str96">User</string>
+    <string name="str97">Password</string>
+    <string name="str98">Log in to Fit Pro:</string>
+    <string name="str99">Log In</string>
+    <string name="str100">Explore</string>
+    <string name="str101">Predesigned Workouts.</string>
+    <string name="str102">Create</string>
+    <string name="str103">an empty personal training routine.</string>
+    <string name="str104">See</string>
+    <string name="str105">my personal training routines.</string>
+    <string name="str106">"A routine with that name already exists "</string>
+    <string name="str107">Fit Pro Notification</string>
+    <string name="str108">Wrong Password</string>
+    <string name="str109">New Registred User</string>
+    <string name="str110">Routine:</string>
+    <string name="str111">Routine of</string>
+
+
+</resources>

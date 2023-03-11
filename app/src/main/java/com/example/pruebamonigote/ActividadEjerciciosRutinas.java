@@ -54,7 +54,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
                 String line = reader.readLine();
 
                 if (linea==0){ //nombre de la rutina
-                    tvNombreRutina.setText("Rutina de " + line);
+                    tvNombreRutina.setText(tvNombreRutina.getText().toString()+" " + line);
 
                 }else if(linea==1){ // descripcion de la rutina
                     //tvDescripcionRutina.setText(line);

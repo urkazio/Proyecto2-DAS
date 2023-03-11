@@ -1,6 +1,6 @@
 logo,Tracciones,Rutina de tracciones enfocadas en trapecios dorsales y biceps.
 logo,Empujes,Rutina de empujes enfocadas en pectoral hombro y triceps.
 logo,G-A-P,Rutina de Gluteos Abdominales y Pierna.
-logo,FullBody,Rutina de cuerpo completo.
+logo,Cuerpo Completo,Rutina con ejercicios de cada grupo muscular.
 logo,Pierna,Rutina completa de pierna.
 logo,Hombro Brazo,Rutina enfocada en deltoides biceps y triceps.

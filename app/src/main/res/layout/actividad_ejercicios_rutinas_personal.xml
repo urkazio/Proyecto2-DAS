@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="38dp"
-        android:text="Rutina de xxx"
+        android:text="@string/str110"
         android:textSize="32sp" />
 
     <TextView
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="38dp"
         android:layout_marginTop="10dp"
-        android:text="Estas son las rutinas prediseñadas que hemos preparado para ti." />
+        android:text="PLACEHOLDERRRRRRRRRRR" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -52,7 +52,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/round_btn_naranja"
             android:onClick="annadirEjercicio"
-            android:text="AÑADIR EJERCICIO"
+            android:text="@string/str86"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -68,7 +68,7 @@
             android:layout_marginVertical="10dp"
             android:background="@drawable/round_btn_naranja"
             android:onClick="eliminarRutina"
-            android:text="ELIMINAR RUTINA"
+            android:text="@string/str87"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +85,7 @@
         android:layout_gravity="center"
         android:background="@drawable/round_btn_blanco"
         android:onClick="compartirRutinaSMS"
-        android:text="COMPARTIR RUTINA POR SMS"
+        android:text="@string/str88"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"

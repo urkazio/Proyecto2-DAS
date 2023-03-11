@@ -1,0 +1,11 @@
+Pushes
+Push routine focused on pectoral and shoulder and triceps work.
+Light Cardio,1,5-10 min.,cardioligero
+Bench Press,5,10,pressbanca
+Inclined Bench,4,10,bancainclinado
+Flys,4,15,cruces
+Military Press,4,10-12,pressmilitar
+Lat Raises,4,12-15,laterales
+French Press,4,10,pressfrances
+Triceps Extenesion,4,12-15,extensiontriceps
+Back to Calm,1,5-10 min.,cardioligero

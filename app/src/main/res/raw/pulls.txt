@@ -1,0 +1,10 @@
+Pulls
+Traction routine focused on upper back and biceps.
+Light Cardio,1,5-10 min.,cardioligero
+Barbell Row,4,10,remoconbarra
+Seated Row,4,12,remogironda
+Lat Pushdown,4,10,jalonalpecho
+Lat Pulldown,4,12-15,dorsalenpolea
+Barbell Curl,4,10,curlbarra
+Hammer Curl,4,15,curlmartillo
+Back to Calm,1,5-10 min.,cardioligero

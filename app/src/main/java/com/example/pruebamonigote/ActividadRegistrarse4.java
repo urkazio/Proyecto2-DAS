@@ -9,6 +9,7 @@ import android.app.NotificationManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -19,6 +20,8 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.util.Locale;
 
 public class ActividadRegistrarse4 extends AppCompatActivity {
 
@@ -45,6 +48,35 @@ public class ActividadRegistrarse4 extends AppCompatActivity {
         editAltura.setFilters(new InputFilter[] { new InputFilter.LengthFilter(3) }); //limitar a 3 caracteres
 
     }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
+        savedInstanceState.putString("idioma", idioma);
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
+        super.onRestoreInstanceState(savedInstanceState);
+        String idioma = savedInstanceState.getString("idioma");
+
+        Locale nuevaloc = new Locale(idioma);
+        Locale.setDefault(nuevaloc);
+        Configuration configuration = getBaseContext().getResources().getConfiguration();
+        configuration.setLocale(nuevaloc);
+        configuration.setLayoutDirection(nuevaloc);
+
+        //actualizar la configuración de todos los recursos de la aplicación mediante el método updateConfiguration
+        Context context = getBaseContext().createConfigurationContext(configuration);
+        getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
+
+        // recargar de nuevo la actividad para que tambien tenga efecto en la actividad actual
+        finish();
+        startActivity(getIntent());
+    }
+
     public void finalizar(View v) {
 
         String User="";
@@ -107,9 +139,9 @@ public class ActividadRegistrarse4 extends AppCompatActivity {
             //Definicion de la alerta personalizada al ganar
             builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
                     .setSmallIcon(R.drawable.logo)
-                    .setContentTitle("Notificacion de Fit Pro")
-                    .setSubText("Usuario Registrado")
-                    .setContentText("Bienvenido! Hola " +User+ ", gracias por unirte a Fit Pro")
+                    .setContentTitle(""+R.string.str107)
+                    .setSubText(""+R.string.str108)
+                    .setContentText(R.string.str84+ " " +User+ "! "+R.string.str85)
                     .setAutoCancel(true);
 
 
