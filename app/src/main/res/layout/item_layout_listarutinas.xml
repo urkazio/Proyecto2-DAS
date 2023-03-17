@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#00FFFFFF">
 
     <androidx.cardview.widget.CardView
         android:layout_width="354dp"
         android:layout_height="132dp"
-        app:cardBackgroundColor="@color/naranjaClaro"
+        app:cardBackgroundColor="#00FF6800"
         app:cardCornerRadius="0dp"
         app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

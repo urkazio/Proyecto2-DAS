@@ -32,6 +32,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/elreciclerview"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:layout_margin="10pt"
         android:clipToPadding="true"
