@@ -47,7 +47,7 @@ public class ActividadLoginRegistro extends AppCompatActivity {
 
 
     public void comenzar(View v){
-          Intent intent = new Intent(this, ActividadRegistrarse1.class);
+          Intent intent = new Intent(this, ActividadRegistrarse.class);
           startActivity(intent);
     }
 

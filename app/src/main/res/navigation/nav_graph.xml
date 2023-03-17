@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentoRegistro1">
+
+    <fragment
+        android:id="@+id/fragmentoRegistro1"
+        android:name="com.example.pruebamonigote.FragmentoRegistro1"
+        android:label="fragmento_registro1"
+        tools:layout="@layout/fragmento_registro1" >
+        <action
+            android:id="@+id/action_fragmentoRegistro1_to_fragmentoRegistro2"
+            app:destination="@id/fragmentoRegistro2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentoRegistro2"
+        android:name="com.example.pruebamonigote.FragmentoRegistro2"
+        android:label="fragmento_registro2"
+        tools:layout="@layout/fragmento_registro2" >
+        <action
+            android:id="@+id/action_fragmentoRegistro2_to_fragmentoRegistro3"
+            app:destination="@id/fragmentoRegistro3" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentoRegistro3"
+        android:name="com.example.pruebamonigote.FragmentoRegistro3"
+        android:label="fragmento_registro3"
+        tools:layout="@layout/fragmento_registro3" >
+        <action
+            android:id="@+id/action_fragmentoRegistro3_to_fragmentoRegistro4"
+            app:destination="@id/fragmentoRegistro4" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentoRegistro4"
+        android:name="com.example.pruebamonigote.FragmentoRegistro4"
+        android:label="fragmento_registro4"
+        tools:layout="@layout/fragmento_registro4" />
+</navigation>

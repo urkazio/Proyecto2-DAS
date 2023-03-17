@@ -142,6 +142,8 @@
     <string name="str109">Nuevo Usuario Registrado</string>
     <string name="str110">Rutina:</string>
     <string name="str111">Rutina de</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
