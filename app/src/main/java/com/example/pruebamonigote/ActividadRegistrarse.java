@@ -11,10 +11,13 @@ import java.util.Locale;
 
 public class ActividadRegistrarse extends AppCompatActivity {
 
+    public static ActividadRegistrarse actividadregistrarse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_registrarse);
+        actividadregistrarse = this;
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {

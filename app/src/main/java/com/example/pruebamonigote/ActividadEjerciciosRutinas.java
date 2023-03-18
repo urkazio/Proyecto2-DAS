@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class ActividadEjerciciosRutinas extends AppCompatActivity {
 
     TextView tvNombreRutina;
-    //TextView tvDescripcionRutina;
+    TextView tvDescripcionRutina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
         RecyclerView lalista= findViewById(R.id.elreciclerview);
 
         tvNombreRutina = findViewById(R.id.tvRutinasPers);
-        //tvDescripcionRutina = findViewById(R.id.tvDescrRut);
+        tvDescripcionRutina = findViewById(R.id.tvDescrRutPers);
 
         ArrayList<Integer> imagenes = new ArrayList<Integer>();
         ArrayList<String> ejercicios = new ArrayList<String>();
@@ -57,7 +57,7 @@ public class ActividadEjerciciosRutinas extends AppCompatActivity {
                     tvNombreRutina.setText(tvNombreRutina.getText().toString()+" " + line);
 
                 }else if(linea==1){ // descripcion de la rutina
-                    //tvDescripcionRutina.setText(line);
+                    tvDescripcionRutina.setText(line);
 
                 }else{ //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
 

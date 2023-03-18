@@ -1,9 +1,13 @@
 package com.example.pruebamonigote;
 
+import android.content.Context;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -25,7 +29,6 @@ public class FragmentoRegistro1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragmento_registro1, container, false);
-
     }
 
     @Override
@@ -40,4 +43,5 @@ public class FragmentoRegistro1 extends Fragment {
             }
         });
     }
+
 }

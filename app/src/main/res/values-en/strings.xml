@@ -6,6 +6,16 @@
         <item>@string/str17</item>
     </string-array>
 
+    <string-array name="codigoIdiomas">
+        <item>es</item>
+        <item>en</item>
+    </string-array>
+
+    <string-array name="idiomas">
+        <item>@string/str120</item>
+        <item>@string/str121</item>
+    </string-array>
+
     <string-array name="ejercicios">
         <item>@string/str50</item>
         <item>@string/str51</item>
@@ -150,6 +160,11 @@
     <string name="str117">Hi</string>
     <string name="str118">"Enter the recipient's phone number: "</string>
     <string name="str119">" The user does not exist"</string>
+    <string name="str120">Spanish</string>
+    <string name="str121">English</string>
+    <string name="str122">"Choose the app language "</string>
+    <string name="str123">"Preference has been saved "</string>
+    <string name="str125">" That username has already been used"</string>
 
 
 </resources>

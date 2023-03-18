@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/backgroundlandmain"
+    android:paddingTop="10dp"
+    tools:context=".ActividadEjerciciosRutinasPersonal">
+
+
+    <LinearLayout
+        android:layout_width="316dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="50dp"
+        android:paddingLeft="50dp"
+        android:paddingTop="50dp">
+
+        <TextView
+            android:id="@+id/tvRutinasPers"
+            style="@style/f_n_m_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="@string/str110"
+            android:textSize="32sp"
+            tools:layout_conversion_absoluteHeight="43dp"
+            tools:layout_conversion_absoluteWidth="342dp"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="38dp" />
+
+        <TextView
+            android:id="@+id/tvDescrRutPers"
+            style="@style/f_gc_s_b"
+            android:layout_width="217dp"
+            android:layout_height="63dp"
+            android:text="@string/str30"
+            tools:layout_conversion_absoluteHeight="43dp"
+            tools:layout_conversion_absoluteWidth="326dp"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="91dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="216dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnCompartirSMS"
+                android:layout_width="215dp"
+                android:layout_height="31dp"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/round_btn_blanco"
+                android:onClick="compartirRutinaSMS"
+                android:text="@string/str88"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="2dp" />
+
+            <Button
+                android:id="@+id/btnAnndirEjer"
+                android:layout_width="213dp"
+                android:layout_height="31dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/round_btn_naranja"
+                android:onClick="annadirEjercicio"
+                android:text="@string/str86"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/btnEliminarRut"
+                tools:layout_editor_absoluteX="2dp" />
+
+            <Button
+                android:id="@+id/btnEliminarRut"
+                android:layout_width="213dp"
+                android:layout_height="31dp"
+                android:layout_marginVertical="10dp"
+                android:background="@drawable/round_btn_naranja"
+                android:onClick="eliminarRutina"
+                android:text="@string/str87"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/btnCompartirSMS"
+                tools:layout_editor_absoluteX="2dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/elreciclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true"
+        android:scrollbars="vertical"
+        tools:layout_conversion_absoluteHeight="194dp"
+        tools:layout_conversion_absoluteWidth="40dp"
+        tools:layout_editor_absoluteX="346dp"
+        tools:layout_editor_absoluteY="157dp" />
+
+</LinearLayout>
+

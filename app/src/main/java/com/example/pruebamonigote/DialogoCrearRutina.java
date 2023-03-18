@@ -57,9 +57,9 @@ public class DialogoCrearRutina {
         // Añadir un EditText para insertar el "Título"
         final EditText titleBox = new EditText(context);
         titleBox.setHint(R.string.str76);
-        titleBox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(12) }); //limitar a 12 caracteres
         titleBox.setPadding(100,20,100,40);
         //añadir restriccion para solo permitir caracteres a-z y A-Z
+
         titleBox.setFilters(new InputFilter[]{
                 new InputFilter() {
                     public CharSequence filter(CharSequence src, int start,
@@ -72,8 +72,10 @@ public class DialogoCrearRutina {
                         }
                         return "";
                     }
-                }
+                },
+                new InputFilter.LengthFilter(12) //limitar a 12 caracteres
         });
+
         layout.addView(titleBox); // Por ultimo se añade a la vista
 
 
@@ -88,7 +90,6 @@ public class DialogoCrearRutina {
 
         // Añadir otro EditText para la insertar el "Descripción"
         final EditText descriptionBox = new EditText(context);
-        descriptionBox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(50) }); //limitar a 50 caracteres
         descriptionBox.setHint(R.string.str77);
         descriptionBox.setPadding(100,20,100,40);
         //añadir restriccion para solo permitir caracteres a-z y A-Z
@@ -104,7 +105,8 @@ public class DialogoCrearRutina {
                         }
                         return "";
                     }
-                }
+                },
+                new InputFilter.LengthFilter(50) //limitar a 50 caracteres
         });
         layout.addView(descriptionBox); // Por ultimo se añade a la vista
 

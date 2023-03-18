@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <PreferenceCategory
+        app:key="cat_datos_personales"
+        app:title="Datos Personales">
+
+    <ListPreference
+        app:dialogTitle="@string/str121"
+        app:entries="@array/idiomas"
+        app:entryValues="@array/codigoIdiomas"
+        app:key="idioma"
+        app:summary="@string/str121"
+        app:title="@string/str1" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

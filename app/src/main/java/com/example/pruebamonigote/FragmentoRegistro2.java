@@ -71,7 +71,7 @@ public class FragmentoRegistro2 extends Fragment {
 
                     if (c.moveToFirst()){
 
-                        Toast.makeText(getActivity(), "Ese nombre de usuario ya ha sido usado", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), R.string.str115, Toast.LENGTH_LONG).show();
 
                     }else{
                         Bundle bundle = new Bundle();
@@ -85,7 +85,7 @@ public class FragmentoRegistro2 extends Fragment {
 
                 }else{
 
-                    Toast.makeText(getActivity(), "Hay campos vacios o las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), R.string.str14, Toast.LENGTH_LONG).show();
                 }
 
             }

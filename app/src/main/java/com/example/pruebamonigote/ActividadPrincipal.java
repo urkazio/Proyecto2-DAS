@@ -30,6 +30,7 @@ public class ActividadPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_principal);
+        ActividadRegistrarse.actividadregistrarse.finish();
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {

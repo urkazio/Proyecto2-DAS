@@ -6,6 +6,16 @@
         <item>@string/str17</item>
     </string-array>
 
+    <string-array name="codigoIdiomas">
+        <item>es</item>
+        <item>en</item>
+    </string-array>
+
+    <string-array name="idiomas">
+        <item>@string/str120</item>
+        <item>@string/str121</item>
+    </string-array>
+
     <string-array name="ejercicios">
         <item>@string/str50</item>
         <item>@string/str51</item>
@@ -150,6 +160,13 @@
     <string name="str117">Hola</string>
     <string name="str118">Introduce el número de teléfono del destinatario:</string>
     <string name="str119">No existe el  usuario</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str120">Castellano</string>
+    <string name="str121">Inglés</string>
+    <string name="str122">Elige el idioma de la app</string>
+    <string name="str123">Se ha guardado la preferencia</string>
+    <string name="str125">Ese nombre de usuario ya ha sido usado</string>
 
 
 </resources>

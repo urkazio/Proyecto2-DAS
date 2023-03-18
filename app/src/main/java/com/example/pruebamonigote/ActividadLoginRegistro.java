@@ -11,7 +11,7 @@ import android.view.View;
 import java.util.Locale;
 
 public class ActividadLoginRegistro extends AppCompatActivity {
-    String idioma= "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +22,11 @@ public class ActividadLoginRegistro extends AppCompatActivity {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
+        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
         savedInstanceState.putString("idioma", idioma);
     }
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
 
         // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
         super.onRestoreInstanceState(savedInstanceState);
@@ -47,8 +49,8 @@ public class ActividadLoginRegistro extends AppCompatActivity {
 
 
     public void comenzar(View v){
-          Intent intent = new Intent(this, ActividadRegistrarse.class);
-          startActivity(intent);
+        Intent intent = new Intent(this, ActividadRegistrarse.class);
+        startActivity(intent);
     }
 
     public void tengoCuenta(View v){
@@ -56,8 +58,7 @@ public class ActividadLoginRegistro extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void idiomaIngles(View v){
-
+    public void idiomaIngles(View v) {
         // definir una nueva localización mediante el código de dos letras
         // del idioma y crear una nueva configuración para la aplicación
         Locale nuevaloc = new Locale("en");
@@ -76,7 +77,6 @@ public class ActividadLoginRegistro extends AppCompatActivity {
     }
 
     public void idiomaEspañol(View v){
-
         // definir una nueva localización mediante el código de dos letras
         // del idioma y crear una nueva configuración para la aplicación
         Locale nuevaloc = new Locale("es");
