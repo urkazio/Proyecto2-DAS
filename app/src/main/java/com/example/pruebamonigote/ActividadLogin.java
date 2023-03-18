@@ -73,9 +73,12 @@ public class ActividadLogin extends AppCompatActivity {
         String[] argumentos = new String[]{user};
         Cursor c = bd.query("Usuarios", campos, "Usuario=?", argumentos, null, null, null);
 
-        if (c.moveToFirst()) {
-            String contraseña = c.getString(0);
+        // si el resultado es vacio significa que no hay user con ese nombre
+        if (c.getCount()==0){
+            Toast.makeText(this, R.string.str119, Toast.LENGTH_LONG).show();
 
+        }else if (c.moveToFirst()) {
+            String contraseña = c.getString(0);
 
             if (contraseña.equals(pass)) {
 
@@ -89,6 +92,7 @@ public class ActividadLogin extends AppCompatActivity {
             }
 
         }
+
         c.close();
         bd.close();
     }

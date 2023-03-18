@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,24 +31,24 @@ public class ActividadPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_principal);
 
-        // importar android Manifest
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
-        }
-
-        // crear el fichero interno "Nombreuser.txt" para que posteriormente el usuario pueda añadir rutinas
-        // path --> /app/app/com.example.pruebamonigote/files/Nombreuser.txt
-        // obtener el nombre de usuario de la base de datos para que cada user tenga un fichero dedicado
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             user = extras.getString("User");
         }
 
         Context context = this;
-        System.out.println("Existe:"+fileExist(user+".txt"));
 
-        // crear el fichero que contiene el indice de las rutinas creadas por el usuario 'user' en caso de no existir
+        // pedir el permiso para pedir notifiaciones
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
+        }
+
+        TextView tvRutinasPers = findViewById(R.id.tvRutinasPers);
+        tvRutinasPers.setText(getString(R.string.str117)+" "+user+"! "+getString(R.string.str25));
+
+
+        // crear el fichero "Nombreuser.txt" que contiene el indice de las rutinas creadas por el usuario 'user' en caso de no existir
+        // path --> /app/app/com.example.pruebamonigote/files/Nombreuser.txt
         if (!fileExist(user+".txt")){
             try {
                 OutputStreamWriter fichero = new OutputStreamWriter(context.openFileOutput(user+".txt", Context.MODE_PRIVATE));

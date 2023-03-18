@@ -147,7 +147,6 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="132dp"
         android:text="@string/str25"
-
         android:textAlignment="textStart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -199,9 +199,9 @@ public class DialogoCrearRutina {
                             //Definicion de la alerta personalizada al ganar
                             builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
                                     .setSmallIcon(R.drawable.logo)
-                                    .setContentTitle(""+R.string.str107)
-                                    .setSubText(""+R.string.str75)
-                                    .setContentText(R.string.str84+" "+R.string.str85+" " +nombreRut)
+                                    .setContentTitle(context.getString(R.string.str107))
+                                    .setSubText(context.getString(R.string.str113))
+                                    .setContentText(context.getString(R.string.str82)+" "+context.getString(R.string.str83)+" " +nombreRut)
                                     .setAutoCancel(true);
 
 

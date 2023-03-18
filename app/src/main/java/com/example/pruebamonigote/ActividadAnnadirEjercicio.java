@@ -85,7 +85,7 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
 
         if (numRepes.equals("") || numSeries.equals("")){
 
-            Toast.makeText(this, "No puede haber campos vacios", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.str19), Toast.LENGTH_LONG).show();
 
         }else{
 

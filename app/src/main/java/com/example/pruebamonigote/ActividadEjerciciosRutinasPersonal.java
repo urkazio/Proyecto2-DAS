@@ -38,7 +38,7 @@ import java.util.Locale;
 public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
     TextView tvNombreRutina;
-    //TextView tvDescripcionRutina;
+    TextView tvDescripcionRutina;
     String nombreRutina = "";
     String descripcionRutina = "";
     String nombrefichero = "";
@@ -51,7 +51,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         RecyclerView lalista= findViewById(R.id.elreciclerview);
 
         tvNombreRutina = findViewById(R.id.tvRutinasPers);
-        //tvDescripcionRutina = findViewById(R.id.tvDescrRut);
+        tvDescripcionRutina = findViewById(R.id.tvDescrRutPers);
 
         ArrayList<Integer> imagenes = new ArrayList<Integer>();
         ArrayList<String> ejercicios = new ArrayList<String>();
@@ -72,7 +72,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         }
 
         tvNombreRutina.setText(tvNombreRutina.getText().toString()+" " + nombreRutina);
-        //tvDescripcionRutina.setText(line);
+        tvDescripcionRutina.setText(descripcionRutina);
 
 
         try {
@@ -220,7 +220,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        dialog.setTitle("   Añadir número del destinatario");
+        dialog.setTitle(getString(R.string.str114));
         dialog.setIcon(R.drawable.logo);
         dialog.setCancelable(false);
 
@@ -230,13 +230,13 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
          ####################################################**/
         // Añadir un TextView para indicar que se debe insertar el "Título"
         final TextView tvTelf = new TextView(context);
-        tvTelf.setText("Introduce el número de teléfono del destinatario:");
+        tvTelf.setText(getString(R.string.str118));
         tvTelf.setPadding(100,80,100,20);
         layout.addView(tvTelf); // Se añade a la vista
 
         // Añadir un EditText para insertar el "Telefono"
         final EditText telfbox = new EditText(context);
-        telfbox.setHint("Numero de Teléfono");
+        telfbox.setHint(R.string.str115);
         telfbox.setInputType(InputType.TYPE_CLASS_NUMBER);
         telfbox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(9) }); //limitar a 9 caracteres
         telfbox.setPadding(100,20,100,40);
@@ -249,7 +249,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         String telefono = "666666666";
         final String[] sms = {""};
 
-        dialog.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+        dialog.setPositiveButton(R.string.str78, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String telefono = telfbox.getText().toString();
@@ -258,7 +258,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
                 if (telefono.equals("")) {
 
                     // si el nombre es vacio se indica por toast y se vuelve a abrir el dialogo
-                    Toast.makeText(context, "El campo no puede estar vacio", Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, R.string.str19, Toast.LENGTH_LONG).show();
                     compartirRutinaSMS(v);
 
                 }else{
@@ -283,7 +283,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
                             String numSerie = elem [1];
                             String numRepe = elem [2];
                             int numEjer = linea-1;
-                            sms[0] += "Ejercicio"+numEjer+": "+ejercicio+ " --> nºSeries: "+numSerie+" & nºRepes: "+numRepe+"\n";
+                            sms[0] += getString(R.string.str116)+numEjer+": "+ejercicio+ " --> "+getString(R.string.str71)+"+: "+numSerie+" & "+getString(R.string.str72)+": "+numRepe+"\n";
 
                             //actualizar el contador de linea para saber por donde vamos
                             linea++;
@@ -305,7 +305,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         });
 
 
-        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton(R.string.str79, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();

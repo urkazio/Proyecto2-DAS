@@ -142,6 +142,14 @@
     <string name="str109">New Registred User</string>
     <string name="str110">Routine:</string>
     <string name="str111">Routine of</string>
+    <string name="str112">New user</string>
+    <string name="str113">New routine</string>
+    <string name="str114">"Add recipient number "</string>
+    <string name="str115">Phone Number</string>
+    <string name="str116">Exercise</string>
+    <string name="str117">Hi</string>
+    <string name="str118">"Enter the recipient's phone number: "</string>
+    <string name="str119">" The user does not exist"</string>
 
 
 </resources>
