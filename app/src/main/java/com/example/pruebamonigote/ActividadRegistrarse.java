@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -18,7 +19,8 @@ import java.util.Locale;
 
 public class ActividadRegistrarse extends AppCompatActivity {
 
-    FragmentManager fm;
+    private Context c = this;
+    private Activity a = this;
 
     public static ActividadRegistrarse actividadregistrarse;
 
@@ -36,8 +38,6 @@ public class ActividadRegistrarse extends AppCompatActivity {
         } else {
 
         }
-
-
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -48,9 +48,6 @@ public class ActividadRegistrarse extends AppCompatActivity {
 
 
         //obtener los valores a guardar
-        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
-        System.out.println("idioma recuperado:" +idioma);
-
         EditText edUser = findViewById(R.id.editUser);
         EditText edPass1 = findViewById(R.id.editPass);
         EditText edPass2 = findViewById(R.id.editPass2);
@@ -59,7 +56,7 @@ public class ActividadRegistrarse extends AppCompatActivity {
         EditText edAltura = findViewById(R.id.editAltura);
 
         //guardar los valores obtenidos
-        savedInstanceState.putString("idioma", idioma);
+        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
         if (edUser!=null){
             savedInstanceState.putString("user",edUser.getText().toString());
         }if (edPass1!=null){
@@ -79,7 +76,6 @@ public class ActividadRegistrarse extends AppCompatActivity {
         // recuperar los valores guardados antes de destruir la actividad y aplicarlos
         super.onRestoreInstanceState(savedInstanceState);
 
-
         String idioma = savedInstanceState.getString("idioma");
         String user = savedInstanceState.getString("user");
         String pass = savedInstanceState.getString("pass");
@@ -87,8 +83,6 @@ public class ActividadRegistrarse extends AppCompatActivity {
         String edad = savedInstanceState.getString("edad");
         String peso = savedInstanceState.getString("peso");
         String altura = savedInstanceState.getString("altura");
-
-        System.out.println("idioma recuperado:" +idioma);
 
 
         //voler a establecer los valores guardados en los editext correspondientes
@@ -113,20 +107,7 @@ public class ActividadRegistrarse extends AppCompatActivity {
             edAltura.setText(altura);
         }
 
-        //aplicar de nuevo el idioma guardado antes de destruir
-        Locale nuevaloc = new Locale(idioma);
-        Locale.setDefault(nuevaloc);
-        Configuration configuration = getBaseContext().getResources().getConfiguration();
-        configuration.setLocale(nuevaloc);
-        configuration.setLayoutDirection(nuevaloc);
-
-        //actualizar la configuración de todos los recursos de la aplicación mediante el método updateConfiguration
-        Context context = getBaseContext().createConfigurationContext(configuration);
-        getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
-
-        // recargar de nuevo la actividad para que tambien tenga efecto en la actividad actual
-        finish();
-        startActivity(getIntent());
+        GestorIdiomas.cambiarIdioma(idioma,c,a);
     }
 
 

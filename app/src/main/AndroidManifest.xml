@@ -14,9 +14,11 @@
         android:theme="@style/Theme.PruebaMonigote"
         tools:targetApi="31">
         <activity
+            android:name=".GestorIdiomas"
+            android:exported="false" />
+        <activity
             android:name=".ActividadRegistrarse"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".ActividadEjerciciosRutinasPersonal"
             android:exported="false" />

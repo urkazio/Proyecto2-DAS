@@ -168,6 +168,7 @@
     <string name="str123">Se ha guardado la preferencia</string>
     <string name="str125">Ese nombre de usuario ya ha sido usado</string>
     <string name="str126">Preferencia guardada</string>
+    <string name="str127">Preferencias cargadas</string>
 
 
 </resources>

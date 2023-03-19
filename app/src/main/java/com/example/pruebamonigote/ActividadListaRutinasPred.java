@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 
 import java.io.BufferedReader;
@@ -15,7 +17,8 @@ import java.util.Locale;
 
 public class ActividadListaRutinasPred extends AppCompatActivity {
 
-
+    private Context c = this;
+    private Activity a = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,5 +79,19 @@ public class ActividadListaRutinasPred extends AppCompatActivity {
         LinearLayoutManager elLayoutLineal= new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         lalista.setLayoutManager(elLayoutLineal);
 
+    }
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
+        super.onRestoreInstanceState(savedInstanceState);
+        String idioma = savedInstanceState.getString("idioma");
+        GestorIdiomas.cambiarIdioma(idioma,c,a);
     }
 }

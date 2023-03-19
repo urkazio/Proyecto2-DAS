@@ -2,6 +2,7 @@ package com.example.pruebamonigote;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -19,6 +20,8 @@ public class ActividadLogin extends AppCompatActivity {
 
     EditText editPass;
     public static ActividadLogin actividadLogin;
+    private Context c = this;
+    private Activity a = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,28 +37,15 @@ public class ActividadLogin extends AppCompatActivity {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        String idioma = getResources().getConfiguration().getLocales().get(0).toString();
-        savedInstanceState.putString("idioma", idioma);
+        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+
     }
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
         // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
         super.onRestoreInstanceState(savedInstanceState);
         String idioma = savedInstanceState.getString("idioma");
-
-        Locale nuevaloc = new Locale(idioma);
-        Locale.setDefault(nuevaloc);
-        Configuration configuration = getBaseContext().getResources().getConfiguration();
-        configuration.setLocale(nuevaloc);
-        configuration.setLayoutDirection(nuevaloc);
-
-        //actualizar la configuración de todos los recursos de la aplicación mediante el método updateConfiguration
-        Context context = getBaseContext().createConfigurationContext(configuration);
-        getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
-
-        // recargar de nuevo la actividad para que tambien tenga efecto en la actividad actual
-        finish();
-        startActivity(getIntent());
+        GestorIdiomas.cambiarIdioma(idioma,c,a);
     }
 
     public void logearse(View v) {

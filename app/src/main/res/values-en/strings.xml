@@ -166,6 +166,7 @@
     <string name="str123">"Preference has been saved "</string>
     <string name="str125">" That username has already been used"</string>
     <string name="str126">Saved preference</string>
+    <string name="str127">Loaded preferences</string>
 
 
 </resources>
