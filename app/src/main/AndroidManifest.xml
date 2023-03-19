@@ -16,7 +16,7 @@
         <activity
             android:name=".ActividadRegistrarse"
             android:exported="false"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
+            />
         <activity
             android:name=".ActividadEjerciciosRutinasPersonal"
             android:exported="false" />

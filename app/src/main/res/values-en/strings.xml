@@ -165,6 +165,7 @@
     <string name="str122">"Choose the app language "</string>
     <string name="str123">"Preference has been saved "</string>
     <string name="str125">" That username has already been used"</string>
+    <string name="str126">Saved preference</string>
 
 
 </resources>

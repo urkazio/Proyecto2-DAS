@@ -167,6 +167,7 @@
     <string name="str122">Elige el idioma de la app</string>
     <string name="str123">Se ha guardado la preferencia</string>
     <string name="str125">Ese nombre de usuario ya ha sido usado</string>
+    <string name="str126">Preferencia guardada</string>
 
 
 </resources>

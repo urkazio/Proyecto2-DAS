@@ -1,23 +1,43 @@
 package com.example.pruebamonigote;
 
+import androidx.annotation.ContentView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 
 import java.util.Locale;
 
 public class ActividadRegistrarse extends AppCompatActivity {
 
+    FragmentManager fm;
+
     public static ActividadRegistrarse actividadregistrarse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        View v = this.getWindow().getDecorView().findViewById(android.R.id.content);
+
         setContentView(R.layout.actividad_registrarse);
         actividadregistrarse = this;
+
+        if (savedInstanceState != null) {
+
+        } else {
+
+        }
+
+
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -26,8 +46,11 @@ public class ActividadRegistrarse extends AppCompatActivity {
         // --> tambien guardar todos los editexte pq al rotar se pierden
         super.onSaveInstanceState(savedInstanceState);
 
+
         //obtener los valores a guardar
         String idioma = getResources().getConfiguration().getLocales().get(0).toString();
+        System.out.println("idioma recuperado:" +idioma);
+
         EditText edUser = findViewById(R.id.editUser);
         EditText edPass1 = findViewById(R.id.editPass);
         EditText edPass2 = findViewById(R.id.editPass2);
@@ -37,17 +60,25 @@ public class ActividadRegistrarse extends AppCompatActivity {
 
         //guardar los valores obtenidos
         savedInstanceState.putString("idioma", idioma);
-        savedInstanceState.putString("user",edUser.getText().toString());
-        savedInstanceState.putString("pass",edPass1.getText().toString());
-        savedInstanceState.putString("pass2",edPass2.getText().toString());
-        savedInstanceState.putString("edad",edEdad.getText().toString());
-        savedInstanceState.putString("peso",edPeso.getText().toString());
-        savedInstanceState.putString("altura",edAltura.getText().toString());
+        if (edUser!=null){
+            savedInstanceState.putString("user",edUser.getText().toString());
+        }if (edPass1!=null){
+            savedInstanceState.putString("pass",edPass1.getText().toString());
+        }if (edPass2!=null){
+            savedInstanceState.putString("pass2",edPass2.getText().toString());
+        }if (edEdad!=null){
+            savedInstanceState.putString("edad",edEdad.getText().toString());
+        }if (edPeso!=null){
+            savedInstanceState.putString("peso",edPeso.getText().toString());
+        }if (edAltura!=null){
+            savedInstanceState.putString("altura",edAltura.getText().toString());
+        }
     }
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
         // recuperar los valores guardados antes de destruir la actividad y aplicarlos
         super.onRestoreInstanceState(savedInstanceState);
+
 
         String idioma = savedInstanceState.getString("idioma");
         String user = savedInstanceState.getString("user");
@@ -57,19 +88,30 @@ public class ActividadRegistrarse extends AppCompatActivity {
         String peso = savedInstanceState.getString("peso");
         String altura = savedInstanceState.getString("altura");
 
+        System.out.println("idioma recuperado:" +idioma);
+
+
         //voler a establecer los valores guardados en los editext correspondientes
         EditText edUser = findViewById(R.id.editUser);
-        edUser.setText(user);
         EditText edPass1 = findViewById(R.id.editPass);
-        edPass1.setText(pass);
         EditText edPass2 = findViewById(R.id.editPass2);
-        edPass2.setText(pass2);
         EditText edEdad = findViewById(R.id.editEdad);
-        edEdad.setText(edad);
         EditText edPeso = findViewById(R.id.editPeso);
-        edPeso.setText(peso);
         EditText edAltura = findViewById(R.id.editAltura);
-        edAltura.setText(altura);
+
+        if (edUser!=null){
+            edUser.setText(user);
+        }if (edPass1!=null){
+            edPass1.setText(pass);
+        }if (edPass2!=null){
+            edPass2.setText(pass2);
+        }if (edEdad!=null){
+            edEdad.setText(edad);
+        }if (edPeso!=null){
+            edPeso.setText(peso);
+        }if (edAltura!=null){
+            edAltura.setText(altura);
+        }
 
         //aplicar de nuevo el idioma guardado antes de destruir
         Locale nuevaloc = new Locale(idioma);
@@ -86,4 +128,6 @@ public class ActividadRegistrarse extends AppCompatActivity {
         finish();
         startActivity(getIntent());
     }
+
+
 }
