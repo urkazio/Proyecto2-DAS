@@ -33,20 +33,6 @@ public class ActividadLogin extends AppCompatActivity {
         editPass = findViewById(R.id.editPassLogin);
         editPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
-        // por defecto el idioma predetermionado y no el elegido por el usuario
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-
-    }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        String idioma = savedInstanceState.getString("idioma");
-        GestorIdiomas.cambiarIdioma(idioma,c,a);
-    }
 
     public void logearse(View v) {
         //Identificarse contra la base de datos
@@ -85,5 +71,23 @@ public class ActividadLogin extends AppCompatActivity {
 
         c.close();
         bd.close();
+    }
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        if (GestorIdiomas.storeLang!=null){
+            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+        }
+
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
+        super.onRestoreInstanceState(savedInstanceState);
+        if (GestorIdiomas.storeLang!=null){
+            String idioma = savedInstanceState.getString("idioma");
+            GestorIdiomas.cambiarIdioma(idioma,c,a);
+        }
     }
 }

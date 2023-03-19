@@ -9,6 +9,51 @@
     android:onClick="ver"
     tools:context=".ActividadPrincipal">
 
+    <TextView
+        android:id="@+id/tvIdioma"
+        style="@style/f_gc_s_b"
+        android:layout_width="98dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/str1"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnEspañol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.972"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnEspañol"
+        android:layout_width="63dp"
+        android:layout_height="24dp"
+        android:background="@drawable/round_btn_blanco"
+        android:onClick="idiomaEspañol"
+        android:text="ES"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <Button
+        android:id="@+id/btnIngles"
+        android:layout_width="63dp"
+        android:layout_height="24dp"
+        android:background="@drawable/round_btn_blanco"
+        android:onClick="idiomaIngles"
+        android:text="EN"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
+
     <ImageButton
         android:id="@+id/imageButton4"
         android:layout_width="346dp"

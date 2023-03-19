@@ -120,21 +120,6 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
     }
 
-    protected void onSaveInstanceState(Bundle savedInstanceState) {
-        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
-        // por defecto el idioma predetermionado y no el elegido por el usuario
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-
-    }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        String idioma = savedInstanceState.getString("idioma");
-        GestorIdiomas.cambiarIdioma(idioma,c,a);
-    }
-
     public void annadirEjercicio (View v){
         Intent intent = new Intent(v.getContext(),ActividadAnnadirEjercicio.class);
         intent.putExtra("ficheroRutina",nombrefichero);
@@ -305,5 +290,23 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         dialog.setView(layout); // Añadir el layout completo del dialogo al dialogo
         dialog.show(); // Por uultimo, mostrarlo.
 
+    }
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        if (GestorIdiomas.storeLang!=null){
+            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+        }
+
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
+        super.onRestoreInstanceState(savedInstanceState);
+        if (GestorIdiomas.storeLang!=null){
+            String idioma = savedInstanceState.getString("idioma");
+            GestorIdiomas.cambiarIdioma(idioma,c,a);
+        }
     }
 }

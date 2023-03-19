@@ -33,7 +33,11 @@ public class ActividadPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_principal);
-        ActividadRegistrarse.actividadregistrarse.finish();
+
+        //en caso de venir de la actividad registrarse cerrarla
+        if (ActividadRegistrarse.actividadregistrarse!=null){
+            ActividadRegistrarse.actividadregistrarse.finish();
+        }
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -65,15 +69,20 @@ public class ActividadPrincipal extends AppCompatActivity {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+        if (GestorIdiomas.storeLang!=null){
+            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+        }
 
     }
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
         // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
         super.onRestoreInstanceState(savedInstanceState);
-        String idioma = savedInstanceState.getString("idioma");
-        GestorIdiomas.cambiarIdioma(idioma,c,a);
+        if (GestorIdiomas.storeLang!=null){
+            String idioma = savedInstanceState.getString("idioma");
+            GestorIdiomas.cambiarIdioma(idioma,c,a);
+        }
+
     }
 
     public boolean fileExist(String fname){
@@ -107,5 +116,15 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
     }
 
+    public void idiomaIngles(View v) {
+        GestorIdiomas.storeLang="en";
+        GestorIdiomas.cambiarIdioma("en",c,a);
+        GestorIdiomas.guardarPreferencias(c,a);
+    }
+    public void idiomaEspañol(View v) {
+        GestorIdiomas.storeLang="es";
+        GestorIdiomas.cambiarIdioma("es",c,a);
+        GestorIdiomas.guardarPreferencias(c,a);
+    }
 
 }

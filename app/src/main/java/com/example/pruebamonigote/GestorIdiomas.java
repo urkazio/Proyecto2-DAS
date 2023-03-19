@@ -10,7 +10,7 @@ import java.util.Locale;
 
 public class GestorIdiomas {
 
-    public static String storeLang;
+    public static String storeLang = null;
 
     protected void onPostExecute(Context context) {
         Toast.makeText(context, "2", Toast.LENGTH_LONG).show();
@@ -46,6 +46,7 @@ public class GestorIdiomas {
     public static String cargarPreferencias(Context c, Activity a){
         SharedPreferences prfs = c.getSharedPreferences("preferencias", Context.MODE_PRIVATE); //ya esta creado asi que lo abre
         String idioma = prfs.getString("idiomapref", "es");
+        storeLang = idioma;
         cambiarIdioma(idioma, c, a);
         return idioma;
     }

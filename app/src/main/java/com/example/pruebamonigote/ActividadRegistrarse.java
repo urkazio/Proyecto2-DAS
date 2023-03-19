@@ -56,7 +56,9 @@ public class ActividadRegistrarse extends AppCompatActivity {
         EditText edAltura = findViewById(R.id.editAltura);
 
         //guardar los valores obtenidos
-        savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+        if (GestorIdiomas.storeLang!=null){
+            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
+        }
         if (edUser!=null){
             savedInstanceState.putString("user",edUser.getText().toString());
         }if (edPass1!=null){
@@ -76,7 +78,6 @@ public class ActividadRegistrarse extends AppCompatActivity {
         // recuperar los valores guardados antes de destruir la actividad y aplicarlos
         super.onRestoreInstanceState(savedInstanceState);
 
-        String idioma = savedInstanceState.getString("idioma");
         String user = savedInstanceState.getString("user");
         String pass = savedInstanceState.getString("pass");
         String pass2 = savedInstanceState.getString("pass2");
@@ -107,7 +108,10 @@ public class ActividadRegistrarse extends AppCompatActivity {
             edAltura.setText(altura);
         }
 
-        GestorIdiomas.cambiarIdioma(idioma,c,a);
+        if (GestorIdiomas.storeLang!=null){
+            String idioma = savedInstanceState.getString("idioma");
+            GestorIdiomas.cambiarIdioma(idioma,c,a);
+        }
     }
 
 
