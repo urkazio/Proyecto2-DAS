@@ -28,11 +28,14 @@ public class ActividadPrincipal extends AppCompatActivity {
     public static boolean dialogo = false;
     private Context c = this;
     private Activity a = this;
+    public static ActividadPrincipal actividadPrincipal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_principal);
+        actividadPrincipal = this;
+        System.out.println("me creo");
 
         //en caso de venir de la actividad registrarse cerrarla
         if (ActividadRegistrarse.actividadregistrarse!=null){
@@ -63,6 +66,12 @@ public class ActividadPrincipal extends AppCompatActivity {
                 fichero.close();
             } catch (IOException e) { }
         }
+
+        //gestion de rotacion
+        if (dialogo){
+            DialogoCrearRutina dR = new DialogoCrearRutina();
+            dR.onCreateDialog(this, user);
+        }
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -82,7 +91,6 @@ public class ActividadPrincipal extends AppCompatActivity {
             String idioma = savedInstanceState.getString("idioma");
             GestorIdiomas.cambiarIdioma(idioma,c,a);
         }
-
     }
 
     public boolean fileExist(String fname){
@@ -98,22 +106,12 @@ public class ActividadPrincipal extends AppCompatActivity {
         DialogoCrearRutina dR = new DialogoCrearRutina();
         dR.onCreateDialog(this, user);
         ActividadPrincipal.dialogo=true;
-
     }
 
     public void ver(View v) {
         Intent intent = new Intent(this, ActividadMisRutinas.class);
         intent.putExtra("user",user);
         startActivity(intent);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (dialogo){
-            DialogoCrearRutina dR = new DialogoCrearRutina();
-            dR.onCreateDialog(this, user);
-        }
     }
 
     public void idiomaIngles(View v) {

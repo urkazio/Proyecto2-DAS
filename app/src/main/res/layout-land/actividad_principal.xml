@@ -158,19 +158,6 @@
         app:layout_constraintTop_toTopOf="@+id/imageButton4" />
 
     <TextView
-        android:id="@+id/tvIncioRapido2"
-        style="@style/f_gc_m_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/str23"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047" />
-
-    <TextView
         android:id="@+id/tvRutinasPers"
         style="@style/f_gc_xs"
         android:layout_width="315dp"

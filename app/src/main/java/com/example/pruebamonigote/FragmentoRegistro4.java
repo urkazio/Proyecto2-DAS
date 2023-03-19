@@ -33,7 +33,10 @@ public class FragmentoRegistro4 extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        ActividadRegistrarse.numeroFragmento=4;
+
     }
 
     @Override
@@ -78,6 +81,7 @@ public class FragmentoRegistro4 extends Fragment {
                     //se debe añadir toda la informacion recogida en la base de datos
                     miBD GestorDB = new miBD (getActivity(), "fitproBD", null, 1);
                     SQLiteDatabase bd = GestorDB.getWritableDatabase();
+                    //bd.execSQL("delete from "+ "Usuarios");
                     ContentValues nuevo = new ContentValues();
 
                     nuevo.put("Usuario", User);

@@ -45,6 +45,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
     String user = "";
     private Context c = this;
     private Activity a = this;
+    private AlertDialog.Builder dialog;
 
 
     @Override
@@ -118,6 +119,8 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         LinearLayoutManager elLayoutLineal= new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         lalista.setLayoutManager(elLayoutLineal);
 
+
+
     }
 
     public void annadirEjercicio (View v){
@@ -171,19 +174,24 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //borrar el fichero de la rutina
         deleteFile(nombrefichero+user+".txt");
+
+        //cerrar la pila de actividades que me han hecho llegar aqui
+        ActividadMisRutinas.actividadMisRutinas.finish();
+        ActividadPrincipal.actividadPrincipal.finish();
+        finish();
+
         Intent intent = new Intent(this,ActividadPrincipal.class);
         intent.putExtra("User",user);
         startActivity(intent);
-        finish();
+
     }
 
 
     public void compartirRutinaSMS (View v){
 
-
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog = new AlertDialog.Builder(this);
 
         Context context = this;
 
@@ -289,7 +297,6 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
         dialog.setView(layout); // Añadir el layout completo del dialogo al dialogo
         dialog.show(); // Por uultimo, mostrarlo.
-
     }
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
@@ -298,7 +305,6 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         if (GestorIdiomas.storeLang!=null){
             savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
         }
-
     }
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
 

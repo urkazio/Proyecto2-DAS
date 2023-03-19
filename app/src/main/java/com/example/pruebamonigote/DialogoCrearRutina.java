@@ -224,6 +224,7 @@ public class DialogoCrearRutina {
                         System.out.println("Expecepcion");
                     }
                 }
+                ActividadPrincipal.dialogo=false;
             }
         });
 

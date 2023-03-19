@@ -51,12 +51,13 @@
                 android:id="@+id/btnCompartirSMS"
                 android:layout_width="215dp"
                 android:layout_height="31dp"
-                android:layout_marginVertical="20dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/round_btn_blanco"
                 android:onClick="compartirRutinaSMS"
                 android:text="@string/str88"
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:layout_editor_absoluteX="2dp" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/btnAnndirEjer"
@@ -68,7 +69,7 @@
                 android:text="@string/str86"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toTopOf="@+id/btnEliminarRut"
-                tools:layout_editor_absoluteX="2dp" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/btnEliminarRut"
@@ -80,7 +81,7 @@
                 android:text="@string/str87"
                 android:textColor="#FFFFFF"
                 app:layout_constraintBottom_toTopOf="@+id/btnCompartirSMS"
-                tools:layout_editor_absoluteX="2dp" />
+                app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>

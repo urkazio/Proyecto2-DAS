@@ -24,6 +24,7 @@ public class FragmentoRegistro3 extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        ActividadRegistrarse.numeroFragmento=3;
 
         super.onCreate(savedInstanceState);
     }

@@ -23,21 +23,43 @@ public class ActividadRegistrarse extends AppCompatActivity {
     private Activity a = this;
 
     public static ActividadRegistrarse actividadregistrarse;
+    public static int numeroFragmento=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        View v = this.getWindow().getDecorView().findViewById(android.R.id.content);
-
         setContentView(R.layout.actividad_registrarse);
+
         actividadregistrarse = this;
 
-        if (savedInstanceState != null) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-        } else {
+        /*
+        Fragment fr1 = fragmentManager.findFragmentById(R.id.fragmentoRegistro1);
+        Fragment fr2 = fragmentManager.findFragmentById(R.id.fragmentoRegistro2);
+        Fragment fr3 = fragmentManager.findFragmentById(R.id.fragmentoRegistro3);
+        Fragment fr4 = fragmentManager.findFragmentById(R.id.fragmentoRegistro4);
 
+
+        if (numeroFragmento==1) {
+            Fragment fr1 = new FragmentoRegistro1();
+            transaction.add(R.id.contenedor, fr1);
+        } else if (numeroFragmento==2){
+            Fragment fr2 = new FragmentoRegistro2();
+            transaction.add(R.id.contenedor, fr2);
+        }else if (numeroFragmento==3){
+            Fragment fr3 = new FragmentoRegistro1();
+            transaction.add(R.id.contenedor, fr3);
+        }else if (numeroFragmento==4){
+            Fragment fr4 = new FragmentoRegistro1();
+            transaction.add(R.id.contenedor, fr4);
         }
+
+        transaction.addToBackStack(null);
+        transaction.commit();
+        */
+
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {

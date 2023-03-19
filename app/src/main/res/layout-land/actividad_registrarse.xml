@@ -9,7 +9,7 @@
     >
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
+        android:id="@+id/contenedor"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="599dp"
         android:layout_height="329dp"

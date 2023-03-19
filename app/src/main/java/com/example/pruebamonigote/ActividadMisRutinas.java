@@ -23,6 +23,7 @@ public class ActividadMisRutinas extends AppCompatActivity {
     String user ="";
     private Context c = this;
     private Activity a = this;
+    public static ActividadMisRutinas actividadMisRutinas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class ActividadMisRutinas extends AppCompatActivity {
         ArrayList<Integer> imagenes = new ArrayList<Integer>();
         ArrayList<String> nombres = new ArrayList<String>();
         ArrayList<String> decripciones = new ArrayList<String>();
+        actividadMisRutinas = this;
 
 
         /** se definen los elementos que van a ir dentro del RecyclerView
