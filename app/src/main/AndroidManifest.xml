@@ -11,8 +11,11 @@
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PruebaMonigote"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".Toolbar"
+            android:exported="false" />
         <activity
             android:name=".GestorIdiomas"
             android:exported="false" />

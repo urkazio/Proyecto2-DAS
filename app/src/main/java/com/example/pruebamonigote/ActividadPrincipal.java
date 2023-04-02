@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Locale;
 
-public class ActividadPrincipal extends AppCompatActivity {
+public class ActividadPrincipal extends Toolbar {
 
     String user ="";
     AlertDialog.Builder dialog;
@@ -33,7 +33,7 @@ public class ActividadPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.actividad_principal);
+        setContentView(R.layout.nav_actividad_principal);
         actividadPrincipal = this;
         System.out.println("me creo");
 

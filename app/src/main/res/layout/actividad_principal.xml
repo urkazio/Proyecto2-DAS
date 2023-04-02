@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondomain"
-    android:onClick="ver"
     tools:context=".ActividadPrincipal">
+
 
     <TextView
         android:id="@+id/tvIdioma"
