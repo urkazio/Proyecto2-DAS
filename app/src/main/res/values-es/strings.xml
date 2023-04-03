@@ -166,6 +166,10 @@
     <string name="str125">Ese nombre de usuario ya ha sido usado</string>
     <string name="str126">Preferencia guardada</string>
     <string name="str127">Preferencias cargadas</string>
+    <string name="str128">Información sobre localización:</string>
+    <string name="str129">Gimnasio más cercano (azul):</string>
+    <string name="str130">Distancia hasta el gimnasio:</string>
+    <string name="str131">Calculando distancias...</string>
 
 
 </resources>

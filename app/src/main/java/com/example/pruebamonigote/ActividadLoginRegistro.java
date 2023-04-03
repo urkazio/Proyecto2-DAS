@@ -1,11 +1,15 @@
 package com.example.pruebamonigote;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +31,13 @@ public class ActividadLoginRegistro extends AppCompatActivity {
             preferenciasCargadas=true;
             String idioma = GestorIdiomas.cargarPreferencias(c,a);
             Toast.makeText(c, a.getString(R.string.str127) +" ("+idioma+")", Toast.LENGTH_LONG).show();
+        }
+        requestLocationPermission();
+
+    }
+    private void requestLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 99);
         }
     }
 

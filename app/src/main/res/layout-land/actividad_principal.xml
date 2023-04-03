@@ -5,6 +5,7 @@
     android:id="@+id/btnRutinas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="40dp"
     android:background="@drawable/backgroundlandmain"
     android:onClick="ver"
     tools:context=".ActividadPrincipal">
