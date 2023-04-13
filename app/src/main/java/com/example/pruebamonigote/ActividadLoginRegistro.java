@@ -1,15 +1,11 @@
 package com.example.pruebamonigote;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
@@ -24,40 +20,21 @@ public class ActividadLoginRegistro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.actividad_loginregistro);
-
         if (!preferenciasCargadas){
             preferenciasCargadas=true;
             String idioma = GestorIdiomas.cargarPreferencias(c,a);
             Toast.makeText(c, a.getString(R.string.str127) +" ("+idioma+")", Toast.LENGTH_LONG).show();
         }
-        requestLocationPermission();
 
-    }
-    private void requestLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 99);
-        }
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.actividad_loginregistro);
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-        }
-
-    }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            String idioma = savedInstanceState.getString("idioma");
-            GestorIdiomas.cambiarIdioma(idioma,c,a);
-        }
+        preferenciasCargadas=false;
     }
 
     public void comenzar(View v){
@@ -74,11 +51,15 @@ public class ActividadLoginRegistro extends AppCompatActivity {
         GestorIdiomas.storeLang="en";
         GestorIdiomas.cambiarIdioma("en",c,a);
         GestorIdiomas.guardarPreferencias(c,a);
+        a.finish();
+        a.startActivity(a.getIntent());
     }
     public void idiomaEspañol(View v) {
         GestorIdiomas.storeLang="es";
         GestorIdiomas.cambiarIdioma("es",c,a);
         GestorIdiomas.guardarPreferencias(c,a);
+        a.finish();
+        a.startActivity(a.getIntent());
     }
 
 }

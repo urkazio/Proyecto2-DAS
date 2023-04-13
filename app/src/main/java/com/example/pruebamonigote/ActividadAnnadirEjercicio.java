@@ -21,6 +21,7 @@ import java.io.OutputStreamWriter;
 
 public class ActividadAnnadirEjercicio extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
+    private static boolean preferenciasCargadas = false;
     Spinner spinner;
     ImageView imagenEjer;
     EditText editNumSeries;
@@ -29,9 +30,15 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
     String descripcionRutina = "";
     private Context c = this;
     private Activity a = this;
+    private int mSelectedIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (!preferenciasCargadas){
+            preferenciasCargadas=true;
+            GestorIdiomas.cargarPreferencias(c,a);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_annadir_ejercicio);
 
@@ -50,6 +57,16 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
         editNumRepes.setInputType(InputType.TYPE_CLASS_NUMBER);
         editNumRepes.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "30")});
 
+        if (savedInstanceState != null) {
+            System.out.println("saved");
+            String repes = savedInstanceState.getString("repes");
+            String series = savedInstanceState.getString("series");
+            editNumRepes.setText(repes);
+            editNumSeries.setText(series);
+            mSelectedIndex = savedInstanceState.getInt("selected_index");
+            spinner = findViewById(R.id.spinner);
+            spinner.setSelection(mSelectedIndex);
+        }
 
     }
 
@@ -61,6 +78,7 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
         int id = getResources().getIdentifier(nombreFotoEjer, "drawable", getPackageName());
         imagenEjer = findViewById(R.id.imageView2);
         imagenEjer.setImageResource(id);
+        mSelectedIndex = i;
     }
 
     @Override
@@ -120,18 +138,9 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-        }
-
-    }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            String idioma = savedInstanceState.getString("idioma");
-            GestorIdiomas.cambiarIdioma(idioma,c,a);
-        }
+        preferenciasCargadas=false;
+        savedInstanceState.putString("repes", editNumRepes.getText().toString());
+        savedInstanceState.putString("series", editNumSeries.getText().toString());
+        savedInstanceState.putInt("selected_index", mSelectedIndex);
     }
 }

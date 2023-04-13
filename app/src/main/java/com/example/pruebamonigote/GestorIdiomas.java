@@ -29,9 +29,10 @@ public class GestorIdiomas {
         Context c = context.createConfigurationContext(configuration);
         context.getResources().updateConfiguration(configuration, c.getResources().getDisplayMetrics());
 
+        System.out.println("fin de cambiarIdioma");
+
         // recargar de nuevo la actividad para que tambien tenga efecto en la actividad actual
-        a.finish();
-        a.startActivity(a.getIntent());
+
     }
 
     public static void guardarPreferencias(Context c, Activity a){
@@ -40,7 +41,6 @@ public class GestorIdiomas {
         SharedPreferences.Editor editor = prfs.edit();
         editor.putString("idiomapref", storeLang);
         editor.commit();
-
     }
 
     public static String cargarPreferencias(Context c, Activity a){

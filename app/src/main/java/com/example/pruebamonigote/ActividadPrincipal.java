@@ -34,6 +34,7 @@ import java.util.Locale;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
+    private static boolean preferenciasCargadas = false;
     String user ="";
     AlertDialog.Builder dialog;
     public static boolean dialogo = false;
@@ -44,6 +45,12 @@ public class ActividadPrincipal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (!preferenciasCargadas){
+            preferenciasCargadas=true;
+            GestorIdiomas.cargarPreferencias(c,a);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_actividad_principal);
         actividadPrincipal = this;
@@ -130,20 +137,9 @@ public class ActividadPrincipal extends AppCompatActivity {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-        }
-
+        preferenciasCargadas=false;
     }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            String idioma = savedInstanceState.getString("idioma");
-            GestorIdiomas.cambiarIdioma(idioma,c,a);
-        }
-    }
 
     public boolean fileExist(String fname){
         File file = getBaseContext().getFileStreamPath(fname);
@@ -173,11 +169,15 @@ public class ActividadPrincipal extends AppCompatActivity {
         GestorIdiomas.storeLang="en";
         GestorIdiomas.cambiarIdioma("en",c,a);
         GestorIdiomas.guardarPreferencias(c,a);
+        a.finish();
+        a.startActivity(a.getIntent());
     }
     public void idiomaEspañol(View v) {
         GestorIdiomas.storeLang="es";
         GestorIdiomas.cambiarIdioma("es",c,a);
         GestorIdiomas.guardarPreferencias(c,a);
+        a.finish();
+        a.startActivity(a.getIntent());
     }
 
     /*********************************************************

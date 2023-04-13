@@ -20,27 +20,44 @@ public class ActividadLogin extends AppCompatActivity {
 
     EditText editPass;
     public static ActividadLogin actividadLogin;
+    private static boolean preferenciasCargadas = false;
+
     private Context c = this;
     private Activity a = this;
+    EditText editUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (!preferenciasCargadas){
+            preferenciasCargadas=true;
+            GestorIdiomas.cargarPreferencias(c,a);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_login);
         actividadLogin=this;
+        System.out.println("oncreate");
+
+
+        editUser = findViewById(R.id.editUserLogin);
+        editPass = findViewById(R.id.editPassLogin);
 
         //RESTRICCIONES para el editText de la contraseña
         editPass = findViewById(R.id.editPassLogin);
         editPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+        if (savedInstanceState != null) {
+            System.out.println("saved");
+            String user = savedInstanceState.getString("user");
+            String pass = savedInstanceState.getString("pass");
+            editUser.setText(user);
+            editPass.setText(pass);
+        }
     }
 
     public void logearse(View v) {
         //Identificarse contra la base de datos
 
-        EditText editUser = findViewById(R.id.editUserLogin);
         String user = editUser.getText().toString();
-
-        editPass = findViewById(R.id.editPassLogin);
         String pass = editPass.getText().toString();
 
         miBD GestorDB = new miBD(this, "fitproBD", null, 1);
@@ -76,18 +93,8 @@ public class ActividadLogin extends AppCompatActivity {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-        }
-
-    }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            String idioma = savedInstanceState.getString("idioma");
-            GestorIdiomas.cambiarIdioma(idioma,c,a);
-        }
+        preferenciasCargadas = false;
+        savedInstanceState.putString("user", editUser.getText().toString());
+        savedInstanceState.putString("pass", editPass.getText().toString());
     }
 }

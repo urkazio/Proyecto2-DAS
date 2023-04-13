@@ -43,6 +43,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
     String descripcionRutina = "";
     String nombrefichero = "";
     String user = "";
+    private static boolean preferenciasCargadas = false;
     private Context c = this;
     private Activity a = this;
     private AlertDialog.Builder dialog;
@@ -50,6 +51,12 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (!preferenciasCargadas){
+            preferenciasCargadas=true;
+            GestorIdiomas.cargarPreferencias(c,a);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_ejercicios_rutinas_personal);
         RecyclerView lalista= findViewById(R.id.elreciclerview);
@@ -302,17 +309,7 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
         // por defecto el idioma predetermionado y no el elegido por el usuario
         super.onSaveInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            savedInstanceState.putString("idioma", GestorIdiomas.storeLang);
-        }
+        preferenciasCargadas=false;
     }
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
 
-        // recuperar el idioma guardado antes de destruir la actividad y aplicarlo
-        super.onRestoreInstanceState(savedInstanceState);
-        if (GestorIdiomas.storeLang!=null){
-            String idioma = savedInstanceState.getString("idioma");
-            GestorIdiomas.cambiarIdioma(idioma,c,a);
-        }
-    }
 }

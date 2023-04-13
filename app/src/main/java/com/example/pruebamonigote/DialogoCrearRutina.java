@@ -29,6 +29,11 @@ import android.widget.Toast;
 public class DialogoCrearRutina {
     public void onCreateDialog(ActividadPrincipal actividadPrincipal, String user) {
 
+        Context c = actividadPrincipal;
+        ActividadPrincipal a = actividadPrincipal;
+
+        GestorIdiomas.cargarPreferencias(c,a);
+
         AlertDialog.Builder dialog = new AlertDialog.Builder(actividadPrincipal);
 
         Context context = actividadPrincipal;
