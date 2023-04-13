@@ -130,7 +130,7 @@ public class ActividadAnnadirEjercicio extends AppCompatActivity implements Adap
             intent.putExtra("nombreRutina",nombreRutina);
             intent.putExtra("descripcionRutina",descripcionRutina);
             startActivity(intent);
-            finish(); // cerrar actividad
+            finish(); //cerrar actividad
         }
 
     }
