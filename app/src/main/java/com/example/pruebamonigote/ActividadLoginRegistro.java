@@ -29,18 +29,9 @@ public class ActividadLoginRegistro extends AppCompatActivity {
             Toast.makeText(c, a.getString(R.string.str127) +" ("+idioma+")", Toast.LENGTH_LONG).show();
         }
 
-        System.out.println("hola");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_loginregistro);
 
-        //requestLocationPermission();
-    }
-
-    private void requestLocationPermission() {
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 99);
-        }
     }
 
     protected void onSaveInstanceState(Bundle savedInstanceState) {
@@ -51,7 +42,7 @@ public class ActividadLoginRegistro extends AppCompatActivity {
     }
 
     public void comenzar(View v){
-        Intent intent = new Intent(this, ActividadRegistrarse.class);
+        Intent intent = new Intent(this, ActividadRegistro1.class);
         startActivity(intent);
     }
 

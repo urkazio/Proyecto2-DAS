@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentoRegistro4"
-    android:background="@android:color/transparent">
+    tools:context=".ActividadRegistro4"
+    android:background="@drawable/fondologin2">
 
     <EditText
         android:id="@+id/editPeso"

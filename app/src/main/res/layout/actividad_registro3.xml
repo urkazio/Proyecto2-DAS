@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:contextClickable="false"
-    tools:context=".FragmentoRegistro3">
-
+    tools:context=".ActividadRegistro3"
+    android:background="@drawable/fondologin2">
 
     <EditText
         android:id="@+id/editEdad"

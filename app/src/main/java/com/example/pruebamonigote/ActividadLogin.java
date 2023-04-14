@@ -35,8 +35,6 @@ public class ActividadLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_login);
         actividadLogin=this;
-        System.out.println("oncreate");
-
 
         editUser = findViewById(R.id.editUserLogin);
         editPass = findViewById(R.id.editPassLogin);
@@ -46,7 +44,6 @@ public class ActividadLogin extends AppCompatActivity {
         editPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         if (savedInstanceState != null) {
-            System.out.println("saved");
             String user = savedInstanceState.getString("user");
             String pass = savedInstanceState.getString("pass");
             editUser.setText(user);
@@ -60,34 +57,12 @@ public class ActividadLogin extends AppCompatActivity {
         String user = editUser.getText().toString();
         String pass = editPass.getText().toString();
 
-        miBD GestorDB = new miBD(this, "fitproBD", null, 1);
-        SQLiteDatabase bd = GestorDB.getWritableDatabase();
-        String[] campos = new String[]{"Contraseña"};
-        String[] argumentos = new String[]{user};
-        Cursor c = bd.query("Usuarios", campos, "Usuario=?", argumentos, null, null, null);
+        // llamada http al recurso web php que valida el inicio de sesion pasando por parametro el nombre del usuario
+        // toda esta gestion se realiza en la clase ValidarUsuarioTask
+        String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user=" + user;
+        ValidarUsuarioTask task = new ValidarUsuarioTask(url, pass, c);
+        task.execute();
 
-        // si el resultado es vacio significa que no hay user con ese nombre
-        if (c.getCount()==0){
-            Toast.makeText(this, R.string.str119, Toast.LENGTH_LONG).show();
-
-        }else if (c.moveToFirst()) {
-            String contraseña = c.getString(0);
-
-            if (contraseña.equals(pass)) {
-
-                Intent intent = new Intent(this, ActividadPrincipal.class);
-                intent.putExtra("User", user);
-                startActivity(intent);
-                ActividadLogin.actividadLogin.finish();
-
-            } else {
-                Toast.makeText(this, R.string.str108, Toast.LENGTH_LONG).show();
-            }
-
-        }
-
-        c.close();
-        bd.close();
     }
     protected void onSaveInstanceState(Bundle savedInstanceState) {
         // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria

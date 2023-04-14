@@ -173,6 +173,8 @@
     <string name="str129">Gimnasio más cercano (azul):</string>
     <string name="str130">Distancia hasta el gimnasio:</string>
     <string name="str131">Calculando distancias...</string>
+    <string name="str132">Ese username está cogido</string>
+    <string name="str133">Hay campos vacios</string>
 
 
 </resources>

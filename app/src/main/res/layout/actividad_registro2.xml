@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentoRegistro4"
-    android:background="@android:color/transparent">
+    tools:context=".ActividadRegistro2"
+    android:background="@drawable/fondologin2">
 
     <EditText
-        android:id="@+id/editPeso"
+        android:id="@+id/editUser"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
         android:ems="10"
-        android:hint="@string/str20"
+        android:hint="@string/str96"
         android:includeFontPadding="true"
         android:paddingLeft="10dp"
         android:inputType="textPersonName"
@@ -23,88 +23,102 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404"/>
+        app:layout_constraintVertical_bias="0.328" />
 
     <EditText
-        android:id="@+id/editAltura"
+        android:id="@+id/editPass2"
         android:layout_width="257dp"
         android:layout_height="34dp"
         android:background="@drawable/round_edittext"
         android:ems="10"
-        android:hint="@string/str18"
+        android:hint="@string/str97"
         android:includeFontPadding="true"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textAlignment="textStart"
         android:textColor="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655" />
+        app:layout_constraintVertical_bias="0.631" />
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:background="@drawable/round_edittext"
+        android:ems="10"
+        android:hint="@string/str97"
+        android:includeFontPadding="true"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textAlignment="textStart"
+        android:textColor="#808080"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
 
     <TextView
         android:id="@+id/tvPeso"
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/str20"
+        android:text="@string/str10"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editPeso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
-
-    <TextView
-        android:id="@+id/kg"
-        style="@style/f_gc_s_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:text="Kg"
-        app:layout_constraintEnd_toEndOf="@+id/editPeso"
-        app:layout_constraintTop_toTopOf="@+id/editPeso" />
-
-    <TextView
-        android:id="@+id/cm"
-        style="@style/f_gc_s_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cm"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/editAltura"
-        app:layout_constraintTop_toTopOf="@+id/editAltura" />
+        app:layout_constraintVertical_bias="0.278" />
 
     <TextView
         android:id="@+id/textView5"
         style="@style/f_n_m_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
         android:text="@string/str9"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editPeso"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.181" />
 
     <TextView
         android:id="@+id/tvAltura"
         style="@style/f_gc_s_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/str21"
+        android:text="Contraseña:"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/editAltura"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.554" />
+        app:layout_constraintVertical_bias="0.423" />
+
+    <TextView
+        android:id="@+id/tvPass2"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
 
     <Button
         android:id="@+id/btnAnndirRutina"
         android:layout_width="356dp"
         android:layout_height="42dp"
         android:background="@drawable/round_btn_naranja"
-        android:onClick="finalizar"
-        android:text="@string/str22"
+        android:onClick="continuar"
+        android:text="@string/str13"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,10 +131,10 @@
         android:id="@+id/imageView3"
         android:layout_width="367dp"
         android:layout_height="11dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/barraprogresion2" />
+        app:srcCompat="@drawable/barraprogresion0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

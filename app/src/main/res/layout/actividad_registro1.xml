@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FragmentoRegistro1"
-    android:background="@android:color/transparent">
+    tools:context=".ActividadRegistro1"
+    android:background="@drawable/fondologin2">
 
     <TextView
         android:id="@+id/tv1"
@@ -26,9 +26,11 @@
         android:layout_height="wrap_content"
         android:text="@string/str7"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tv1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <Button
         android:id="@+id/btnAnndirRutina"

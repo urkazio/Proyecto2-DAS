@@ -171,6 +171,8 @@
     <string name="str129">"Nearest gym (blue): "</string>
     <string name="str130">"Distance to the gym: "</string>
     <string name="str131">" Calculating distances..."</string>
+    <string name="str132">"That username is taken "</string>
+    <string name="str133">There are empy fields</string>
 
 
 </resources>

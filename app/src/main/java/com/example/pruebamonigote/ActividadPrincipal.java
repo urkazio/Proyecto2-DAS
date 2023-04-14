@@ -55,10 +55,6 @@ public class ActividadPrincipal extends AppCompatActivity {
         setContentView(R.layout.nav_actividad_principal);
         actividadPrincipal = this;
 
-        //en caso de venir de la actividad registrarse, hay que cerrarla
-        if (ActividadRegistrarse.actividadregistrarse!=null){
-            ActividadRegistrarse.actividadregistrarse.finish();
-        }
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
