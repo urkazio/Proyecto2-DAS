@@ -116,7 +116,6 @@ public class ActividadPrincipal extends AppCompatActivity {
                     case R.id.perfil:
                         break;
                     case R.id.gimnasios:
-                        finish();
                         Intent i3 = new Intent(a, ActividadMapaGimnasios.class);
                         i3.putExtra("user",user);
                         startActivity(i3);

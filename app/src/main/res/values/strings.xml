@@ -175,6 +175,7 @@
     <string name="str131">Calculando distancias...</string>
     <string name="str132">Ese username está cogido</string>
     <string name="str133">Hay campos vacios</string>
+    <string name="str134">Se necesitan permisos de ubicación para mostrar la ubicación actual</string>
 
 
 </resources>

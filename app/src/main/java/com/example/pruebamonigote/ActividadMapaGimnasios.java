@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -39,16 +40,25 @@ public class ActividadMapaGimnasios extends FragmentActivity implements OnMapRea
     GoogleMap elmapa;
     private FusedLocationProviderClient fusedLocationProviderClient;
     float distanciaKms = 0;
+    private static boolean preferenciasCargadas = false;
     float distanciatotalKms = 0;
     Marker markerInicial;
     float distMin = 2147483647;
     Marker markerMasCercano;
     private boolean seteado = false;
     private LatLng miLatLang;
+    private Context c = this;
+    private Activity a = this;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (!preferenciasCargadas){
+            preferenciasCargadas=true;
+            GestorIdiomas.cargarPreferencias(c,a);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_mapa_gimnasios);
 
@@ -126,10 +136,10 @@ public class ActividadMapaGimnasios extends FragmentActivity implements OnMapRea
          // para la actualización de la latitud y longitud o zoom, se usa CameraUpdateFactory
          #################################################################################**/
         elmapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        CameraUpdate actualizarCoord = CameraUpdateFactory.newLatLngZoom(new LatLng(43.26, -2.95),9);
+        CameraUpdate actualizarCoord = CameraUpdateFactory.newLatLngZoom(new LatLng(43.26, -2.95),11);
         elmapa.moveCamera(actualizarCoord);
 
-        //añaadir un marcador rojo donde se encuentra el usuario
+        //añadir un marcador rojo donde se encuentra el usuario
         MarkerOptions markerOptions = new MarkerOptions().position(miLatLang).title("tú");
         markerInicial = elmapa.addMarker(markerOptions);
 
@@ -144,7 +154,7 @@ public class ActividadMapaGimnasios extends FragmentActivity implements OnMapRea
 
         }
 
-        //dibujar la linea
+        //dibujar la linea entre el telefono y el gimnasio mas cercano
         PolylineOptions polylineOptions = new PolylineOptions()
                 .add(markerInicial.getPosition(), markerMasCercano.getPosition())
                 .color(Color.RED)
@@ -195,10 +205,8 @@ public class ActividadMapaGimnasios extends FragmentActivity implements OnMapRea
         location2.setLongitude(markerActual.getPosition().longitude);
 
         // calcular la diastancia entre markers en kms
-        // Calculate the distance between the two Location objects in meters
         float distanciaMetros = location1.distanceTo(location2);
         if (distanciaMetros<distMin){
-            System.out.println("actualizo");
             distMin=distanciaMetros;
             markerMasCercano = markerActual;
             distanciaKms = distanciaMetros / 1000f;
@@ -235,10 +243,16 @@ public class ActividadMapaGimnasios extends FragmentActivity implements OnMapRea
         if (requestCode == 100 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             // Si se conceden permisos, obtén la ubicación actual
             obtenerUbicacionActual();
-            //inicializarMapa();
         } else {
             // Si no se conceden permisos, muestra un mensaje de error
-            Toast.makeText(this, "Se necesitan permisos de ubicación para mostrar la ubicación actual.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.str134, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // guardar el idioma seleccionado a ya que a la hora de rotar sino se pondria
+        // por defecto el idioma predetermionado y no el elegido por el usuario
+        super.onSaveInstanceState(savedInstanceState);
+        preferenciasCargadas = false;
     }
 }

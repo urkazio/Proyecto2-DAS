@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff2e9"
-    tools:context=".ActividadMapaGimnasios">
+    tools:context=".ActividadMapaGimnasios"
+    android:background="@drawable/fondomain">
 
     <fragment
         android:id="@+id/fragmentoMapa"
@@ -50,7 +50,7 @@
         style="@style/f_gc_s"
         android:layout_width="331dp"
         android:layout_height="24dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="20dp"
         android:text=""
         android:textAlignment="textStart"
         app:layout_constraintBottom_toTopOf="@+id/fragmentoMapa"

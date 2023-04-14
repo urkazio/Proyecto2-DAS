@@ -173,6 +173,7 @@
     <string name="str131">" Calculating distances..."</string>
     <string name="str132">"That username is taken "</string>
     <string name="str133">There are empy fields</string>
+    <string name="str134">"Location permissions are required to show current location "</string>
 
 
 </resources>

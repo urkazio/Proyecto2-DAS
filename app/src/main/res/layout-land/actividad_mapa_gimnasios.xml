@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/backgroundland">
+
+    <fragment
+        android:id="@+id/fragmentoMapa"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="550dp"
+        android:layout_height="411dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/support_simple_spinner_dropdown_item" />
+
+    <Button
+        android:id="@+id/zoomout"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_btn_naranja"
+        android:onClick="zoomOut"
+        android:text="-"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/zommin"
+        android:layout_width="91dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_btn_naranja"
+        android:onClick="zoomIn"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fragmentoMapa"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toEndOf="@+id/zoomout" />
+
+    <TextView
+        android:id="@id/km2"
+        style="@style/f_gc_s"
+        android:layout_width="231dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="10dp"
+        android:text=""
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/km1"
+        app:layout_constraintStart_toStartOf="@+id/km1" />
+
+    <TextView
+        android:id="@id/km1"
+        style="@style/f_gc_s"
+        android:layout_width="210dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="24dp"
+        android:text=""
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/zommin"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/infoLocalizacion"
+        style="@style/f_n_m_b"
+        android:layout_width="201dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/str128"
+        android:textAlignment="textStart"
+        app:layout_constraintBottom_toTopOf="@+id/km2"
+        app:layout_constraintStart_toStartOf="@+id/km2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
