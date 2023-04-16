@@ -4,17 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.Locale;
 
 public class ActividadLogin extends AppCompatActivity {
 
@@ -60,7 +53,7 @@ public class ActividadLogin extends AppCompatActivity {
         // llamada http al recurso web php que valida el inicio de sesion pasando por parametro el nombre del usuario
         // toda esta gestion se realiza en la clase ValidarUsuarioTask
         String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user=" + user;
-        ValidarUsuarioTask task = new ValidarUsuarioTask(url, pass, c);
+        TaskLoginUsuario task = new TaskLoginUsuario(url, pass, c);
         task.execute();
 
     }

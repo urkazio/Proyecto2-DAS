@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActividadPerfil"
+    android:background="@drawable/fondopefil2">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="110dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="250dp">
+
+            <ImageView
+                android:id="@+id/fotoperfil"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars"
+                android:onClick="setFotopPerfil"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="User:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card1" />
+
+    <EditText
+        android:id="@+id/editPass"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_edittext"
+        android:paddingLeft="10dp"
+        android:textColor="#808080"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editGenero"
+        app:layout_constraintStart_toStartOf="@+id/editGenero" />
+
+    <EditText
+        android:id="@+id/editPeso"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_edittext"
+        android:paddingLeft="10dp"
+        android:textColor="#808080"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editAltura"
+        app:layout_constraintStart_toStartOf="@+id/editAltura" />
+
+    <Spinner
+        android:id="@+id/editGenero"
+        android:layout_width="257dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_edittext"
+        android:contextClickable="true"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/editEdad"
+        app:layout_constraintStart_toStartOf="@+id/editEdad"  />
+
+    <EditText
+        android:id="@+id/editEdad"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/round_edittext"
+        android:paddingLeft="10dp"
+        android:textColor="#808080"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/editPeso"
+        app:layout_constraintStart_toStartOf="@+id/editPeso" />
+
+    <EditText
+        android:id="@+id/editAltura"
+        android:layout_width="257dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/round_edittext"
+        android:paddingLeft="10dp"
+        android:textColor="#808080"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnActualizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnActualizar"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/round_btn_naranja"
+        android:onClick="guardarCambios"
+        android:text="@string/str138"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPass"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str11"
+        app:layout_constraintBottom_toTopOf="@+id/editPass"
+        app:layout_constraintStart_toStartOf="@+id/editPass" />
+
+    <TextView
+        android:id="@+id/tvGenero"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str15"
+        app:layout_constraintBottom_toTopOf="@+id/editGenero"
+        app:layout_constraintStart_toStartOf="@+id/editGenero" />
+
+    <TextView
+        android:id="@+id/tvEdad"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str18"
+        app:layout_constraintBottom_toTopOf="@+id/editEdad"
+        app:layout_constraintStart_toStartOf="@+id/editEdad" />
+
+    <TextView
+        android:id="@+id/tvPeso"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str20"
+        app:layout_constraintBottom_toTopOf="@+id/editPeso"
+        app:layout_constraintStart_toStartOf="@+id/editPeso" />
+
+    <TextView
+        android:id="@+id/tvAltura"
+        style="@style/f_gc_s_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str21"
+        app:layout_constraintBottom_toTopOf="@+id/editAltura"
+        app:layout_constraintStart_toStartOf="@+id/editAltura" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

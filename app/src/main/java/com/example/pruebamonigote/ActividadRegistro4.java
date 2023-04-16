@@ -6,10 +6,7 @@ import androidx.core.app.NotificationCompat;
 import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
@@ -87,8 +84,8 @@ public class ActividadRegistro4 extends AppCompatActivity {
 
             String passEncriptada = EncriptadorContraseñas.encrypt(pass);
 
-            String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/insertuser.php?user="+user+"&pass="+passEncriptada+"&genero="+genero+"&edad="+edad+"&peso="+peso+"&altura="+altura+"";
-            InsertarUsuarioTask task = new InsertarUsuarioTask(url, user, context);
+            String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/insertuser.php?user="+user+"&pass="+passEncriptada+"&genero="+genero+"&edad="+edad+"&peso="+peso+"&altura="+altura+"&fotoperfil=default";
+            TaskInsertarUsuario task = new TaskInsertarUsuario(url, user, context);
             task.execute();
 
 

@@ -2,32 +2,37 @@ package com.example.pruebamonigote;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Base64;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
-public class ComprobarUserExisteTask extends AsyncTask<Void, Void, JSONObject> {
+
+public class TaskUpdateUsuario extends AsyncTask<Void, Void, JSONObject> {
+
     private final String url;
-    private final String pass;
-    private final String user;
+    private final String payload;
     private final Context context;
 
-
-
-    public ComprobarUserExisteTask(String url, String pass, String user, Context c) {
+    public TaskUpdateUsuario(String url, String payload, Context context) {
         this.url = url;
-        this.pass = pass;
-        this.user = user;
-        this.context = c;
+        this.payload = payload;
+        this.context = context;
     }
 
     @Override
@@ -36,8 +41,16 @@ public class ComprobarUserExisteTask extends AsyncTask<Void, Void, JSONObject> {
             // Realizar la petición HTTP a la URL
             URL urlObj = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
-            connection.setRequestMethod("GET");
+            connection.setRequestMethod("POST");
+
+            // Enviar el payload si existe
+            if (payload != null) {
+                connection.setDoOutput(true);
+                connection.getOutputStream().write(payload.getBytes());
+            }
+
             connection.connect();
+
             InputStream inputStream = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();
@@ -57,14 +70,20 @@ public class ComprobarUserExisteTask extends AsyncTask<Void, Void, JSONObject> {
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
 
-        if (jsonObject!=null){
-            // si la respuesta es vacia significa que no exoiste dicho usuario
-            Toast.makeText(context, R.string.str132, Toast.LENGTH_LONG).show();
-        }else{
-            Intent intent = new Intent(context, ActividadRegistro3.class);
-            intent.putExtra("User", user);
-            intent.putExtra("Contraseña", pass);
-            context.startActivity(intent);
+        if (jsonObject != null) {
+            try {
+                String status = jsonObject.getString("status");
+                if (status.equals("success")) {
+                    Toast.makeText(context, R.string.str140, Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(context, "ERROR", Toast.LENGTH_LONG).show();
+                }
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+        } else {
+            Toast.makeText(context, "ERROR", Toast.LENGTH_LONG).show();
         }
     }
 }

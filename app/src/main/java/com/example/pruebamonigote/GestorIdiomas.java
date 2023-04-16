@@ -12,10 +12,6 @@ public class GestorIdiomas {
 
     public static String storeLang = null;
 
-    protected void onPostExecute(Context context) {
-        Toast.makeText(context, "2", Toast.LENGTH_LONG).show();
-    }
-
     public static void cambiarIdioma(String s, Context context, Activity a){
         // definir una nueva localización mediante el código de dos letras
         // del idioma y crear una nueva configuración para la aplicación

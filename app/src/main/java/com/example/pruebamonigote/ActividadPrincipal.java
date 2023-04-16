@@ -42,6 +42,7 @@ public class ActividadPrincipal extends AppCompatActivity {
     private Activity a = this;
     public static ActividadPrincipal actividadPrincipal;
     DrawerLayout elmenudesplegable = null;
+    ImageView fotoperfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,9 +98,6 @@ public class ActividadPrincipal extends AppCompatActivity {
         View headerView = navigationView.getHeaderView(0);
         TextView username = headerView.findViewById(R.id.username);
         username.setText("Hola, "+user);
-        ImageView fotoperfil = headerView.findViewById(R.id.fotoperfil);
-        fotoperfil.setBackgroundResource(R.drawable.benchpress);
-
 
         elmenudesplegable = findViewById(R.id.drawer_layout);
         NavigationView elnavigation = findViewById(R.id.elnavigationview);
@@ -107,13 +105,16 @@ public class ActividadPrincipal extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
+                    case R.id.perfil:
+                        Intent i2 = new Intent(a, ActividadPerfil.class);
+                        i2.putExtra("user",user);
+                        startActivity(i2);
+                        break;
                     case R.id.rutinas:
                         finish();
                         Intent i1 = new Intent(a, ActividadPrincipal.class);
                         i1.putExtra("user",user);
                         startActivity(i1);
-                        break;
-                    case R.id.perfil:
                         break;
                     case R.id.gimnasios:
                         Intent i3 = new Intent(a, ActividadMapaGimnasios.class);
@@ -125,6 +126,11 @@ public class ActividadPrincipal extends AppCompatActivity {
                 return false;
             }
         });
+
+        fotoperfil = headerView.findViewById(R.id.fotoperfil);
+        String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user="+user;
+        TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil);
+        task.execute();
 
     }
 
@@ -139,6 +145,12 @@ public class ActividadPrincipal extends AppCompatActivity {
     public boolean fileExist(String fname){
         File file = getBaseContext().getFileStreamPath(fname);
         return file.exists();
+    }
+
+    public void gotoPerfil(View v){
+        Intent i2 = new Intent(a, ActividadPerfil.class);
+        i2.putExtra("user",user);
+        startActivity(i2);
     }
 
     public void explorar(View v) {

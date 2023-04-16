@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class ValidarUsuarioTask extends AsyncTask<Void, Void, JSONObject> {
+public class TaskLoginUsuario extends AsyncTask<Void, Void, JSONObject> {
 
     private final String url;
     private final String pass;
@@ -25,7 +25,7 @@ public class ValidarUsuarioTask extends AsyncTask<Void, Void, JSONObject> {
 
 
 
-    public ValidarUsuarioTask(String url, String pass, Context c) {
+    public TaskLoginUsuario(String url, String pass, Context c) {
         this.url = url;
         this.pass = pass;
         this.context = c;

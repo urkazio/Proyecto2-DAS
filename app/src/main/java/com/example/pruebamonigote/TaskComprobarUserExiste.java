@@ -15,17 +15,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class InsertarUsuarioTask extends AsyncTask<Void, Void, JSONObject> {
-
+public class TaskComprobarUserExiste extends AsyncTask<Void, Void, JSONObject> {
     private final String url;
+    private final String pass;
     private final String user;
     private final Context context;
 
 
 
-
-    public InsertarUsuarioTask(String url, String user, Context c) {
+    public TaskComprobarUserExiste(String url, String pass, String user, Context c) {
         this.url = url;
+        this.pass = pass;
         this.user = user;
         this.context = c;
     }
@@ -58,27 +58,13 @@ public class InsertarUsuarioTask extends AsyncTask<Void, Void, JSONObject> {
     protected void onPostExecute(JSONObject jsonObject) {
 
         if (jsonObject!=null){
-            try {
-                String status = jsonObject.getString("status");
-                if (status.equals("success")){
-                    Intent intent = new Intent(context, ActividadPrincipal.class);
-                    intent.putExtra("User", user);
-                    context.startActivity(intent);
-                    //cerrar la pila de actividades tras registrarse
-                    ActividadRegistro1.actividadRegistro1.finish();
-                    ActividadRegistro2.actividadRegistro2.finish();
-                    ActividadRegistro3.actividadRegistro3.finish();
-                    ActividadRegistro4.actividadRegistro4.finish();
-                }else{
-                    Toast.makeText(context, "ERROR", Toast.LENGTH_LONG).show();
-                }
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
-
+            // si la respuesta es vacia significa que no exoiste dicho usuario
+            Toast.makeText(context, R.string.str132, Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(context, "ERROR", Toast.LENGTH_LONG).show();
-
+            Intent intent = new Intent(context, ActividadRegistro3.class);
+            intent.putExtra("User", user);
+            intent.putExtra("Contraseña", pass);
+            context.startActivity(intent);
         }
     }
 }

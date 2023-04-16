@@ -1,12 +1,8 @@
 package com.example.pruebamonigote;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.Navigation;
 
 import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -65,7 +61,7 @@ public class ActividadRegistro2 extends AppCompatActivity {
             String User = edituser.getText().toString();
 
             String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user=" + user;
-            ComprobarUserExisteTask task = new ComprobarUserExisteTask(url, pass1, User, context);
+            TaskComprobarUserExiste task = new TaskComprobarUserExiste(url, pass1, User, context);
             task.execute();
 
         }else{

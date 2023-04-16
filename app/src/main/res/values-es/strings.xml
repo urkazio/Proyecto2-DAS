@@ -173,6 +173,12 @@
     <string name="str132">Ese username está cogido</string>
     <string name="str133">Hay campos vacios</string>
     <string name="str134">Se necesitan permisos de ubicación para mostrar la ubicación actual</string>
+    <string name="str135">Seleccionar imagen</string>
+    <string name="str136">Tomar foto</string>
+    <string name="str137">Abrir galería</string>
+    <string name="str138">Guardar cambios</string>
+    <string name="str139">Nueva contraseña</string>
+    <string name="str140">Actualizado con éxito</string>
 
 
 </resources>
