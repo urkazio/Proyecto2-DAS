@@ -19,6 +19,8 @@ import java.util.Locale;
 public class ActividadLoginRegistro extends AppCompatActivity {
     private static boolean preferenciasCargadas = false;
     private Context c = this;
+    public static Context contextoEstatico;
+
     private Activity a = this;
 
     @Override
@@ -28,6 +30,8 @@ public class ActividadLoginRegistro extends AppCompatActivity {
             String idioma = GestorIdiomas.cargarPreferencias(c,a);
             Toast.makeText(c, a.getString(R.string.str127) +" ("+idioma+")", Toast.LENGTH_LONG).show();
         }
+
+        contextoEstatico = this;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_loginregistro);

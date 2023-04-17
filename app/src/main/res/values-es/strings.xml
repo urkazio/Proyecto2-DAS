@@ -179,6 +179,9 @@
     <string name="str138">Guardar cambios</string>
     <string name="str139">Nueva contraseña</string>
     <string name="str140">Actualizado con éxito</string>
+    <string name="appwidget_text">FITPRO</string>
+    <string name="add_widget">Añadir widget</string>
+    <string name="app_widget_description">Rutinas diaria de Fitpro</string>
 
 
 </resources>

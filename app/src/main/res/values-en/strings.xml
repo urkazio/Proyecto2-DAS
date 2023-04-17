@@ -180,6 +180,9 @@
     <string name="str138">Save changes</string>
     <string name="str139">New password</string>
     <string name="str140">Updated successfully</string>
+    <string name="appwidget_text">FITPRO</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">Daily Fit Pro routine</string>
 
 
 </resources>

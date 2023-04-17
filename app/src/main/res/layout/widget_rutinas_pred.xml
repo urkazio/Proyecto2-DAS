@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/layout_widget"
+    android:background="@color/naranjaMuyOscuro"    >
+
+    <TextView
+        android:id="@+id/rutina_diaria_text_view"
+        style="@style/f_gO_m_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/naranjaMuyOscuro"
+        android:gravity="center"
+        android:text="Rutina Diaria (18/04/2023)"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:background="@color/naranjaMasOscuro"
+
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/logo_image_view"
+            android:layout_width="65dp"
+            android:layout_height="60dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:paddingLeft="20dp"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            style="@style/f_gO_l_b"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/description_text_view"
+        android:layout_width="match_parent"
+        android:background="@color/naranjaOscuro"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        style="@style/f_gc_m_b"/>
+
+    <TextView
+        android:id="@+id/exercises_text_view"
+        android:background="@color/naranjaClaro"
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Exercises"
+        style="@style/f_gc_s"/>
+
+</LinearLayout>

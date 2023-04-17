@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
@@ -28,7 +27,6 @@
             tools:layout_conversion_absoluteWidth="342dp"
             tools:layout_editor_absoluteX="38dp"
             tools:layout_editor_absoluteY="38dp" />
-        />
 
         <TextView
             android:id="@+id/tvDescrRutPers"
