@@ -140,20 +140,16 @@ public class ActividadPerfil extends AppCompatActivity {
 
         // llamada a trabajo asincrono en segundo plano para recuperar la foto de perfil del usuario y colocarla en el imageview
         String url2 = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user="+user;
-        TaskGetFotoPerfil task2 = new TaskGetFotoPerfil(url2, fotoperfil);
+        TaskGetFotoPerfil task2 = new TaskGetFotoPerfil(url2, fotoperfil, c);
         task2.execute();
+
 
         if (savedInstanceState != null) {
             String fotoen64 = savedInstanceState.getString("fotoen64");
             if (fotoen64!=null){
-                byte[] decodedString = Base64.decode(fotoen64.substring(fotoen64.indexOf(",") + 1), Base64.DEFAULT);
-                bitmapRedimensionado = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                fotoperfil.setImageBitmap(bitmapRedimensionado);
-                /*
                 byte[] decodedBytes = Base64.decode(fotoen64, Base64.DEFAULT);
                 bitmapRedimensionado = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
                 fotoperfil.setImageBitmap(bitmapRedimensionado);
-                */
             }
         }
 
@@ -185,14 +181,17 @@ public class ActividadPerfil extends AppCompatActivity {
         String altura = editAltura.getText().toString();
         String passEncriptada;
 
-        // obtener bitmap del imageview actual y convertirlo en base64
+
+        // obtener bitmap del imageview actual --> comprimirla --> convertirlo en base64
         String fotoen64="default";
-        if (fotoperfil.getDrawable()!=null){
-            Bitmap bitmap=((BitmapDrawable)fotoperfil.getDrawable()).getBitmap();
+        if (fotoperfil.getDrawable()!=null) {
+            Bitmap bitmap = BitmapFactory.decodeResource(c.getResources(), R.drawable.perfil);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             fotoen64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            System.out.println("tamaño" + fotoen64.length());
+
         }
 
         // encriptar y actualizar la contraseña solo si la ha cambiado
@@ -206,6 +205,7 @@ public class ActividadPerfil extends AppCompatActivity {
         String payload = "user="+user+"&pass="+passEncriptada+"&genero="+genero+"&edad="+edad+"&peso="+peso+"&altura="+altura+"&fotoperfil="+fotoen64;
         TaskUpdateUsuario task = new TaskUpdateUsuario(url, payload, c);
         task.execute();
+
     }
 
     public void setFotopPerfil(View v){
@@ -246,7 +246,7 @@ public class ActividadPerfil extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // si la imagen viene de la galeria, colocarla en el imageview cuando el proceso termine
+        // si la imagen viene de la galeria, primero reducir la calidad y despues colocarla en el imageview cuando el proceso termine
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
                 Uri uri = data.getData();
                 InputStream inputStream = null;
@@ -272,7 +272,6 @@ public class ActividadPerfil extends AppCompatActivity {
                 // Mostrar el Bitmap redimensionado en una ImageView
                 fotoperfil.setImageBitmap(bitmapRedimensionado);
 
-            //fotoperfil.setImageURI(uri);
         }
 
         // una vez colocada la imagen restablecer la orientación de la pantalla a su valor predeterminado

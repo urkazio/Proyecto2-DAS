@@ -17,6 +17,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
@@ -38,19 +39,20 @@ public class TaskUpdateUsuario extends AsyncTask<Void, Void, JSONObject> {
     @Override
     protected JSONObject doInBackground(Void... voids) {
         try {
-            // Realizar la petición HTTP a la URL
+            // Crear la conexión HTTP
             URL urlObj = new URL(url);
             HttpURLConnection connection = (HttpURLConnection) urlObj.openConnection();
             connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            connection.setDoOutput(true);
 
-            // Enviar el payload si existe
-            if (payload != null) {
-                connection.setDoOutput(true);
-                connection.getOutputStream().write(payload.getBytes());
-            }
+            // Enviar los datos en el cuerpo de la petición
+            OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+            writer.write(payload);
+            writer.flush();
+            writer.close();
 
-            connection.connect();
-
+            // Obtener la respuesta del servidor
             InputStream inputStream = connection.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             StringBuilder stringBuilder = new StringBuilder();

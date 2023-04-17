@@ -129,7 +129,7 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         fotoperfil = headerView.findViewById(R.id.fotoperfil);
         String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user="+user;
-        TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil);
+        TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil, c);
         task.execute();
 
     }
