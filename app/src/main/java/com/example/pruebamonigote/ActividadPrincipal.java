@@ -136,7 +136,9 @@ public class ActividadPrincipal extends AppCompatActivity {
         TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil, c);
         task.execute();
 
-
+        /*********************************************************
+         *              CONFIGURACION DE FIREBASE
+         *********************************************************/
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
@@ -150,9 +152,12 @@ public class ActividadPrincipal extends AppCompatActivity {
 
                         // Log and toast
                         String msg = token.toString();
-                        Toast.makeText(c, msg, Toast.LENGTH_SHORT).show();
+                        //System.out.println("token "+msg);
                     }
                 });
+
+        // SUSCRIBIR A CADA USUARIO AL TOPICO ALL
+        FirebaseMessaging.getInstance().subscribeToTopic("all");
 
     }
 

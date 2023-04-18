@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "965303000627",
+    "project_id": "fit-pro-2ef2a",
+    "storage_bucket": "fit-pro-2ef2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965303000627:android:4d4f7b7a0c88c177100d46",
+        "android_client_info": {
+          "package_name": "com.example.pruebamonigote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965303000627-gm2auiq3jjosldld2bkr4qns48lkkmod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc5Dcs0o71HNX5WJ-AoC2MX3NnB-wc9qY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965303000627-gm2auiq3jjosldld2bkr4qns48lkkmod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
