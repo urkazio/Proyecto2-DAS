@@ -58,7 +58,7 @@ public class ServicioFirebase extends FirebaseMessagingService {
                     .setSmallIcon(R.drawable.logo)
                     .setContentTitle(remoteMessage.getNotification().getTitle())
                     .setSubText(remoteMessage.getNotification().getBody())
-                    //.setContentText(context.getString(R.string.str82)+" "+context.getString(R.string.str83)+" " +nombreRut)
+                    .setContentText(remoteMessage.getNotification().getIcon())
                     .setAutoCancel(true);
 
 

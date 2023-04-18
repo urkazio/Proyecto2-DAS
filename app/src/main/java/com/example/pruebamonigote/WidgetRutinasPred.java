@@ -143,7 +143,7 @@ public class WidgetRutinasPred extends AppWidgetProvider {
                     updateAppWidget(context, appWidgetManager, appWidgetId);
                 }
             }
-        }, 0, 24 * 60 * 60 * 1000); // 24 horas en milis
+        }, 0, 60 * 1000); // 24 horas en milis --> 24 * 60 * 60 * 1000
 
     }
 

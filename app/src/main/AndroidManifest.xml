@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        tools:ignore="ScheduledAlarmClock" />
+
 
 
     <application
@@ -30,7 +33,7 @@
             </intent-filter>
         </service>
 
-        <!--  WIDGET  -->
+        <!--  listener WIDGET  -->
         <receiver
             android:name=".WidgetRutinasPred"
             android:exported="false">
@@ -38,10 +41,14 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
+            <!--  listener ALARMA NOTIFIACION  -->
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_rutinas_pred_info" />
         </receiver>
+
+        <receiver android:name=".AlarmReceiver" />
+
 
         <activity
             android:name=".ActividadPerfil"

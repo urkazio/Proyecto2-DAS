@@ -9,13 +9,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,9 +54,9 @@ public class ActividadPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        if (!preferenciasCargadas){
-            preferenciasCargadas=true;
-            GestorIdiomas.cargarPreferencias(c,a);
+        if (!preferenciasCargadas) {
+            preferenciasCargadas = true;
+            GestorIdiomas.cargarPreferencias(c, a);
         }
 
         super.onCreate(savedInstanceState);
@@ -67,25 +70,26 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
 
         // pedir el permiso para pedir notifiaciones
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
         }
 
         TextView tvRutinasPers = findViewById(R.id.tvRutinasPers);
-        tvRutinasPers.setText(getString(R.string.str117)+" "+user+"! "+getString(R.string.str25));
+        tvRutinasPers.setText(getString(R.string.str117) + " " + user + "! " + getString(R.string.str25));
 
 
         // crear el fichero "Nombreuser.txt" que contiene el indice de las rutinas creadas por el usuario 'user' en caso de no existir
         // path --> /app/app/com.example.pruebamonigote/files/Nombreuser.txt
-        if (!fileExist(user+".txt")){
+        if (!fileExist(user + ".txt")) {
             try {
-                OutputStreamWriter fichero = new OutputStreamWriter(c.openFileOutput(user+".txt", Context.MODE_PRIVATE));
+                OutputStreamWriter fichero = new OutputStreamWriter(c.openFileOutput(user + ".txt", Context.MODE_PRIVATE));
                 fichero.close();
-            } catch (IOException e) { }
+            } catch (IOException e) {
+            }
         }
 
         //gestion de rotacion
-        if (dialogo){
+        if (dialogo) {
             DialogoCrearRutina dR = new DialogoCrearRutina();
             dR.onCreateDialog(this, user);
         }
@@ -101,28 +105,28 @@ public class ActividadPrincipal extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.elnavigationview);
         View headerView = navigationView.getHeaderView(0);
         TextView username = headerView.findViewById(R.id.username);
-        username.setText("Hola, "+user);
+        username.setText("Hola, " + user);
 
         elmenudesplegable = findViewById(R.id.drawer_layout);
         NavigationView elnavigation = findViewById(R.id.elnavigationview);
         elnavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.perfil:
                         Intent i2 = new Intent(a, ActividadPerfil.class);
-                        i2.putExtra("user",user);
+                        i2.putExtra("user", user);
                         startActivity(i2);
                         break;
                     case R.id.rutinas:
                         finish();
                         Intent i1 = new Intent(a, ActividadPrincipal.class);
-                        i1.putExtra("user",user);
+                        i1.putExtra("user", user);
                         startActivity(i1);
                         break;
                     case R.id.gimnasios:
                         Intent i3 = new Intent(a, ActividadMapaGimnasios.class);
-                        i3.putExtra("user",user);
+                        i3.putExtra("user", user);
                         startActivity(i3);
                         break;
                 }
@@ -132,7 +136,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         });
 
         fotoperfil = headerView.findViewById(R.id.fotoperfil);
-        String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user="+user;
+        String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user=" + user;
         TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil, c);
         task.execute();
 
@@ -146,18 +150,18 @@ public class ActividadPrincipal extends AppCompatActivity {
                         if (!task.isSuccessful()) {
                             return;
                         }
-
-                        // Get new FCM registration token
-                        String token = task .getResult();
-
+                        // Obtener el token que identifica la app actual
+                        String token = task.getResult();
                         // Log and toast
                         String msg = token.toString();
-                        //System.out.println("token "+msg);
                     }
                 });
 
         // SUSCRIBIR A CADA USUARIO AL TOPICO ALL
         FirebaseMessaging.getInstance().subscribeToTopic("all");
+
+        //CONFIGURACION DE LA ALARMA QUE LANZA LA NOTIFICACION PARA FIREBASE
+        AlarmManagerHelper.startAlarm(this);
 
     }
 
