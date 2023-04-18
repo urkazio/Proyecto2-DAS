@@ -22,7 +22,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 
 import org.w3c.dom.Text;
@@ -131,6 +134,24 @@ public class ActividadPrincipal extends AppCompatActivity {
         String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user="+user;
         TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil, c);
         task.execute();
+
+
+        ServicioFirebase.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        String msg = token.toString();
+                        Toast.makeText(c, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
 
     }
 
