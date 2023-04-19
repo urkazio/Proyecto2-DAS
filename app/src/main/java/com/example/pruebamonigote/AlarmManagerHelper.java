@@ -19,7 +19,8 @@ public class AlarmManagerHelper {
         // establecer que la alarma salte cada 4 dias encendiendo la pantalla del movil
         // cuando la alarma salte llamara al receptor de la alarma --> AlarmReceiver
         int cuatroDiasEnMilis = 4*24*60*60*1000;
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP , SystemClock.elapsedRealtime(), cuatroDiasEnMilis, pendingIntent);
+        int cincoHorasEnMilis = 5*60*60*1000;
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP , SystemClock.elapsedRealtime(), cincoHorasEnMilis, pendingIntent);
 
     }
 }

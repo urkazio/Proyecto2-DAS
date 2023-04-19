@@ -23,7 +23,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.util.Base64;
 import android.util.Log;
 import android.view.OrientationEventListener;
 import android.view.View;
@@ -35,7 +34,10 @@ import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 public class ActividadPerfil extends AppCompatActivity {
     private static boolean preferenciasCargadas = false;
@@ -147,7 +149,7 @@ public class ActividadPerfil extends AppCompatActivity {
         if (savedInstanceState != null) {
             String fotoen64 = savedInstanceState.getString("fotoen64");
             if (fotoen64!=null){
-                byte[] decodedBytes = Base64.decode(fotoen64, Base64.DEFAULT);
+                byte[] decodedBytes = Base64.getDecoder().decode(fotoen64);
                 bitmapRedimensionado = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
                 fotoperfil.setImageBitmap(bitmapRedimensionado);
             }
@@ -185,13 +187,11 @@ public class ActividadPerfil extends AppCompatActivity {
         // obtener bitmap del imageview actual --> comprimirla --> convertirlo en base64
         String fotoen64="default";
         if (fotoperfil.getDrawable()!=null) {
-            Bitmap bitmap = BitmapFactory.decodeResource(c.getResources(), R.drawable.perfil);
+            Bitmap bitmap = ((BitmapDrawable) fotoperfil.getDrawable()).getBitmap();
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            fotoen64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
-            System.out.println("tamaño" + fotoen64.length());
-
+            fotoen64 = new String(Base64.getEncoder().encode(byteArray));
         }
 
         // encriptar y actualizar la contraseña solo si la ha cambiado
@@ -248,29 +248,29 @@ public class ActividadPerfil extends AppCompatActivity {
 
         // si la imagen viene de la galeria, primero reducir la calidad y despues colocarla en el imageview cuando el proceso termine
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-                Uri uri = data.getData();
-                InputStream inputStream = null;
-                try {
-                    inputStream = getContentResolver().openInputStream(uri);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-                bitmapOriginal  = BitmapFactory.decodeStream(inputStream);
-                fotoperfil.setImageBitmap(bitmapRedimensionado);
+            Uri uri = data.getData();
+            InputStream inputStream = null;
+            try {
+                inputStream = getContentResolver().openInputStream(uri);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+            bitmapOriginal  = BitmapFactory.decodeStream(inputStream);
+            fotoperfil.setImageBitmap(bitmapRedimensionado);
 
-                // Reducir la calidad de la imagen al 50%
-                int calidad = 5; // porcentaje de calidad de la imagen (0-100)
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmapOriginal.compress(Bitmap.CompressFormat.JPEG, calidad, byteArrayOutputStream);
+            // Reducir la calidad de la imagen al 50%
+            int calidad = 50; // porcentaje de calidad de la imagen (0-100)
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmapOriginal.compress(Bitmap.CompressFormat.JPEG, calidad, byteArrayOutputStream);
 
-                // Convertir el ByteArrayOutputStream en un array de bytes
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
+            // Convertir el ByteArrayOutputStream en un array de bytes
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
 
-                // Decodificar el array de bytes en un objeto Bitmap
-                bitmapRedimensionado = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            // Decodificar el array de bytes en un objeto Bitmap
+            bitmapRedimensionado = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
-                // Mostrar el Bitmap redimensionado en una ImageView
-                fotoperfil.setImageBitmap(bitmapRedimensionado);
+            // Mostrar el Bitmap redimensionado en una ImageView
+            fotoperfil.setImageBitmap(bitmapRedimensionado);
 
         }
 
@@ -296,10 +296,22 @@ public class ActividadPerfil extends AppCompatActivity {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             bitmapRedimensionado.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream.toByteArray();
-            String fotoen64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            String fotoen64 = Base64.getEncoder().encodeToString(byteArray);
             savedInstanceState.putString("fotoen64", fotoen64);
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        // Aquí puedes escribir el código que quieres que se ejecute cuando se presiona el botón de "Atrás"
+
+        // Si quieres mantener el comportamiento predeterminado, llama al método super.onBackPressed()
+        super.onBackPressed();
+        ActividadPrincipal.actividadPrincipal.finish();
+        Intent i = new Intent(this, ActividadPrincipal.class);
+        i.putExtra("User", user);
+        startActivity(i);
+        finish();
+    }
 
 }

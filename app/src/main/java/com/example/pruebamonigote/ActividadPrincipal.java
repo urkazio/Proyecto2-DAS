@@ -114,15 +114,15 @@ public class ActividadPrincipal extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.perfil:
-                        Intent i2 = new Intent(a, ActividadPerfil.class);
-                        i2.putExtra("user", user);
-                        startActivity(i2);
+                        Intent i1 = new Intent(a, ActividadPerfil.class);
+                        i1.putExtra("user", user);
+                        startActivity(i1);
                         break;
                     case R.id.rutinas:
                         finish();
-                        Intent i1 = new Intent(a, ActividadPrincipal.class);
-                        i1.putExtra("user", user);
-                        startActivity(i1);
+                        Intent i2 = new Intent(a, ActividadPrincipal.class);
+                        i2.putExtra("user", user);
+                        startActivity(i2);
                         break;
                     case R.id.gimnasios:
                         Intent i3 = new Intent(a, ActividadMapaGimnasios.class);

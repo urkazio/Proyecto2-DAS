@@ -63,8 +63,8 @@ public class ServicioFirebase extends FirebaseMessagingService {
             builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
                     .setSmallIcon(R.drawable.logo)
                     .setContentTitle(remoteMessage.getNotification().getTitle())
-                    .setSubText(remoteMessage.getNotification().getBody())
-                    .setContentText("Es hora de entrenar!\nPrueba alguna rutina nueva en alguno de nuestros gimnasios!")
+                    .setSubText(remoteMessage.getNotification().getTitle())
+                    .setContentText(remoteMessage.getNotification().getBody())
                     .setAutoCancel(true);
 
 

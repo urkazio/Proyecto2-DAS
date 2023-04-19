@@ -70,27 +70,19 @@ public class TaskGetFotoPerfil extends AsyncTask<Void, Void, JSONObject> {
             // si el string es vacio significa que no ha actualiazdo la foto de perfil por defecto
             if (foto64.equals("default")){
 
-                // PARA DEMOSTRAR QUE LA CODIFICACION Y DECODIFICACION FUNCIONA
-                // obtengo el bitmap de la foto por defecto --> lo codifico a base 64
-                Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.perfil);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                String fotoen64 = Base64.encodeToString(byteArray, Base64.DEFAULT);
-                System.out.println(fotoen64.length());
-
-                // decodifico de base64 a bitmap de nuevo
-                byte[] decodedBytes = Base64.decode(fotoen64, Base64.DEFAULT);
-                Bitmap bitmap2 = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-                fotoperfil.setImageBitmap(bitmap2);
-
+                fotoperfil.setBackgroundResource(R.drawable.perfil);
 
             }else{
-                System.out.println(foto64.length());
+
+                foto64 = foto64.replaceAll("\\\\", "");
+                foto64 = foto64.replaceAll(" ", "+");
+                System.out.println(foto64);
+
                 // en caso de haberla actualizado, hay que decodificar el strb64 a bitmap
                 byte[] decodedBytes = Base64.decode(foto64, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
                 fotoperfil.setImageBitmap(bitmap);
+
 
             }
         } catch (JSONException e) {

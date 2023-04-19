@@ -156,7 +156,7 @@ public class WidgetRutinasPred extends AppWidgetProvider {
         // Obtener un objeto Calendar y establecer la hora, minutos y segundos a 00:00:00
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.HOUR_OF_DAY, 5);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
