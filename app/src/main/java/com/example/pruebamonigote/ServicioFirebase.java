@@ -28,12 +28,15 @@ public class ServicioFirebase extends FirebaseMessagingService {
     //  * Si la aplicación está en background --> Se muestra una notificación en la barra y NO se ejecuta el método onMessageReceived(...)
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
+        System.out.println("onMessageReceived ++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
         //si el mensaje viene con datos
         if (remoteMessage.getData().size() > 0) {
 
         }
         if (remoteMessage.getNotification() != null) {
+
+            System.out.println("remoteMessage.getNotification() ++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
             /**###################################################################
              //###  Gestion de notificaciones (para cuando se crea una rutina)  ###
@@ -53,12 +56,15 @@ public class ServicioFirebase extends FirebaseMessagingService {
                 elManager.createNotificationChannel(elCanal);
             }
 
-            //Definicion de la alerta personalizada al ganar
+            String cuerpo = remoteMessage.getNotification().getIcon();
+            System.out.println("cuerpo de la notifi" +cuerpo);
+
+            //Definicion de la alerta personalizada
             builderNotifi.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),R.drawable.logo))
                     .setSmallIcon(R.drawable.logo)
                     .setContentTitle(remoteMessage.getNotification().getTitle())
                     .setSubText(remoteMessage.getNotification().getBody())
-                    .setContentText(remoteMessage.getNotification().getIcon())
+                    .setContentText("Es hora de entrenar!\nPrueba alguna rutina nueva en alguno de nuestros gimnasios!")
                     .setAutoCancel(true);
 
 

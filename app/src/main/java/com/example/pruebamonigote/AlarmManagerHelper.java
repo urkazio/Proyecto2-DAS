@@ -16,9 +16,10 @@ public class AlarmManagerHelper {
         Intent intent = new Intent(context, AlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
-        // establecer que la alarma salte cada 2 dias encendiendo la pantalla del movil
+        // establecer que la alarma salte cada 4 dias encendiendo la pantalla del movil
         // cuando la alarma salte llamara al receptor de la alarma --> AlarmReceiver
-        int dosDiasEnMilis = 2*24*60*60*1000;
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP , SystemClock.elapsedRealtime(), dosDiasEnMilis, pendingIntent);
+        int cuatroDiasEnMilis = 4*24*60*60*1000;
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP , SystemClock.elapsedRealtime(), cuatroDiasEnMilis, pendingIntent);
+
     }
 }

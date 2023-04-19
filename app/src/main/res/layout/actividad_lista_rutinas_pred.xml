@@ -7,7 +7,7 @@
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".ActividadListaRutinasPred"
-    android:background="@color/naranjaClaro">
+    android:background="@drawable/fondologin2">
 
 
     <TextView

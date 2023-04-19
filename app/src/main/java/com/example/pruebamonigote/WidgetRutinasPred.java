@@ -16,7 +16,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Random;
+import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -35,6 +37,34 @@ public class WidgetRutinasPred extends AppWidgetProvider {
 
         // Obtener todos los nombres de las rutinas en el fichero "rutinaspred.txt" file
         String[] routineNames = getRoutineNames(context);
+        String widgetElements = getWidgetElements(context, routineNames);
+
+        String[] elem = widgetElements.split(",");
+        String nombrerutina = elem [0];
+        String descripcion = elem [1];
+        String ejercicios = elem [2];
+
+        // Crear un intent para abrir la actividad ActividadListaRutinasPred donde se listan todas las rutinas
+        Intent intent = new Intent(context, ActividadListaRutinasPred.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+        // Actualizar el widget con los campos modificados
+        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_rutinas_pred);
+        views.setTextViewText(R.id.title_text_view, nombrerutina);
+        views.setTextViewText(R.id.description_text_view, descripcion);
+        views.setTextViewText(R.id.exercises_text_view, ejercicios);
+
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = date.format(formatter);
+        views.setTextViewText(R.id.rutina_diaria_text_view, formattedDate);
+        views.setOnClickPendingIntent(R.id.layout_widget, pendingIntent); // Set the PendingIntent to the widget layout
+
+        appWidgetManager.updateAppWidget(appWidgetId, views);
+
+    }
+
+    public static String getWidgetElements(Context context, String[] routineNames){
 
         // Coger una rutina aleatoria del conjunto de rutinas prediseñadas
         Random random = new Random();
@@ -79,27 +109,10 @@ public class WidgetRutinasPred extends AppWidgetProvider {
             e.printStackTrace();
         }
 
-        // Crear un intent para abrir la actividad ActividadListaRutinasPred donde se listan todas las rutinas
-        Intent intent = new Intent(context, ActividadListaRutinasPred.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
-        // Actualizar el widget con los campos modificados
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_rutinas_pred);
-        views.setTextViewText(R.id.title_text_view, nombrerutina);
-        views.setTextViewText(R.id.description_text_view, descripcion);
-        views.setTextViewText(R.id.exercises_text_view, ejercicios);
-
-        LocalDate date = LocalDate.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String formattedDate = date.format(formatter);
-        views.setTextViewText(R.id.rutina_diaria_text_view, formattedDate);
-        views.setOnClickPendingIntent(R.id.layout_widget, pendingIntent); // Set the PendingIntent to the widget layout
-
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-
+        return nombrerutina+","+descripcion+","+ejercicios;
     }
 
-    private static String[] getRoutineNames(Context context) {
+    public static String[] getRoutineNames(Context context) {
 
         // a partir del contexto de la primer actividad, obtener el idioma en el que se encuentra la aplicacion a la hora de añadir un widget
         String idioma = ActividadLoginRegistro.contextoEstatico.getResources().getConfiguration().getLocales().get(0).toString();
@@ -130,20 +143,32 @@ public class WidgetRutinasPred extends AppWidgetProvider {
     @Override
     public void onEnabled(Context context) {
 
-        // añadir una alarma para que se actualice la rutina cada 24 horas
-        // de tal manera que cada dia se tenga una rutina diferente
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                // Update the widget
-                AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-                int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, WidgetRutinasPred.class));
-                for (int appWidgetId : appWidgetIds) {
-                    updateAppWidget(context, appWidgetManager, appWidgetId);
-                }
-            }
-        }, 0, 60 * 1000); // 24 horas en milis --> 24 * 60 * 60 * 1000
+        /** Al crear el widget por rimera vez de debe añadir una alarma para que se actualice
+         *  la rutina cada dia a las 00:00:00 de tal manera que cada dia se tenga una rutina diferente
+         */
+
+        // En primer lugar se debe crear una alarma que mande un mensaje broadcast con el obetivo de actualizar la rutina
+        // La clase AlarmManagerBroadcastReceiver gestiona el evento al saltar la alarma
+        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlarmManagerBroadcastReceiver.class);
+        PendingIntent pi = PendingIntent.getBroadcast(context, 7475, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+        // Obtener un objeto Calendar y establecer la hora, minutos y segundos a 00:00:00
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+
+        // Obtener la zona horaria de España y establecerla en el objeto Calendar para que salte a las 00:00:00 Española
+        TimeZone timeZone = TimeZone.getTimeZone("Europe/Madrid");
+        calendar.setTimeZone(timeZone);
+
+        long triggerAtMillis = calendar.getTimeInMillis();
+        long intervalMillis = AlarmManager.INTERVAL_DAY;
+
+        //Finalmente, establecer la alarma diaria en el AlarmManager utilizando el método setRepeating()
+        am.setRepeating(AlarmManager.RTC_WAKEUP, triggerAtMillis, intervalMillis, pi);
 
     }
 

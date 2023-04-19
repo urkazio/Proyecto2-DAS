@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/naranjaMuyOscuro"
         android:gravity="center"
-        android:text="Rutina Diaria (18/04/2023)"
+        android:text="Rutina Diaria (dd/mm/aaaa)"
         android:textColor="@color/white" />
 
     <LinearLayout
