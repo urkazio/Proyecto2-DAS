@@ -50,7 +50,7 @@ public class AlarmBroadcastReceiverWidget extends BroadcastReceiver {
         remoteViews.setTextViewText(R.id.title_text_view, nombrerutina);
         remoteViews.setTextViewText(R.id.description_text_view, descripcion);
         remoteViews.setTextViewText(R.id.exercises_text_view, ejercicios);
-        remoteViews.setTextViewText(R.id.rutina_diaria_text_view, formattedDate+" "+horaActual);
+        remoteViews.setTextViewText(R.id.rutina_diaria_text_view, formattedDate);
 
         ComponentName tipowidget = new ComponentName(context, WidgetRutinasPred.class);
         AppWidgetManager manager = AppWidgetManager.getInstance(context);
