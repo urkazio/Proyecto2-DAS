@@ -183,6 +183,14 @@
     <string name="appwidget_text">FITPRO</string>
     <string name="add_widget">Add widget</string>
     <string name="app_widget_description">Daily Fit Pro routine</string>
+    <string name="str141">Share routine by SMS</string>
+    <string name="str142">"Get my contacts "</string>
+    <string name="str143">"Insert phone number "</string>
+    <string name="str144">"Opening the contacts... "</string>
+    <string name="str145">Fit Pro Menu</string>
+    <string name="str146">Profile</string>
+    <string name="str147">Routines</string>
+    <string name="str148">Gyms</string>
 
 
 </resources>

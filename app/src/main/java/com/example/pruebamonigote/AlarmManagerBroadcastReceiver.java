@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
     @Override
@@ -38,11 +39,19 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formattedDate = date.format(formatter);
 
+        // Crear un objeto Date
+        Date fecha = new Date();
+        // Crear un objeto SimpleDateFormat para formatear la fecha
+        SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss");
+        // Obtener la hora actual en formato hh:mm:ss
+        String horaActual = formato.format(fecha);
+        // Imprimir la hora actual
+
         // colocar los elementos el el layout remoto
         remoteViews.setTextViewText(R.id.title_text_view, nombrerutina);
         remoteViews.setTextViewText(R.id.description_text_view, descripcion);
         remoteViews.setTextViewText(R.id.exercises_text_view, ejercicios);
-        remoteViews.setTextViewText(R.id.rutina_diaria_text_view, formattedDate);
+        remoteViews.setTextViewText(R.id.rutina_diaria_text_view, formattedDate+" "+horaActual);
 
         ComponentName tipowidget = new ComponentName(context, WidgetRutinasPred.class);
         AppWidgetManager manager = AppWidgetManager.getInstance(context);

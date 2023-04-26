@@ -5,6 +5,6 @@ Calentamiento,1, 5min.,calentamiento
 Press Militar,6,10-12,pressmilitar
 Press Frances,4,10,pressfrances
 Curl Barra,4,10,curlbarra
-Extensión Tríceps,4,12-15,extensiontriceps
+Extension Triceps,4,12-15,extensiontriceps
 Curl Martillo,4,15,curlmartillo
 Vuelta a la Calma,1,5-10 min.,cardioligero

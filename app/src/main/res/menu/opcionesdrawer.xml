@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-    <item android:title="Primer menú">
+    <item android:title="">
         <menu></menu>
     </item>
-    <item android:title="Menú Fit Pro">
+    <item android:title="@string/str145">
         <menu>
             <item
                 android:id="@+id/perfil"
                 android:icon="@drawable/usuario"
-                android:title="Perfil" />
+                android:title="@string/str146" />
             <item
                 android:id="@+id/rutinas"
                 android:icon="@drawable/pesa"
-                android:title="Rutinas" />
+                android:title="@string/str147" />
             <item
                 android:id="@+id/gimnasios"
                 android:icon="@android:drawable/ic_dialog_map"
-                android:title="Gimnasios" />
+                android:title="@string/str148" />
         </menu>
     </item>
 

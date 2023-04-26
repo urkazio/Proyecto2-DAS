@@ -3,7 +3,7 @@ Rutina de Pierna que trabaja individualmente cada músculo de la misma.
 Cardio Ligero,1,5-10 min.,cardioligero
 Sentadillas,4,10,sentadilla
 Prensa,4,12,prensa
-Extensión Pierna,4,12,extensionpierna
+Extension Pierna,4,12,extensionpierna
 Adductor,4,12-15,adductor
 Curl Femoral,4,12,curlfemoral
 Hip Trust,4,12,hiptrust

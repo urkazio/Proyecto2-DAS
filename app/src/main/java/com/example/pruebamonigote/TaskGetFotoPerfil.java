@@ -64,26 +64,27 @@ public class TaskGetFotoPerfil extends AsyncTask<Void, Void, JSONObject> {
 
         // colocar la foto de perfil en el imageview
         try {
-            //obtener la foto codificada en base64
-            String foto64 = jsonObject.getString("fotoperfil");
+            if (jsonObject!=null){
+                //obtener la foto codificada en base64
+                String foto64 = jsonObject.getString("fotoperfil");
 
-            // si el string es vacio significa que no ha actualiazdo la foto de perfil por defecto
-            if (foto64.equals("default")){
+                // si el string es vacio significa que no ha actualiazdo la foto de perfil por defecto
+                if (foto64.equals("default")){
 
-                fotoperfil.setBackgroundResource(R.drawable.perfil);
+                    fotoperfil.setBackgroundResource(R.drawable.perfil);
 
-            }else{
+                }else{
 
-                foto64 = foto64.replaceAll("\\\\", "");
-                foto64 = foto64.replaceAll(" ", "+");
-                System.out.println(foto64);
+                    foto64 = foto64.replaceAll("\\\\", "");
+                    foto64 = foto64.replaceAll(" ", "+");
+                    System.out.println(foto64);
 
-                // en caso de haberla actualizado, hay que decodificar el strb64 a bitmap
-                byte[] decodedBytes = Base64.decode(foto64, Base64.DEFAULT);
-                Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
-                fotoperfil.setImageBitmap(bitmap);
+                    // en caso de haberla actualizado, hay que decodificar el strb64 a bitmap
+                    byte[] decodedBytes = Base64.decode(foto64, Base64.DEFAULT);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+                    fotoperfil.setImageBitmap(bitmap);
 
-
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -7,10 +7,10 @@
     android:layout_gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".ActividadEjerciciosRutinasPersonal"
-    android:background="@color/naranjaClaro">
+    android:background="@drawable/fondologin2">
 
 
-    <TextView
+<TextView
         android:id="@+id/tvRutinasPers"
         style="@style/f_n_m_b"
         android:layout_width="342dp"

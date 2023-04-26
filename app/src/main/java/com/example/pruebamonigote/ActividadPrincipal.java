@@ -94,51 +94,6 @@ public class ActividadPrincipal extends AppCompatActivity {
             dR.onCreateDialog(this, user);
         }
 
-        /*********************************************************
-         *                   NAVIGATION DRAWER
-         *********************************************************/
-        setSupportActionBar(findViewById(R.id.labarra));
-        getSupportActionBar().setHomeAsUpIndicator(android.R.drawable.ic_menu_more);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        // inicializar la cabecera del drawer con los datos del usuario
-        NavigationView navigationView = findViewById(R.id.elnavigationview);
-        View headerView = navigationView.getHeaderView(0);
-        TextView username = headerView.findViewById(R.id.username);
-        username.setText("Hola, " + user);
-
-        elmenudesplegable = findViewById(R.id.drawer_layout);
-        NavigationView elnavigation = findViewById(R.id.elnavigationview);
-        elnavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.perfil:
-                        Intent i1 = new Intent(a, ActividadPerfil.class);
-                        i1.putExtra("user", user);
-                        startActivity(i1);
-                        break;
-                    case R.id.rutinas:
-                        finish();
-                        Intent i2 = new Intent(a, ActividadPrincipal.class);
-                        i2.putExtra("user", user);
-                        startActivity(i2);
-                        break;
-                    case R.id.gimnasios:
-                        Intent i3 = new Intent(a, ActividadMapaGimnasios.class);
-                        i3.putExtra("user", user);
-                        startActivity(i3);
-                        break;
-                }
-                elmenudesplegable.closeDrawers();
-                return false;
-            }
-        });
-
-        fotoperfil = headerView.findViewById(R.id.fotoperfil);
-        String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user=" + user;
-        TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil, c);
-        task.execute();
 
         /*********************************************************
          *              CONFIGURACION DE FIREBASE
@@ -162,6 +117,54 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         //CONFIGURACION DE LA ALARMA QUE LANZA LA NOTIFICACION PARA FIREBASE
         AlarmManagerHelper.startAlarm(this);
+
+
+        /*********************************************************
+         *                   NAVIGATION DRAWER
+         *********************************************************/
+        setSupportActionBar(findViewById(R.id.labarra));
+        getSupportActionBar().setHomeAsUpIndicator(android.R.drawable.ic_menu_more);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // inicializar la cabecera del drawer con los datos del usuario
+        NavigationView navigationView = findViewById(R.id.elnavigationview);
+        View headerView = navigationView.getHeaderView(0);
+        TextView username = headerView.findViewById(R.id.username);
+        username.setText(getString(R.string.str117)+ ", " + user);
+
+        fotoperfil = headerView.findViewById(R.id.fotoperfil);
+        String url = "http://ec2-54-93-62-124.eu-central-1.compute.amazonaws.com/ugarcia053/WEB/selectuser.php?user=" + user;
+        TaskGetFotoPerfil task = new TaskGetFotoPerfil(url, fotoperfil, c);
+        task.execute();
+
+        elmenudesplegable = findViewById(R.id.drawer_layout);
+        NavigationView elnavigation = findViewById(R.id.elnavigationview);
+        elnavigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.perfil:
+                        Intent i1 = new Intent(a, ActividadPerfil.class);
+                        i1.putExtra("user", user);
+                        startActivity(i1);
+                        break;
+                    case R.id.rutinas:
+                        Intent i2 = new Intent(a, ActividadPrincipal.class);
+                        i2.putExtra("User", user);
+                        startActivity(i2);
+                        finish();
+                        break;
+                    case R.id.gimnasios:
+                        Intent i3 = new Intent(a, ActividadMapaGimnasios.class);
+                        i3.putExtra("user", user);
+                        startActivity(i3);
+                        break;
+                }
+                elmenudesplegable.closeDrawers();
+                return false;
+            }
+        });
+
 
     }
 

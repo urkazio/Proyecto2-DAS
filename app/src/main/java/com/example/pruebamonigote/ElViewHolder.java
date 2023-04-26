@@ -1,9 +1,11 @@
 package com.example.pruebamonigote;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -67,6 +69,22 @@ public class ElViewHolder extends RecyclerView.ViewHolder {
                         intent.putExtra("nombreRutina", nombreRutina);
                         view.getContext().startActivity(intent);
                     }
+
+                    //si la imagen es una foto de los contactos, abro el intent del sms para mandar la rutina
+                }else if (laimagen.getDrawable().getConstantState() == view.getContext().getResources().getDrawable( R.drawable.contactos).getConstantState()){
+                    String sms = ActividadContactos.getSmsBody();
+                    String telefono = descripcion.getText().toString();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", telefono, null));
+                    intent.putExtra("sms_body", sms);
+                    view.getContext().startActivity(intent);
+
+                    //si la imagen no es ni el logo de la app ni la agenda de contactos es un ejercicio y al clickarlo quiero mostrar el video de youtube
+                }else{
+                    String nombreEjercicio = nombre.getText().toString();
+                    Intent intent = new Intent(view.getContext(),ActividadVideo.class);
+                    intent.putExtra("nombre_ejercicio", nombreEjercicio);
+                    view.getContext().startActivity(intent);
+
                 }
             }
         });

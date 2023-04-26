@@ -67,7 +67,7 @@
     <string name="str22">Finalizar</string>
     <string name="str23">Entrenamiento</string>
     <string name="str24">Inicio Rápido</string>
-    <string name="str25">Este es el menu principal de Fit Pro donde puedes explorar rutinas, crear nuevas y ver tus rutinas personalizadas.</string>
+    <string name="str25">Este es el menú principal de Fit Pro donde puedes explorar rutinas, crear nuevas y ver tus rutinas personalizadas.</string>
     <string name="str29">Planes de Entrenamiento</string>
     <string name="str30">Estas son las rutinas prediseñadas que hemos creado para ti.</string>
     <string name="str31">Tracciones</string>
@@ -182,6 +182,14 @@
     <string name="appwidget_text">FITPRO</string>
     <string name="add_widget">Añadir widget</string>
     <string name="app_widget_description">Rutinas diaria de Fitpro</string>
+    <string name="str141">Compartir rutina por SMS</string>
+    <string name="str142">Ver mis contactos</string>
+    <string name="str143">Insertar número de teléfono</string>
+    <string name="str144">Abriendo los contactos...</string>
+    <string name="str145">Menú Fit Pro</string>
+    <string name="str146">Perfil</string>
+    <string name="str147">Rutinas</string>
+    <string name="str148">Gimnasios</string>
 
 
 </resources>

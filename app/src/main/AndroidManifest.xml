@@ -8,10 +8,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
         tools:ignore="ScheduledAlarmClock" />
-
-
 
     <application
         android:allowBackup="true"
@@ -23,17 +24,21 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
-        <!--  servicio el intent-filter correspondiente al servicio de mensajería -->
-        <service android:name=".ServicioFirebase"
+        <activity
+            android:name=".ActividadVideo"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false" />
+        <activity
+            android:name=".ActividadContactos"
+            android:exported="false" /> <!-- servicio el intent-filter correspondiente al servicio de mensajería -->
+        <service
+            android:name=".ServicioFirebase"
             android:enabled="true"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-        </service>
-
-        <!--  listener WIDGET  -->
+        </service> <!-- listener WIDGET -->
         <receiver
             android:name=".WidgetRutinasPred"
             android:exported="false">
@@ -41,15 +46,13 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
 
-            <!--  listener ALARMA NOTIFIACION  -->
+            <!-- listener ALARMA NOTIFIACION -->
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_rutinas_pred_info" />
         </receiver>
-        <receiver android:name=".AlarmManagerBroadcastReceiver"/>
-
+        <receiver android:name=".AlarmManagerBroadcastReceiver" />
         <receiver android:name=".AlarmReceiver" />
-
 
         <activity
             android:name=".ActividadPerfil"
@@ -109,11 +112,13 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--  para que al recibir la notificacion aviso se abra la actividad ActividadLoginRegistro -->
+            <!-- para que al recibir la notificacion aviso se abra la actividad ActividadLoginRegistro -->
             <intent-filter>
                 <action android:name="AVISO" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

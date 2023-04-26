@@ -48,6 +48,8 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
     private Activity a = this;
     private AlertDialog.Builder dialog;
 
+    private String[] sms = {""};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,34 +200,94 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
 
     public void compartirRutinaSMS (View v){
 
+        sms = new String[]{""};
+
+        //primero obtener el cuerpo del mensaje del sms que contiene las rutinas, series, repes...
+        try {
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput(nombrefichero+".txt")));
+
+            int linea = 0;
+            sms[0] += nombreRutina+"\n"+"\n";
+            sms[0] += descripcionRutina+"\n"+"\n";
+
+            /** leer mientras haya lineas*/
+            while(reader.ready()) {
+
+                String line = reader.readLine();
+
+                //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
+
+                String[] elem = line.split(",");
+                String ejercicio = elem [0];
+                String numSerie = elem [1];
+                String numRepe = elem [2];
+                int numEjer = linea;
+                sms[0] += getString(R.string.str116)+" "+numEjer+") "+ejercicio+ " --> "+getString(R.string.str71)+": "+numSerie+" & "+getString(R.string.str72)+": "+numRepe+"\n\n";
+
+                //actualizar el contador de linea para saber por donde vamos
+                linea++;
+            }
+            //cerrar el fichero
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        /**###################### crear el dialogo  ############################**/
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.str141));
+        builder.setIcon(R.drawable.logo);
+
+        builder.setPositiveButton(R.string.str142, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Acción cuando se pulsa la opción 1 --> abrir actividad que gestiona los content providers
+                Intent intent = new Intent(c,ActividadContactos.class);
+                intent.putExtra("sms_body", sms[0].toString());
+                startActivity(intent);
+
+            }
+        });
+
+        builder.setNegativeButton(R.string.str143, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Acción cuando se pulsa la opción 2 --> abrir dialogo de insertar numero de telefono
+                escribirNumeroTelefono();
+            }
+        });
+
+        AlertDialog dialog0 = builder.create();
+        dialog0.show();
+
+    }
+
+    public void escribirNumeroTelefono(){
+
         dialog = new AlertDialog.Builder(this);
-
-        Context context = this;
-
 
         /**####################################################
          ######################   layout    ###################
          ####################################################**/
         // Layout propio para el dialogo
-        LinearLayout layout = new LinearLayout(context);
+        LinearLayout layout = new LinearLayout(c);
         layout.setOrientation(LinearLayout.VERTICAL);
 
         dialog.setTitle(getString(R.string.str114));
         dialog.setIcon(R.drawable.logo);
-        dialog.setCancelable(false);
-
 
         /**####################################################
          ################   titulo y editable    ##############
          ####################################################**/
         // Añadir un TextView para indicar que se debe insertar el "Título"
-        final TextView tvTelf = new TextView(context);
+        final TextView tvTelf = new TextView(c);
         tvTelf.setText(getString(R.string.str118));
         tvTelf.setPadding(100,80,100,20);
         layout.addView(tvTelf); // Se añade a la vista
 
         // Añadir un EditText para insertar el "Telefono"
-        final EditText telfbox = new EditText(context);
+        final EditText telfbox = new EditText(c);
         telfbox.setHint(R.string.str115);
         telfbox.setInputType(InputType.TYPE_CLASS_NUMBER);
         telfbox.setFilters(new InputFilter[] { new InputFilter.LengthFilter(9) }); //limitar a 9 caracteres
@@ -237,7 +299,6 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
          #############   botones y listeners    ###############
          ####################################################**/
         String telefono = "666666666";
-        final String[] sms = {""};
 
         dialog.setPositiveButton(R.string.str78, new DialogInterface.OnClickListener() {
             @Override
@@ -248,46 +309,12 @@ public class ActividadEjerciciosRutinasPersonal extends AppCompatActivity {
                 if (telefono.equals("")) {
 
                     // si el nombre es vacio se indica por toast y se vuelve a abrir el dialogo
-                    Toast.makeText(context, R.string.str19, Toast.LENGTH_LONG).show();
-                    compartirRutinaSMS(v);
+                    Toast.makeText(c, R.string.str19, Toast.LENGTH_LONG).show();
+                    escribirNumeroTelefono();
 
                 }else{
 
-                    try {
-
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput(nombrefichero+".txt")));
-
-                        int linea = 0;
-                        sms[0] += nombreRutina+"\n"+"\n";
-                        sms[0] += descripcionRutina+"\n"+"\n";
-
-                        /** leer mientras haya lineas*/
-                        while(reader.ready()) {
-
-                            String line = reader.readLine();
-
-                            //el resto de lineas son de formato --> "NombreEjer,numSeries,numRepes,foto"
-
-                            String[] elem = line.split(",");
-                            String ejercicio = elem [0];
-                            String numSerie = elem [1];
-                            String numRepe = elem [2];
-                            int numEjer = linea-1;
-                            sms[0] += getString(R.string.str116)+numEjer+": "+ejercicio+ " --> "+getString(R.string.str71)+"+: "+numSerie+" & "+getString(R.string.str72)+": "+numRepe+"\n";
-
-                            //actualizar el contador de linea para saber por donde vamos
-                            linea++;
-                        }
-                        //cerrar el fichero
-                        reader.close();
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", telefono, null));
-                    System.out.println(sms[0]);
-                    System.out.println(sms[0].toString());
                     intent.putExtra("sms_body", sms[0].toString());
                     startActivity(intent);
                 }

@@ -80,7 +80,7 @@ public class ActividadRegistro4 extends AppCompatActivity {
             int peso = Integer.parseInt(editPeso.getText().toString());
 
             editAltura = findViewById(R.id.editAltura);
-            int altura = Integer.parseInt(editPeso.getText().toString());
+            int altura = Integer.parseInt(editAltura.getText().toString());
 
             String passEncriptada = EncriptadorContraseñas.encrypt(pass);
 
