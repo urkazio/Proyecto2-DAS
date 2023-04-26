@@ -13,8 +13,9 @@ public class AlarmManagerHelper {
         //Esta clase es una gestora de alarmas cuyo objetivo es establecer la alarma, la accion asociada, el intervalo....
 
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, AlarmReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Intent intent = new Intent(context, AlarmBroadcastReceiverNotifi.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
         // establecer que la alarma salte cada 4 dias encendiendo la pantalla del movil
         // cuando la alarma salte llamara al receptor de la alarma --> AlarmReceiver

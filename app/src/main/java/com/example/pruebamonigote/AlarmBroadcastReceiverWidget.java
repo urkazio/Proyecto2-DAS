@@ -10,10 +10,9 @@ import android.widget.RemoteViews;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Date;
 
-public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
+public class AlarmBroadcastReceiverWidget extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 

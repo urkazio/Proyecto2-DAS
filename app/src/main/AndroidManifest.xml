@@ -51,8 +51,8 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_rutinas_pred_info" />
         </receiver>
-        <receiver android:name=".AlarmManagerBroadcastReceiver" />
-        <receiver android:name=".AlarmReceiver" />
+        <receiver android:name=".AlarmBroadcastReceiverWidget" />
+        <receiver android:name=".AlarmBroadcastReceiverNotifi" />
 
         <activity
             android:name=".ActividadPerfil"

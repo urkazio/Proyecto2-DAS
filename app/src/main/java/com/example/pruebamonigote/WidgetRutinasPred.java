@@ -4,11 +4,8 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.SystemClock;
 import android.widget.RemoteViews;
 
 import java.io.BufferedReader;
@@ -20,8 +17,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.TimeZone;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class WidgetRutinasPred extends AppWidgetProvider {
 
@@ -151,10 +146,12 @@ public class WidgetRutinasPred extends AppWidgetProvider {
         // En primer lugar se debe crear una alarma que mande un mensaje broadcast con el obetivo de actualizar la rutina
         // La clase AlarmManagerBroadcastReceiver gestiona el evento al saltar la alarma
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(context, AlarmManagerBroadcastReceiver.class);
-        PendingIntent pi = PendingIntent.getBroadcast(context, 7475, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        Intent intent = new Intent(context, AlarmBroadcastReceiverWidget.class);
+        PendingIntent pi = PendingIntent.getBroadcast(context, 7475, intent, PendingIntent.FLAG_UPDATE_CURRENT
+                | PendingIntent.FLAG_IMMUTABLE);
 
-        // Obtener un objeto Calendar y establecer la zona horaria de España y establecerla en el objeto Calendar para que salte a las 00:00:00 Española
+        // Obtener un objeto Calendar y establecer la zona horaria de España y establecerla en el objeto Calendar
+        // para que salte a las 00:00:00 Española
         Calendar calendar = Calendar.getInstance();
         TimeZone timeZone = TimeZone.getTimeZone("Europe/Madrid");
         calendar.setTimeZone(timeZone);
